@@ -3,8 +3,8 @@ vim.cmd([[filetype plugin on
 filetype indent on
 ]])
 
-api.nvim_set_option("number", true)
-api.nvim_set_option("relativenumber", true)
+vim.cmd([[set number]]) -- TODO Fix this later!!!
+vim.cmd([[set relativenumber]])
 
 local tab_options = { "tabstop", "softtabstop", "shiftwidth" }
 local tab_width = 4
