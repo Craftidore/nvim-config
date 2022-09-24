@@ -1,0 +1,19 @@
+filetype plugin on
+syntax on
+
+filetype indent on
+
+let g:tex_flavor='latex'
+
+let spaces = 4
+execute "set tabstop=".spaces
+execute "set softtabstop=".spaces
+execute "set shiftwidth=".spaces
+set expandtab
+
+set number
+set relativenumber
+
+nnoremap : q:i
+nnoremap ZF :w<CR>
+nnoremap <F3> :set hlsearch!<CR>
