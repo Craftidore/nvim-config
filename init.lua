@@ -11,5 +11,6 @@ require("plugins.packer.main")
 require("plugins.coc.main")
 require("plugins.camelcasemotion.main")
 require("plugins.treesitter.main")
+require("plugins.lualine.main")
 
 -- CamelCaseTest
