@@ -15,4 +15,6 @@ return require('packer').startup(function()
     use {'ggandor/leap.nvim'}
     use {'sainnhe/sonokai'}
     use {'gelguy/wilder.nvim'}
+    --use {'machakann/vim-sandwich'} -- conflicts with ggandor/leap.nvim, and I didn't figure out how to rebind either of them.
+    use {'tpope/vim-repeat'} 
 end)

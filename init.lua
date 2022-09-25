@@ -24,5 +24,6 @@ require("plugins.lualine.main")
 require("plugins.nvim-tree.main")
 require("plugins.leap.main")
 require("plugins.wilder.main")
+-- require("plugins.sandwich.main")
 
 -- CamelCaseTest
