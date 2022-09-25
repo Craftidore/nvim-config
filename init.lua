@@ -1,6 +1,7 @@
 local api = vim.api
 local utils = require("utils") -- this contains nothing right now
 vim.g.mapleader = " "
+api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true } )
 
 -- disabling netrw at the start on init.lua is strongly advised for nvim-tree
 vim.g.loaded = 1

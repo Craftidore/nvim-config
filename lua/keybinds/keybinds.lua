@@ -1,8 +1,11 @@
 local api = vim.api
 
-api.nvim_set_keymap("n", ":", "q:i", { noremap = true })
-api.nvim_set_keymap("n", "ZF", ":w<CR>", { noremap = false })
-api.nvim_set_keymap("n", "<F3>", ":nohl<CR>", { noremap = false })
+local noremap = { noremap = true }
+local default = { noremap = true, silent = true }
+
+api.nvim_set_keymap("n", ":", "q:i", default)
+api.nvim_set_keymap("n", "ZF", ":w<CR>", default)
+api.nvim_set_keymap("n", "<F3>", ":nohl<CR>", default)
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { }
 local api = vim.api
@@ -12,4 +15,11 @@ for i = 1, #trailingKeys do
 end
 api.nvim_set_keymap("n", "X", 'mz$"_x`z', {expr = false, noremap = false}) -- Remove last character from line
 
+-- Better window navigation 
+api.nvim_set_keymap("n", "<C-h>", "<C-w>h", default)
+api.nvim_set_keymap("n", "<C-j>", "<C-w>j", default)
+api.nvim_set_keymap("n", "<C-k>", "<C-w>k", default)
+api.nvim_set_keymap("n", "<C-l>", "<C-w>l", default)
 
+-- Better copy-all
+api.nvim_set_keymap("n", "<leader>a", "mzggVG\"+y`z", default)
