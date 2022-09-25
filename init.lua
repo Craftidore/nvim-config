@@ -8,7 +8,13 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
 local expected_ver = "0.7.2"
--- check for neovim compatibility soon
+local nvim_ver = utils.get_nvim_version()
+
+if nvim_ver ~= expected_ver then
+    local msg = string.format("Unsupported nvim version: expect %s, but got %s instead!", expected_ver, nvim_ver)
+    api.nvim_err_writeln(msg)
+    return
+end
 
 -- sonokai theme
 require("plugins.sonokai.main")
