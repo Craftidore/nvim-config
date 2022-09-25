@@ -10,6 +10,9 @@ vim.g.loaded_netrwPlugin = 1
 local expected_ver = "0.7.2"
 -- check for neovim compatibility soon
 
+-- sonokai theme
+require("plugins.sonokai.main")
+
 require("keybinds.keybinds")
 require("settings.settings")
 require("plugins.packer.main")
@@ -19,5 +22,6 @@ require("plugins.treesitter.main")
 --require("plugins.nvim-ts-rainbow") -- requires nvim-treesitter
 require("plugins.lualine.main")
 require("plugins.nvim-tree.main")
+require("plugins.leap.main")
 
 -- CamelCaseTest
