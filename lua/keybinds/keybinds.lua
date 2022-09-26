@@ -4,7 +4,8 @@ local noremap = { noremap = true }
 local default = { noremap = true, silent = true }
 
 api.nvim_set_keymap("n", ":", "q:i", default)
-api.nvim_set_keymap("n", "ZF", ":w<CR>", default)
+api.nvim_set_keymap("n", "ZZ", ":w<CR>", default)
+api.nvim_set_keymap("n", "ZF", ":wq<CR>", default)
 api.nvim_set_keymap("n", "<F3>", ":nohl<CR>", default)
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { }
