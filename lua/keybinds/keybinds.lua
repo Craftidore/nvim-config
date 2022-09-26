@@ -9,7 +9,7 @@ api.nvim_set_keymap("n", "<F3>", ":nohl<CR>", default)
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { }
 local api = vim.api
-trailingKeys = {",", ";", ":", '"', "'", "(", ")", "[", "]", "{", "}"}
+local trailingKeys = {",", ";", ":", '"', "'", "(", ")", "[", "]", "{", "}"}
 for i = 1, #trailingKeys do
     api.nvim_set_keymap("n", "<leader>"..trailingKeys[i], "mzA"..trailingKeys[i].."<Esc>`z", {expr = false, noremap = flase})
 end
