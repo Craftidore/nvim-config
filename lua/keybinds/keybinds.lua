@@ -5,7 +5,7 @@ local default = { noremap = true, silent = true }
 
 api.nvim_set_keymap("n", ":", "q:i", default)
 api.nvim_set_keymap("n", "ZZ", ":w<CR>", default)
-api.nvim_set_keymap("n", "ZZ", ":q<CR>", default)
+api.nvim_set_keymap("n", "ZQ", ":q<CR>", default)
 api.nvim_set_keymap("n", "ZF", ":wq<CR>", default)
 api.nvim_set_keymap("n", "<F3>", ":nohl<CR>", default)
 
