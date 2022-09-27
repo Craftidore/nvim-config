@@ -24,3 +24,13 @@ api.nvim_set_keymap("n", "<C-l>", "<C-w>l", default)
 
 -- Better copy-all
 api.nvim_set_keymap("n", "<leader>a", "mzggVG\"+y`z", default)
+
+-- Better copy && paste
+api.nvim_set_keymap("n", "<leader>y", [["+y]], noremap)
+api.nvim_set_keymap("v", "<leader>y", [["+y]], noremap)
+api.nvim_set_keymap("n", "<leader>Y", [["+Y]], noremap)
+api.nvim_set_keymap("v", "<leader>Y", [["+Y]], noremap)
+api.nvim_set_keymap("n", "<leader>p", [["+p]], noremap)
+api.nvim_set_keymap("v", "<leader>p", [["+p]], noremap)
+api.nvim_set_keymap("n", "<leader>P", [["+P]], noremap)
+api.nvim_set_keymap("v", "<leader>P", [["+P]], noremap)
