@@ -14,5 +14,11 @@
     "sumneko-lua.enable": true,
     "sumneko-lua.enableNvimLuaDev": true,
     "Lua.completion.enable": true,
-    "Lua.telemetry.enable": true
+    "Lua.telemetry.enable": false,
+    "texlab.build.onSave": true,
+    "texlab.forwardSearch.executable": "okular",
+    "coc.source.vimtex.filetypes": [
+        "tex",
+        "plaintex"
+    ]
 }

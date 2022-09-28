@@ -1,6 +1,6 @@
 local api = vim.api
 local opts = { noremap = true }
-local opts2 = { noremap = true, expr = true } 
+local opts2 = { noremap = true, expr = true }
 
 
 api.nvim_set_keymap("n", "<leader>ff", [[<cmd>Telescope find_files<cr>]], opts)
