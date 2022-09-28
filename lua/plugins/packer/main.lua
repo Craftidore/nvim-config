@@ -9,7 +9,9 @@ return require('packer').startup(function()
     use {'tpope/vim-commentary'}
     use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"} --  syntax highlighting
     --use {'rcarriga/nvim-notify'}
-    use {'nvim-lualine/lualine.nvim'}
+    use {'nvim-lualine/lualine.nvim', 
+        requires= {'kyazdani42/nvim-web-devicons', opt = true}
+    }
     use {'kyazdani42/nvim-tree.lua', tag = 'nightly'}
     use {'kyazdani42/nvim-web-devicons'} -- devicons for nvim-tree
     use {'ggandor/leap.nvim'}
