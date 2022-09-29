@@ -22,4 +22,7 @@ return require('packer').startup(function()
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use {'vim-latex/vim-latex', tag = 'v1.10.0'}
+    use {'kana/vim-textobj-user'}
+    use {'rbonvall/vim-textobj-latex'}
+    use {'michaeljsmith/vim-indent-object'}
 end)
