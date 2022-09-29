@@ -8,17 +8,23 @@
         "json",
         "python"
     ],
-    // python config
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
     "sumneko-lua.enable": true,
     "sumneko-lua.enableNvimLuaDev": true,
     "Lua.completion.enable": true,
     "Lua.telemetry.enable": false,
     "texlab.build.onSave": true,
-    "texlab.forwardSearch.executable": "okular",
-    "coc.source.vimtex.filetypes": [
-        "tex",
-        "plaintex"
-    ]
+    "jedi.enable": true,
+    "jedi.markupKindPreferred": "markdown",
+    "html-css-support.enable": true,
+    "html-css-support.enabledLanguages": [
+        "html"
+    ],
+    "html-css-support.styleSheets": [
+        "/styles.css",
+        "/style.css",
+        "style.css",
+        "styles.css",
+        "index.css"
+    ],
+    "json.enable": true
 }

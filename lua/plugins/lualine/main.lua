@@ -1,2 +1,2 @@
-require('lualine').setup()
-options = { theme = 'gruvbox' }
+require('lualine').setup {
+}
