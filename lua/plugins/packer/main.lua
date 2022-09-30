@@ -27,4 +27,7 @@ return require('packer').startup(function()
     use {'kana/vim-textobj-user'}
     use {'rbonvall/vim-textobj-latex'}
     use {'michaeljsmith/vim-indent-object'}
+    use {'tkhren/vim-textobj-numeral'}
+
+    use {'glacambre/firenvim'}
 end)
