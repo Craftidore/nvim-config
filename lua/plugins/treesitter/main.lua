@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"bash","c","c_sharp","cmake","commonlisp","cpp","css","dockerfile","gitattributes","gitignore","go","haskell","html","java","javascript","json","latex","lua","make","markdown","php","python","scss","svelte","sxhkdrc","toml","typescript","vim","vue","yaml"},-- can also be set to "all"
+  ensure_installed = {"bash","c","c_sharp","cmake","commonlisp","cpp","css","dockerfile","gitattributes","gitignore","go","haskell","html","java","javascript","json","latex","lua","make","markdown","markdown_inline","php","python","scss","svelte","sxhkdrc","toml","typescript","vim","vue","yaml"},-- can also be set to "all"
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
