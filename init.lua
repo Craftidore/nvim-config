@@ -1,7 +1,7 @@
 local api = vim.api
-local utils = require("utils") -- this contains nothing right now
+local utils = require("utils") -- this just contains get_nvim_version right now
 vim.g.mapleader = " "
-api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true } )
+vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true } )
 
 -- disabling netrw at the start on init.lua is strongly advised for nvim-tree
 vim.g.loaded = 1
@@ -33,4 +33,24 @@ require("plugins.wilder.main")
 -- require("plugins.sandwich.main")
 require("plugins.telescope.main")
 
+--[====[
+Tech-debt stuff:
+local function keymap (mode, key, result)
+    vim.keymap.set(mode, key, result, {noremap = true} )
+end
 
+vim.opt.tabstop = 4
+
+Pseudo's reload config:
+function reloadConfig()
+    for name,_ in pairs(package.loaded) do
+        package.loaded[name] = nil
+    end
+    dofile(vim.env.MYVIMRC)
+    vim.notify("Neovim config reloaded.", vim.log.levels.INFO)
+end
+keymap("n", "<leader>r", ":w<CR>:lua reloadConfig()<CR>")
+--]====]
+
+-- <leader>r to reload config
+vim.keymap.set("n", "<leader>r", ":lua require('utils').reloadConfig()<CR>", { noremap = true, silent = true })

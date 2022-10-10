@@ -8,4 +8,12 @@ function Module.get_nvim_version()
   return nvim_ver_str
 end
 
+function Module.reloadConfig()
+    for name,_ in pairs(package.loaded) do
+        package.loaded[name] = nil
+    end
+    dofile(vim.env.MYVIMRC)
+    vim.notify("Neovim config reloaded.", vim.log.levels.INFO)
+end
+
 return Module

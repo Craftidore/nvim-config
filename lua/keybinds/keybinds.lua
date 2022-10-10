@@ -1,37 +1,33 @@
-local api = vim.api
+Keymaps = require('keybinds.utils')
 
-local noremap = { noremap = true }
-local default = { noremap = true, silent = true }
-
-api.nvim_set_keymap("n", ":", "q:i", default)
-api.nvim_set_keymap("n", "ZZ", ":w<CR>", default)
-api.nvim_set_keymap("n", "ZQ", ":q<CR>", default)
-api.nvim_set_keymap("n", "ZF", ":wq<CR>", default)
-api.nvim_set_keymap("n", "<F3>", ":nohl<CR>", default)
+Keymaps.silent("n", ":", "q:i")
+Keymaps.silent("n", "ZZ", ":w<CR>")
+Keymaps.silent("n", "ZQ", ":q<CR>")
+Keymaps.silent("n", "ZF", ":wq<CR>")
+Keymaps.silent("n", "<F3>", ":nohl<CR>")
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { }
-local api = vim.api
 local trailingKeys = {",", ";", ":", '"', "'", "(", ")", "[", "]", "{", "}", "\\"}
 for i = 1, #trailingKeys do
-    api.nvim_set_keymap("n", "<leader>"..trailingKeys[i], "mzA"..trailingKeys[i].."<Esc>`z", {expr = false, noremap = flase})
+    Keymaps.noremap("n", "<leader>"..trailingKeys[i], "mzA"..trailingKeys[i].."<Esc>`z")
 end
-api.nvim_set_keymap("n", "X", 'mz$"_x`z', {expr = false, noremap = false}) -- Remove last character from line
+Keymaps.noremap("n", "X", 'mz$"_x`z') -- Remove last character from line
 
 -- Better window navigation 
-api.nvim_set_keymap("n", "<C-h>", "<C-w>h", default)
-api.nvim_set_keymap("n", "<C-j>", "<C-w>j", default)
-api.nvim_set_keymap("n", "<C-k>", "<C-w>k", default)
-api.nvim_set_keymap("n", "<C-l>", "<C-w>l", default)
+Keymaps.silent("n", "<C-h>", "<C-w>h")
+Keymaps.silent("n", "<C-j>", "<C-w>j")
+Keymaps.silent("n", "<C-k>", "<C-w>k")
+Keymaps.silent("n", "<C-l>", "<C-w>l")
 
 -- Better copy-all
-api.nvim_set_keymap("n", "<leader>a", "mzggVG\"+y`z", default)
+Keymaps.silent("n", "<leader>a", "mzggVG\"+y`z")
 
 -- Better copy && paste
-api.nvim_set_keymap("n", "<leader>y", [["+y]], noremap)
-api.nvim_set_keymap("v", "<leader>y", [["+y]], noremap)
-api.nvim_set_keymap("n", "<leader>Y", [["+Y]], noremap)
-api.nvim_set_keymap("v", "<leader>Y", [["+Y]], noremap)
-api.nvim_set_keymap("n", "<leader>p", [["+p]], noremap)
-api.nvim_set_keymap("v", "<leader>p", [["+p]], noremap)
-api.nvim_set_keymap("n", "<leader>P", [["+P]], noremap)
-api.nvim_set_keymap("v", "<leader>P", [["+P]], noremap)
+Keymaps.silent("n", "<leader>y", [["+y]])
+Keymaps.silent("v", "<leader>y", [["+y]])
+Keymaps.silent("n", "<leader>Y", [["+Y]])
+Keymaps.silent("v", "<leader>Y", [["+Y]])
+Keymaps.silent("n", "<leader>p", [["+p]])
+Keymaps.silent("v", "<leader>p", [["+p]])
+Keymaps.silent("n", "<leader>P", [["+P]])
+Keymaps.silent("v", "<leader>P", [["+P]])
