@@ -1,5 +1,7 @@
 -- empty setup using defaults
-require("nvim-tree").setup()
+if not vim.g["started_by_firenvim"] then
+    require("nvim-tree").setup()
+end
 
 -- or setup with some options
 --require("nvim-tree").setup({

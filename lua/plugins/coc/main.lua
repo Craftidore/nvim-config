@@ -28,8 +28,8 @@ keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
 -- use `[g` and `]g` to navigate diagnostics
 -- use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-keyset("n", "[g", "<Plug>(coc-diagnostic-prev", { silent = true })
-keyset("n", "]g", "<Plug>(coc-diagnostic-next", { silent = true })
+keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
+keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
 
 -- GoTo code navigation
 --[=====[
@@ -40,7 +40,6 @@ keyset("n", "gr", "<Plug>(coc-references)", {silent = true})
 --]=====]
 
 -- Use K to show documentation in preview window.
---[=====[
 function _G.show_docs()
     local cw = fn.expand('<cword>')
     if fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
@@ -52,9 +51,11 @@ function _G.show_docs()
     end
 end
 keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
---]=====]
 
 -- Formatting selected code
-keyset("x", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
-keyset("n", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
+keyset("x", "<leader>h", "<Plug>(coc-format-selected)", { silent = true })
+keyset("n", "<leader>h", "<Plug>(coc-format-selected)", { silent = true })
+
+
+
 
