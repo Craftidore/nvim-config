@@ -1,19 +1,21 @@
-local api = vim.api
-vim.cmd([[filetype plugin on
-filetype indent on
-]])
+local opt = vim.opt
 
-vim.cmd([[set number]]) -- TODO Fix this later!!!
-vim.cmd([[set relativenumber]])
+-- Disables filetype.vim and enables filetype.lua. Leave this in at your own risk.
+-- filetype.vim is enabled by default
+--vim.cmd([[" this is a comment
+--let g:do_filetype_lua = 1
+--let g:did_load_filetypes = 0
+--]])
 
--- local tab_options = { "tabstop", "softtabstop", "shiftwidth" }
--- local tab_width = 4
--- for i = 1, #tab_options do
--- 	api.nvim_set_option(tab_options[i], tab_width)
--- end
-vim.cmd [[set tabstop=4]]
-vim.cmd [[set softtabstop=4]]
-vim.cmd [[set shiftwidth=4]]
-vim.cmd [[set expandtab]]
+opt.number = true -- TODO Fix this later!!!
+opt.relativenumber = true
 
-vim.cmd [[set nohlsearch]]
+local tab_options = { "tabstop", "softtabstop", "shiftwidth" }
+local tab_width = 4
+for i = 1, #tab_options do
+	opt[tab_options[i]] = tab_width
+end
+opt.expandtab = true
+
+opt.hlsearch = false
+

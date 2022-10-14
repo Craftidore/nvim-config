@@ -31,6 +31,7 @@ require("plugins.nvim-tree.main")
 require("plugins.leap.main")
 require("plugins.wilder.main")
 -- require("plugins.sandwich.main")
+require("plugins.firenvim.main")
 require("plugins.telescope.main")
 
 --[====[
