@@ -20,4 +20,5 @@ opt.expandtab = true
 opt.hlsearch = false
 opt.hidden = false
 opt.undofile = true
-
+opt.scrolloff = 5
+opt.sidescrolloff = 20
