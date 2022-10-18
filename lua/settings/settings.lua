@@ -18,4 +18,6 @@ end
 opt.expandtab = true
 
 opt.hlsearch = false
+opt.hidden = false
+opt.undofile = true
 
