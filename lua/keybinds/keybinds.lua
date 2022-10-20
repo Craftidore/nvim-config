@@ -31,3 +31,30 @@ Keymaps.silent("n", "<leader>p", [["+p]])
 Keymaps.silent("v", "<leader>p", [["+p]])
 Keymaps.silent("n", "<leader>P", [["+P]])
 Keymaps.silent("v", "<leader>P", [["+P]])
+
+local gotoModes = {
+    "n",
+    "o"
+}
+local selectionKeys = {
+    {"g", "f"},
+    {"G", "F"},
+    {"t", "t"},
+    {"T", "T"}
+}
+local gotoKeys = {
+    {"C", "{"},
+    {"c", "}"},
+    {"B", "["},
+    {"b", "]"},
+    {"P", "("},
+    {"p", ")"}
+}
+for i = 1, #selectionKeys do
+    for j = 1, #gotoKeys do
+        for m = 1, #gotoModes do
+            Keymaps.noremap(gotoModes[m], "<leader>"..selectionKeys[i][1]..gotoKeys[j][1], selectionKeys[i][2]..gotoKeys[j][2])
+        end
+    end
+end
+
