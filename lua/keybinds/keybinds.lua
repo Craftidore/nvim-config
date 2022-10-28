@@ -32,6 +32,12 @@ Keymaps.silent("v", "<leader>p", [["+p]])
 Keymaps.silent("n", "<leader>P", [["+P]])
 Keymaps.silent("v", "<leader>P", [["+P]])
 
+-- fix spelling keybind
+Keymaps.noremap("n", "za", "1z=")
+-- ]s go to next misspelling
+-- z= show possible correct spellings
+-- zg add word to dictionary
+
 local gotoModes = {
     "n",
     "o"
