@@ -58,3 +58,21 @@ for i = 1, #selectionKeys do
     end
 end
 
+local selectionModes = {
+    {"a", "a"},
+    {"i", "i"}
+}
+
+local objectKeys = {
+    {"C", "{"},
+    {"c", "{"},
+    {"B", "["},
+    {"b", "["},
+    {"P", "("},
+    {"p", "("}
+}
+for i = 1, #objectKeys do
+    for j = 1, #selectionModes do
+        Keymaps.noremap("o", "<leader>"..selectionModes[j][1]..objectKeys[i][1], selectionModes[j][2]..objectKeys[i][2])
+    end
+end
