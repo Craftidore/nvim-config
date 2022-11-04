@@ -1,6 +1,7 @@
 Keymaps = require('keybinds.utils')
 
 Keymaps.silent("n", ":", "q:i")
+Keymaps.silent("v", ":", "q:i")
 Keymaps.silent("n", "ZZ", ":w<CR>")
 Keymaps.silent("n", "ZQ", ":q<CR>")
 Keymaps.silent("n", "ZF", ":wq<CR>")
