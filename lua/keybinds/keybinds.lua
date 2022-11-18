@@ -12,7 +12,7 @@ Keymaps.silent("n", "ZF", ":wq<CR>")
 Keymaps.silent("n", "<F3>", ":nohl<CR>")
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { } \
-local trailingKeys = {",", ";", ":", '"', "'", "(", ")", "[", "]", "{", "}", "\\"}
+local trailingKeys = {",", ";", ":", '"', "'", "(", ")", "[", "]", "{", "}", "\\", "."}
 for i = 1, #trailingKeys do
     Keymaps.noremap("n", "<leader>"..trailingKeys[i], "mzA"..trailingKeys[i].."<Esc>`z")
 end
