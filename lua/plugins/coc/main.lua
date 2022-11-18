@@ -54,6 +54,3 @@ keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
 keyset("x", "<leader>h", "<Plug>(coc-format-selected)", { silent = true })
 keyset("n", "<leader>h", "<Plug>(coc-format-selected)", { silent = true })
 
-
-
-
