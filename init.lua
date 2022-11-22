@@ -33,6 +33,9 @@ require("plugins.wilder.main")
 -- require("plugins.sandwich.main")
 require("plugins.firenvim.main")
 require("plugins.telescope.main")
+require("plugins.ghengis.main")
+require("plugins.dressing.main")
+require("plugins.notify.main")
 
 --[====[
 Tech-debt stuff:
@@ -55,3 +58,13 @@ keymap("n", "<leader>r", ":w<CR>:lua reloadConfig()<CR>")
 
 -- <leader>r to reload config
 vim.keymap.set("n", "<leader>r", ":lua require('utils').reloadConfig()<CR>", { noremap = true, silent = true })
+
+function LeaveVisualMode()
+    local escKey = vim.api.nvim_replace_termcodes("<Esc>", false, true, true)
+    vim.api.nvim_feedkeys(escKey, "nx", false)
+end
+
+function TestFunc()
+    print("Hi there")
+end
+

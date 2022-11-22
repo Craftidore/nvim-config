@@ -40,4 +40,7 @@ return require('packer').startup(function()
 
     -- Other
     use {'glacambre/firenvim'} -- nvim in the browser
+    use "chrisgrieser/nvim-ghengis"
+    use {'stevearc/dressing.nvim'}
+    use {'rcarriga/nvim-notify'}
 end)
