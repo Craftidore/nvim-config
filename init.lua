@@ -25,6 +25,7 @@ require("plugins.packer.main")
 require("plugins.coc.main")
 require("plugins.camelcasemotion.main")
 require("plugins.treesitter.main")
+require("plugins.vimtex.main")
 --require("plugins.nvim-ts-rainbow") -- requires nvim-treesitter
 require("plugins.lualine.main")
 require("plugins.nvim-tree.main")
@@ -62,9 +63,5 @@ vim.keymap.set("n", "<leader>r", ":lua require('utils').reloadConfig()<CR>", { n
 function LeaveVisualMode()
     local escKey = vim.api.nvim_replace_termcodes("<Esc>", false, true, true)
     vim.api.nvim_feedkeys(escKey, "nx", false)
-end
-
-function TestFunc()
-    print("Hi there")
 end
 
