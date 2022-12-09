@@ -37,6 +37,7 @@ require("plugins.telescope.main")
 require("plugins.genghis.main")
 require("plugins.dressing.main")
 require("plugins.notify.main")
+require("plugins.tabby.main")
 
 --[====[
 Tech-debt stuff:

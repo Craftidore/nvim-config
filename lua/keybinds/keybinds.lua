@@ -27,6 +27,10 @@ Keymaps.silent("n", "<C-j>", "<C-w>j")
 Keymaps.silent("n", "<C-k>", "<C-w>k")
 Keymaps.silent("n", "<C-l>", "<C-w>l")
 
+-- Better paragraph navigation (since I use it so much)
+-- Keymaps.silent("n", "[", "{")
+-- Keymaps.silent("n", "]", "}")
+
 -- Better copy-all
 Keymaps.silent("n", "<leader>a", "mzggVG\"+y`z")
 

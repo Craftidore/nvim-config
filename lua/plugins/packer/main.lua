@@ -44,4 +44,6 @@ return require('packer').startup(function()
     use "chrisgrieser/nvim-genghis"
     use {'stevearc/dressing.nvim'}
     use {'rcarriga/nvim-notify'}
+    use {'kshenoy/vim-signature'}
+    use {'nanozuki/tabby.nvim'}
 end)
