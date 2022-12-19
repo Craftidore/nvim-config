@@ -12,6 +12,7 @@ Keymaps.silent("n", "ZF", ":wq<CR>")
 Keymaps.silent("n", "<F3>", ":nohl<CR>")
 
 Keymaps.silent("n", "<leader>gu", "mz?[A-Z]<CR>:nohl<CR>gul`z")
+Keymaps.silent("n", "<leader>u", "mz~`z")
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { } \ .
 local trailingKeys = {",", ";", ":", '"', "'", "(", ")", "[", "]", "{", "}", "\\", "."}
