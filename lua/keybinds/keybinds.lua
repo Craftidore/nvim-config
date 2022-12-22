@@ -21,6 +21,9 @@ for i = 1, #trailingKeys do
 end
 Keymaps.noremap("n", "X", 'mz$"_x`z') -- Remove last character from line
 
+Keymaps.noremap("n", "H", "xhhp")
+Keymaps.noremap("n", "L", "xp")
+
 -- Better window navigation 
 Keymaps.silent("n", "<C-h>", "<C-w>h")
 Keymaps.silent("n", "<C-j>", "<C-w>j")
