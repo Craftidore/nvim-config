@@ -1,96 +1,109 @@
-Keymaps = require('keybinds.utils')
+-- # Nvim-Config--Keybinds
 
-Keymaps.silent("n", ":", "q:i")
-Keymaps.silent("v", ":", "q:i")
-Keymaps.silent("n", "/", "q/i")
-Keymaps.silent("v", "/", "q/i")
-Keymaps.silent("n", "?", "q?i")
-Keymaps.silent("v", "?", "q?i")
-Keymaps.silent("n", "ZZ", ":w<CR>")
-Keymaps.silent("n", "ZQ", ":q<CR>")
-Keymaps.silent("n", "ZF", ":wq<CR>")
-Keymaps.silent("n", "<F3>", ":nohl<CR>")
+Keymaps = require('keybinds.utils');
 
-Keymaps.silent("n", "<leader>gu", "mz?[A-Z]<CR>:nohl<CR>gul`z")
-Keymaps.silent("n", "<leader>u", "mz~`z")
+-- ## Leader Keys
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { } \ .
 local trailingKeys = {",", ";", ":", '"', "'", "(", ")", "[", "]", "{", "}", "\\", "."}
 for i = 1, #trailingKeys do
-    Keymaps.noremap("n", "<leader>"..trailingKeys[i], "mzA"..trailingKeys[i].."<Esc>`z")
+    Keymaps.noremap("n", "<leader>"..trailingKeys[i], "mzA"..trailingKeys[i].."<Esc>`z");
 end
-Keymaps.noremap("n", "X", 'mz$"_x`z') -- Remove last character from line
-
--- Better window navigation 
-Keymaps.silent("n", "<C-h>", "<C-w>h")
-Keymaps.silent("n", "<C-j>", "<C-w>j")
-Keymaps.silent("n", "<C-k>", "<C-w>k")
-Keymaps.silent("n", "<C-l>", "<C-w>l")
-
--- Better paragraph navigation (since I use it so much)
--- Keymaps.silent("n", "[", "{")
--- Keymaps.silent("n", "]", "}")
-
--- Better copy-all
-Keymaps.silent("n", "<leader>a", "mzggVG\"+y`z")
+Keymaps.noremap("n", "X", 'mz$"_x`z'); -- Remove last character from line
 
 -- Better copy && paste
-Keymaps.silent("n", "<leader>y", [["+y]])
-Keymaps.silent("v", "<leader>y", [["+y]])
-Keymaps.silent("n", "<leader>Y", [["+Y]])
-Keymaps.silent("v", "<leader>Y", [["+Y]])
-Keymaps.silent("n", "<leader>p", [["+p]])
-Keymaps.silent("v", "<leader>p", [["+p]])
-Keymaps.silent("n", "<leader>P", [["+P]])
-Keymaps.silent("v", "<leader>P", [["+P]])
+Keymaps.noremap("n", "<leader>y", [["+y]]);
+Keymaps.noremap("x", "<leader>y", [["+y]]);
+Keymaps.noremap("n", "<leader>Y", [["+Y]]);
+Keymaps.noremap("x", "<leader>Y", [["+Y]]);
+Keymaps.noremap("n", "<leader>p", [["+p]]);
+Keymaps.noremap("x", "<leader>p", [["+p]]);
+Keymaps.noremap("n", "<leader>P", [["+P]]);
+Keymaps.noremap("x", "<leader>P", [["+P]]);
+Keymaps.noremap("n", "<leader>d", [["+d]]);
+Keymaps.noremap("x", "<leader>d", [["+d]]);
+Keymaps.noremap("n", "<leader>D", [["+D]]);
+Keymaps.noremap("x", "<leader>D", [["+D]]);
+Keymaps.noremap("n", "<leader>c", [["+c]]);
+Keymaps.noremap("x", "<leader>c", [["+c]]);
+Keymaps.noremap("n", "<leader>C", [["+C]]);
+Keymaps.noremap("x", "<leader>C", [["+C]]);
 
--- fix spelling keybind
-Keymaps.noremap("n", "za", "1z=")
--- ]s go to next misspelling
--- z= show possible correct spellings
--- zg add word to dictionary
+Keymaps.silent("n", "<leader>gu", "mz?[A-Z]<CR>:nohl<CR>gul`z");
+Keymaps.silent("n", "<leader>u", "mz~`z");
 
-local gotoModes = {
-    "n",
-    "o"
-}
-local selectionKeys = {
-    {"g", "f"},
-    {"G", "F"},
-    {"t", "t"},
-    {"T", "T"}
-}
-local gotoKeys = {
-    {"C", "{"},
-    {"c", "}"},
-    {"B", "["},
-    {"b", "]"},
-    {"P", "("},
-    {"p", ")"}
-}
-for i = 1, #selectionKeys do
-    for j = 1, #gotoKeys do
-        for m = 1, #gotoModes do
-            Keymaps.noremap(gotoModes[m], "<leader>"..selectionKeys[i][1]..gotoKeys[j][1], selectionKeys[i][2]..gotoKeys[j][2])
-        end
-    end
-end
+-- Better copy-all
+Keymaps.silent("n", "<leader>a", "mzggVG\"+y`z");
 
-local selectionModes = {
-    {"a", "a"},
-    {"i", "i"}
-}
+-- ## Functionality-Redefining Keymaps
 
-local objectKeys = {
-    {"C", "{"},
-    {"c", "{"},
-    {"B", "["},
-    {"b", "["},
-    {"P", "("},
-    {"p", "("}
-}
-for i = 1, #objectKeys do
-    for j = 1, #selectionModes do
-        Keymaps.noremap("o", "<leader>"..selectionModes[j][1]..objectKeys[i][1], selectionModes[j][2]..objectKeys[i][2])
-    end
-end
+-- Redefining ZZ/ZQ
+Keymaps.silent("n", "ZZ", ":w<CR>");
+Keymaps.silent("n", "ZQ", ":q<CR>");
+Keymaps.silent("n", "ZF", ":wq<CR>");
+
+-- Redefining : / and ?
+Keymaps.silent("n", ":", "q:i");
+Keymaps.silent("v", ":", "q:i");
+Keymaps.silent("n", "/", "q/i");
+Keymaps.silent("v", "/", "q/i");
+Keymaps.silent("n", "?", "q?i");
+Keymaps.silent("v", "?", "q?i");
+
+-- <F3> removes highlights after a search
+Keymaps.silent("n", "<F3>", ":nohl<CR>");
+
+-- Redefining za
+Keymaps.noremap("n", "za", "1z=");
+
+-- Redefining M (so that J can be used for 6j)
+Keymaps.noremap("n", "M", "J");
+
+-- Redefining J/K soas to not use numbers
+Keymaps.noremap("n", "J", "6j");
+Keymaps.noremap("n", "K", "6k");
+
+-- local gotoModes = {
+--     "n",
+--     "o"
+-- }
+-- local selectionKeys = {
+--     {"g", "f"},
+--     {"G", "F"},
+--     {"t", "t"},
+--     {"T", "T"}
+-- }
+-- local gotoKeys = {
+--     {"C", "{"},
+--     {"c", "}"},
+--     {"B", "["},
+--     {"b", "]"},
+--     {"P", "("},
+--     {"p", ")"}
+-- }
+-- for i = 1, #selectionKeys do
+--     for j = 1, #gotoKeys do
+--         for m = 1, #gotoModes do
+--             Keymaps.noremap(gotoModes[m], "<leader>"..selectionKeys[i][1]..gotoKeys[j][1], selectionKeys[i][2]..gotoKeys[j][2])
+--         end
+--     end
+-- end
+
+-- local selectionModes = {
+--     {"a", "a"},
+--     {"i", "i"}
+-- }
+
+-- local objectKeys = {
+--     {"C", "{"},
+--     {"c", "{"},
+--     {"B", "["},
+--     {"b", "["},
+--     {"P", "("},
+--     {"p", "("}
+-- }
+-- for i = 1, #objectKeys do
+--     for j = 1, #selectionModes do
+--         Keymaps.noremap("o", "<leader>"..selectionModes[j][1]..objectKeys[i][1], selectionModes[j][2]..objectKeys[i][2])
+--     end
+-- end

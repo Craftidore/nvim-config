@@ -48,7 +48,7 @@ function _G.show_docs()
         api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
     end
 end
-keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
+-- keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
 
 -- Formatting selected code
 keyset("x", "<leader>h", "<Plug>(coc-format-selected)", { silent = true })
