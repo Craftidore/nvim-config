@@ -22,7 +22,7 @@ require("plugins.sonokai.main")
 require("keybinds.keybinds")
 require("settings.settings")
 require("plugins.packer.main")
-require("plugins.coc.main")
+-- require("plugins.coc.main")
 require("plugins.camelcasemotion.main")
 require("plugins.treesitter.main")
 require("plugins.vimtex.main")
@@ -38,6 +38,13 @@ require("plugins.genghis.main")
 require("plugins.dressing.main")
 require("plugins.notify.main")
 require("plugins.tabby.main")
+-- ### Completion
+-- require("plugins.mason.main")
+-- require("plugins.lspconfig.main")
+-- require("plugins.mason-lspconfig.main")
+-- require("plugins.nvim-cmp.main")
+-- require("plugins.LuaSnip.main")
+require("lsp-zero-defaults")
 
 --[====[
 Tech-debt stuff:

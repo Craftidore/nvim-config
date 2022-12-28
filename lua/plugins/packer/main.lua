@@ -1,4 +1,5 @@
 vim.cmd [[packadd packer.nvim]]
+local use = require("packer").use
 
 return require('packer').startup(function()
     -- Packer can manage itself
@@ -25,7 +26,7 @@ return require('packer').startup(function()
     use {'tkhren/vim-textobj-numeral'} -- for numbers
 
     -- File explorer
-    use {'kyazdani42/nvim-tree.lua', tag = 'nightly'} 
+    use {'kyazdani42/nvim-tree.lua', tag = 'nightly'}
     use {'kyazdani42/nvim-web-devicons'} -- devicons for nvim-tree
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0', -- fuzzy file finder
@@ -33,7 +34,19 @@ return require('packer').startup(function()
     }
 
     -- Completion
-    use {'neoclide/coc.nvim', branch='release'} -- Conquer of Completion (autocompletion)
+    use {'williamboman/mason.nvim'}
+    use {'neovim/nvim-lspconfig'}
+    use {'williamboman/mason-lspconfig.nvim',
+    requires = {'neovim/nvim-lspconfig', 'williamboman/mason.nvim'}}
+    use {"hrsh7th/nvim-cmp", requires = {
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        { "L3MON4D3/LuaSnip" },
+        "saadparwaiz1/cmp_luasnip",
+    }}
+
     use {'gelguy/wilder.nvim'} -- Ex-Mode autocompletion
     use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"} --  syntax highlighting
     --use {'machakann/vim-sandwich'} -- conflicts with ggandor/leap.nvim, and I didn't figure out how to rebind either of them.
