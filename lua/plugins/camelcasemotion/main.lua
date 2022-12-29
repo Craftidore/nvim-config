@@ -1,4 +1,4 @@
-require('packerList').add('wbthomason/packer.nvim')
+require('packerList').add({'bkad/CamelCaseMotion'})
 
 -- Default keybinds for CamelCaseMotion are <leader>w, <leader>b, <leader>e
 -- Currently my leader is ' '

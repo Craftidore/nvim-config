@@ -34,20 +34,6 @@ end)
     --use {'rbonvall/vim-textobj-latex'}
     --use {'michaeljsmith/vim-indent-object'} -- for python-y languages
     --use {'tkhren/vim-textobj-numeral'} -- for numbers
-    --
-    --
-
-    ---- Theming
-
-    ---- Quality of Life
-
-    ---- QoL textobj plugins
-
-    ---- File explorer
-    --use {'kyazdani42/nvim-web-devicons'} -- devicons for nvim-tree
-
-    ---- Completion
-
-
-    --use {'rcarriga/nvim-notify'}
     --use {'kshenoy/vim-signature'}
+
+

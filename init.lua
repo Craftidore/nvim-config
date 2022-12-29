@@ -39,6 +39,9 @@ require("plugins.notify.main")
 require("plugins.tabby.main")
 require("plugins.impatient.main")
 require("plugins.vim-commentary.main")
+require("plugins.textobj.main")
+require("plugins.vim-signature.main")
+require("plugins.vim-repeat.main")
 
 require("plugins.packer.main")
 
