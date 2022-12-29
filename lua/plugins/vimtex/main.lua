@@ -1,3 +1,6 @@
+require('packerList').add({'vim-latex/vim-latex', tag = 'v1.10.0'})
+
+
 vim.cmd[["
 let g:Tex_BibtexFlavor = 'biber'
 let g:Tex_DefaultTargetFormat = 'pdf'

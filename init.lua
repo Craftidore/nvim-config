@@ -21,7 +21,6 @@ require("plugins.sonokai.main")
 
 require("keybinds.keybinds")
 require("settings.settings")
-require("plugins.packer.main")
 require("plugins.coc.main")
 require("plugins.camelcasemotion.main")
 require("plugins.treesitter.main")
@@ -38,6 +37,10 @@ require("plugins.genghis.main")
 require("plugins.dressing.main")
 require("plugins.notify.main")
 require("plugins.tabby.main")
+require("plugins.impatient.main")
+require("plugins.vim-commentary.main")
+
+require("plugins.packer.main")
 
 --[====[
 Tech-debt stuff:

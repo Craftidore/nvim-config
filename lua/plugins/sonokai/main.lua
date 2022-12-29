@@ -1,3 +1,5 @@
+require('packerList').add({'sainnhe/sonokai'})
+
 vim.cmd [[" Important!!
 if has('termguicolors')
   set termguicolors

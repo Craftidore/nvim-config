@@ -1,3 +1,5 @@
+require('packerList').add({'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"})
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"bash","c","c_sharp","cmake","commonlisp","cpp","css","dockerfile","gitattributes","gitignore","go","haskell","html","java","javascript","json","latex","lua","make","markdown","markdown_inline","php","python","scss","svelte","sxhkdrc","toml","typescript","vim","vue","yaml"},-- can also be set to "all"
 

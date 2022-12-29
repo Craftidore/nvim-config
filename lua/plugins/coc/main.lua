@@ -1,3 +1,5 @@
+require('packerList').add({'neoclide/coc.nvim', branch='release'}) -- Conquer of Completion (autocompletion)
+
 local fn = vim.fn
 local opt = vim.opt
 local api = vim.api

@@ -1,3 +1,8 @@
+require('packerList').add({
+        'nvim-telescope/telescope.nvim', tag = '0.1.0', -- fuzzy file finder
+        requires = { {'nvim-lua/plenary.nvim'} } -- pre-defined functions that other things depend on
+})
+
 local api = vim.api
 local opts = { noremap = true }
 local opts2 = { noremap = true, expr = true }

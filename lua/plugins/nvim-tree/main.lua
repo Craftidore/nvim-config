@@ -1,3 +1,5 @@
+require('packerList').add({'kyazdani42/nvim-tree.lua', tag = 'nightly'})
+
 -- empty setup using defaults
 if not vim.g["started_by_firenvim"] then
     require("nvim-tree").setup()

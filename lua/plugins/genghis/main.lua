@@ -1,3 +1,5 @@
+require('packerList').add({'chrisgrieser/nvim-genghis'})
+
 local genghis = require("genghis")
 local keymap = vim.keymap.set
 keymap("n", "<leader>fyp", genghis.copyFilepath)
