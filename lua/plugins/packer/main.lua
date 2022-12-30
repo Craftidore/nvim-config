@@ -47,6 +47,8 @@ return require('packer').startup(function()
         "saadparwaiz1/cmp_luasnip",
         "folke/neodev.nvim",
     }}
+    use {'ray-x/lsp_signature.nvim'}
+    use {'lvimuser/lsp-inlayhints.nvim'}
 
     use {'gelguy/wilder.nvim'} -- Ex-Mode autocompletion
     use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"} --  syntax highlighting
