@@ -23,6 +23,6 @@ opt.undofile = true
 opt.scrolloff = 5
 opt.sidescrolloff = 20
 
--- opt.cursorline = true
--- opt.cursorcolumn = true
+opt.cursorline = true
+opt.cursorcolumn = true
 
