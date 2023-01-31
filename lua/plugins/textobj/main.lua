@@ -4,5 +4,8 @@ require('packerList').add({
         {'rbonvall/vim-textobj-latex'},
         {'michaeljsmith/vim-indent-object'}, -- for python-y languages
         {'tkhren/vim-textobj-numeral'}, -- for numbers
-    }
+    },
+    config = function ()
+        -- do nothing
+    end
 })

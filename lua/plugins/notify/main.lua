@@ -1,4 +1,6 @@
-require('packerList').add({'rcarriga/nvim-notify'})
+require('packerList').add({'rcarriga/nvim-notify', config = function ()
+    local notify = require "notify"
 
+    vim.notify = notify
+end})
 
-vim.notify = require("notify")
