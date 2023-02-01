@@ -1,4 +1,3 @@
-vim.cmd [[" Remove s mapping
-nmap s <Nop>
-xmap s <Nop>
-]]
+require('packerList').add({'machakann/vim-sandwich', config = function ()
+    -- do nothing
+end})

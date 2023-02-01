@@ -1,4 +1,3 @@
-local fn = vim.fn
 local Module = {}
 
 function Module.get_nvim_version()
