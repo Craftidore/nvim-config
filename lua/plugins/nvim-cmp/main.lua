@@ -1,5 +1,5 @@
 require('packerList').add({'hrsh7th/nvim-cmp',
-    requires = {'hrsh7th/cmp-nvim-lsp'},
+    requires = {'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-nvim-lua', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path'},
     config = function()
     vim.opt.completeopt = {'menu','menuone','noselect'};
 
@@ -108,21 +108,4 @@ require('packerList').add({'hrsh7th/nvim-cmp',
             prefix = '',
         },
     });
-
-    -- -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-    -- cmp.setup.cmdline({ '/', '?' }, {
-    --   mapping = cmp.mapping.preset.cmdline(),
-    --   sources = {
-    --     { name = 'buffer' }
-    --   }
-    -- })
-
-    -- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-    -- cmp.setup.cmdline(':', {
-    --   mapping = cmp.mapping.preset.cmdline(),
-    --   sources = cmp.config.sources({
-    --     { name = 'path' },
-    --   }, {
-    --     { name = 'cmdline' }
-    --   })
 end});
