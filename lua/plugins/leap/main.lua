@@ -1,2 +1,7 @@
-require('leap').set_default_keymaps()
-require('leap').init_highlight(true)
+require('packerList').add({"ggandor/leap.nvim", config = function ()
+    local leap = require "leap"
+
+    leap.set_default_keymaps()
+    leap.init_highlight(true)
+end})
+
