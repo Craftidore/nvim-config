@@ -43,12 +43,19 @@ Keymaps.silent("n", "ZQ", ":q<CR>");
 Keymaps.silent("n", "ZF", ":wq<CR>");
 
 -- Redefining : / and ?
-Keymaps.silent("n", ":", "q:i");
-Keymaps.silent("v", ":", "q:i");
-Keymaps.silent("n", "/", "q/i");
-Keymaps.silent("v", "/", "q/i");
-Keymaps.silent("n", "?", "q?i");
-Keymaps.silent("v", "?", "q?i");
+function _G.RunIfNotRecording(s1, s2)
+    if vim.fn.reg_recording() == "" then
+        vim.api.nvim_feedkeys(s1, "n", true);
+    else
+        vim.api.nvim_feedkeys(s2, "n", true);
+    end
+end
+Keymaps.silent("n", ":", [[:lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
+Keymaps.silent("v", ":", [[:lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
+Keymaps.silent("n", "/", [[:lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
+Keymaps.silent("v", "/", [[:lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
+Keymaps.silent("n", "?", [[:lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
+Keymaps.silent("v", "?", [[:lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
 
 -- <F3> removes highlights after a search
 Keymaps.silent("n", "<F3>", ":nohl<CR>");
