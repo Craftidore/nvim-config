@@ -29,7 +29,7 @@ Keymaps.noremap("x", "<leader>c", [["+c]]);
 Keymaps.noremap("n", "<leader>C", [["+C]]);
 Keymaps.noremap("x", "<leader>C", [["+C]]);
 
-Keymaps.silent("n", "<leader>gu", "mz?[A-Z]<CR>:nohl<CR>gul`z");
+Keymaps.silent("n", "<leader>gu", "mz?[A-Z]<CR><cmd>nohl<CR>gul`z");
 Keymaps.silent("n", "<leader>u", "mz~`z");
 
 -- Better copy-all
@@ -38,9 +38,9 @@ Keymaps.silent("n", "<leader>a", "mzggVG\"+y`z");
 -- ## Functionality-Redefining Keymaps
 
 -- Redefining ZZ/ZQ
-Keymaps.silent("n", "ZZ", ":w<CR>");
-Keymaps.silent("n", "ZQ", ":q<CR>");
-Keymaps.silent("n", "ZF", ":wq<CR>");
+Keymaps.silent("n", "ZZ", "<cmd>w<CR>");
+Keymaps.silent("n", "ZQ", "<cmd>q<CR>");
+Keymaps.silent("n", "ZF", "<cmd>wq<CR>");
 
 -- Redefining : / and ?
 function _G.RunIfNotRecording(s1, s2)
@@ -50,15 +50,15 @@ function _G.RunIfNotRecording(s1, s2)
         vim.api.nvim_feedkeys(s2, "n", true);
     end
 end
-Keymaps.silent("n", ":", [[:lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
-Keymaps.silent("v", ":", [[:lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
-Keymaps.silent("n", "/", [[:lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
-Keymaps.silent("v", "/", [[:lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
-Keymaps.silent("n", "?", [[:lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
-Keymaps.silent("v", "?", [[:lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
+Keymaps.silent("n", ":", [[<cmd>lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
+Keymaps.silent("v", ":", [[<cmd>lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
+Keymaps.silent("n", "/", [[<cmd>lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
+Keymaps.silent("v", "/", [[<cmd>lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
+Keymaps.silent("n", "?", [[<cmd>lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
+Keymaps.silent("v", "?", [[<cmd>lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
 
 -- <F3> removes highlights after a search
-Keymaps.silent("n", "<F3>", ":nohl<CR>");
+Keymaps.silent("n", "<F3>", "<cmd>nohl<CR>");
 
 -- Redefining za
 Keymaps.noremap("n", "za", "1z=");
