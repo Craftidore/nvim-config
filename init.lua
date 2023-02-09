@@ -7,7 +7,7 @@ vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true } )
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
-local expected_ver = "0.8.2"
+local expected_ver = "0.8.3"
 local nvim_ver = utils.get_nvim_version()
 
 if nvim_ver ~= expected_ver then
@@ -30,7 +30,7 @@ require("plugins.lualine.main")
 require("plugins.nvim-tree.main")
 require("plugins.leap.main")
 require("plugins.wilder.main")
-require("plugins.sandwich.main")
+-- require("plugins.sandwich.main")
 require("plugins.firenvim.main")
 require("plugins.telescope.main")
 require("plugins.genghis.main")
