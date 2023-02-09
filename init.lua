@@ -21,7 +21,7 @@ require("plugins.sonokai.main")
 
 require("keybinds.keybinds")
 require("settings.settings")
-require("plugins.coc.main")
+-- require("plugins.coc.main")
 require("plugins.camelcasemotion.main")
 require("plugins.treesitter.main")
 require("plugins.vimtex.main")
@@ -42,6 +42,7 @@ require("plugins.vim-commentary.main")
 require("plugins.textobj.main")
 require("plugins.vim-signature.main")
 require("plugins.vim-repeat.main")
+require("plugins.lsp-zero.main")
 
 require("plugins.packer.main")
 
