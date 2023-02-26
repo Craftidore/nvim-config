@@ -43,6 +43,8 @@ require("plugins.textobj.main")
 require("plugins.vim-signature.main")
 require("plugins.vim-repeat.main")
 require("plugins.lsp-zero.main")
+require("plugins.todo-highlight.main")
+require("plugins.nabla.main")
 
 require("plugins.packer.main")
 
