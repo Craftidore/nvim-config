@@ -1,4 +1,5 @@
 local opt = vim.opt
+local fn = vim.fn
 
 -- Disables filetype.vim and enables filetype.lua. Leave this in at your own risk.
 -- filetype.vim is enabled by default
@@ -9,6 +10,15 @@ local opt = vim.opt
 
 opt.number = true -- TODO Fix this later!!!
 opt.relativenumber = true
+-- taken from https://nanotipsforvim.prose.sh/use-cursorcolumn-to-help-you-learn-gm
+local function gmColumn()
+    return math.floor(fn.winwidth("%") / 2)-2 -- '-2' to get to the correct position
+end
+local textMax = 80
+opt.colorcolumn = {gmColumn(), textMax}
+vim.api.nvim_create_autocmd({"VimResized", "WinScrolled"}, {
+     callback = function() vim.opt.colorcolumn = {gmColumn(), textMax} end,
+})
 
 local tab_options = { "tabstop", "softtabstop", "shiftwidth" }
 local tab_width = 4
