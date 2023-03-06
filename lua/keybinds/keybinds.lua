@@ -11,6 +11,8 @@ for i = 1, #trailingKeys do
 end
 Keymaps.noremap("n", "X", 'mz$"_x`z'); -- Remove last character from line
 
+Keymaps.noremap("n", "<leader><leader>x", "<cmd>w<CR><cmd>source %<CR>")
+
 -- Better copy && paste
 Keymaps.noremap("n", "<leader>y", [["+y]]);
 Keymaps.noremap("x", "<leader>y", [["+y]]);

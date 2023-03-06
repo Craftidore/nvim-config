@@ -1,5 +1,8 @@
 local api = vim.api
 local utils = require("utils") -- this just contains get_nvim_version right now
+
+require("global")
+
 vim.g.mapleader = " "
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true } )
 
