@@ -25,7 +25,7 @@ require("plugins.sonokai.main")
 require("keybinds.keybinds")
 require("settings.settings")
 -- require("plugins.coc.main")
-require("plugins.camelcasemotion.main")
+-- require("plugins.camelcasemotion.main")
 require("plugins.treesitter.main")
 require("plugins.vimtex.main")
 --require("plugins.nvim-ts-rainbow") -- requires nvim-treesitter
@@ -48,6 +48,7 @@ require("plugins.vim-repeat.main")
 require("plugins.lsp-zero.main")
 require("plugins.todo-highlight.main")
 require("plugins.nabla.main")
+require("plugins.ccm.main")
 
 require("plugins.packer.main")
 
@@ -71,8 +72,10 @@ keymap("n", "<leader>r", ":w<CR>:lua reloadConfig()<CR>")
 --]====]
 
 -- <leader>r to reload config
+-- Currently not working because LuaLine complains and I haven't debugged it
 vim.keymap.set("n", "<leader>r", ":lua require('utils').reloadConfig()<CR>", { noremap = true, silent = true })
 
+-- I don't know what this is here for; it's not referenced anywhere
 function LeaveVisualMode()
     local escKey = vim.api.nvim_replace_termcodes("<Esc>", false, true, true)
     vim.api.nvim_feedkeys(escKey, "nx", false)
