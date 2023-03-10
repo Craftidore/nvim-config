@@ -33,6 +33,8 @@ opt.undofile = true
 opt.scrolloff = 5
 opt.sidescrolloff = 20
 
+opt.wrap =false
+
 opt.cursorline = true
 opt.cursorcolumn = true
 
