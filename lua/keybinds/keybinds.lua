@@ -64,13 +64,18 @@ Keymaps.silent("n", "<F3>", "<cmd>nohl<CR>");
 
 -- Redefining za
 Keymaps.noremap("n", "za", "1z=");
-
+--
 -- Redefining M (so that J can be used for 6j)
 Keymaps.noremap("n", "M", "J");
+Keymaps.noremap("v", "M", "J");
 
 -- Redefining J/K soas to not use numbers
 Keymaps.noremap("n", "J", "6j");
+Keymaps.noremap("o", "J", "6j");
+Keymaps.noremap("v", "J", "6j");
 Keymaps.noremap("n", "K", "6k");
+Keymaps.noremap("o", "K", "6k");
+Keymaps.noremap("v", "K", "6k");
 
 -- local gotoModes = {
 --     "n",
