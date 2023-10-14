@@ -54,10 +54,10 @@ function _G.RunIfNotRecording(s1, s2)
 end
 Keymaps.silent("n", ":", [[<cmd>lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
 Keymaps.silent("v", ":", [[<cmd>lua _G.RunIfNotRecording("q:i", ":")<CR>]]);
-Keymaps.silent("n", "/", [[<cmd>lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
-Keymaps.silent("v", "/", [[<cmd>lua _G.RunIfNotRecording("q/i", "/")<CR>]]);
-Keymaps.silent("n", "?", [[<cmd>lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
-Keymaps.silent("v", "?", [[<cmd>lua _G.RunIfNotRecording("q?i", "?")<CR>]]);
+Keymaps.silent("n", "/", [[<cmd>lua _G.RunIfNotRecording("q/i\\v", "/")<CR>]]);
+Keymaps.silent("v", "/", [[<cmd>lua _G.RunIfNotRecording("q/i\\v", "/")<CR>]]);
+Keymaps.silent("n", "?", [[<cmd>lua _G.RunIfNotRecording("q?i\\v", "?")<CR>]]);
+Keymaps.silent("v", "?", [[<cmd>lua _G.RunIfNotRecording("q?i\\v", "?")<CR>]]);
 
 -- <F3> removes highlights after a search
 Keymaps.silent("n", "<F3>", "<cmd>nohl<CR>");

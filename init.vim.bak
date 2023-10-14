@@ -9,7 +9,8 @@ let spaces = 4
 execute "set tabstop=".spaces
 execute "set softtabstop=".spaces
 execute "set shiftwidth=".spaces
-set expandtab
+" set expandtab " TODO: only apply this option if we're _not_ in the
+" ~/mach/directory
 
 set number
 set relativenumber
