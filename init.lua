@@ -1,10 +1,13 @@
-local api = vim.api
-local utils = require("utils") -- this just contains get_nvim_version right now
+local api = vim.api local utils = require("utils") -- this just contains get_nvim_version right now
 
 require("global")
 
 vim.g.mapleader = " "
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true } )
+-- local temp = { {"\"","\""}, {"'","'"}, {"{","}"}, {"(",")"}, {"[","]"}, {"<", ">"} }
+-- for i = 1, #temp do
+--     vim.keymap.set("i", temp[i][1], temp[i][1] .. temp[i][2] .. "<Esc>i", { noremap = true })
+-- end
 
 -- disabling netrw at the start on init.lua is strongly advised for nvim-tree
 vim.g.loaded = 1
@@ -24,7 +27,8 @@ require("plugins.sonokai.main")
 
 require("keybinds.keybinds")
 require("settings.settings")
--- -- require("plugins.coc.main")
+require("settings.filetypes")
+-- require("plugins.coc.main")
 require("plugins.camelcasemotion.main")
 require("plugins.treesitter.main")
 require("plugins.vimtex.main")
@@ -70,7 +74,7 @@ end
 keymap("n", "<leader>r", ":w<CR>:lua reloadConfig()<CR>")
 --]====]
 
--- <leader>r to reload config
+-- Disabled because it borks with the plugins I have enabled -- <leader>r to reload config
 -- vim.keymap.set("n", "<leader>r", ":lua require('utils').reloadConfig()<CR>", { noremap = true, silent = true })
 
 function LeaveVisualMode()
