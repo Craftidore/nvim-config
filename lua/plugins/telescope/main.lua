@@ -1,6 +1,10 @@
 require('packerList').add({
-    'nvim-telescope/telescope.nvim', tag = '0.1.0', -- fuzzy file finder
-    requires = { {'nvim-lua/plenary.nvim'} }, -- pre-defined functions that other things depend on
+    'nvim-telescope/telescope.nvim',
+    requires = { 
+        {'nvim-lua/plenary.nvim'},
+        {'nvim-telescope/telescope-file-browser.nvim'},
+        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    }, -- pre-defined functions that other things depend on
     config = function ()
         local api = vim.api
         local opts = { noremap = true }
@@ -19,6 +23,7 @@ require('packerList').add({
         api.nvim_set_keymap("n", "<leader>ls", [[<cmd>Telescope lsp_document_symbols<cr>]], opts)
         api.nvim_set_keymap("n", "<leader>le", [[<cmd>Telescope diagnostic<cr>]], opts) -- lsp_errors
         -- api.nvim_set_keymap("n", "<leader>tc", [[<cmd>Telescope command_history<cr>]], opts)
+        require('telescope').load_extension('fzf')
     end
 })
 
