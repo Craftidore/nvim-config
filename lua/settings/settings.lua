@@ -20,7 +20,9 @@ vim.api.nvim_create_autocmd({"VimResized", "WinScrolled"}, {
      callback = function() vim.opt.colorcolumn = {gmColumn(), textMax} end,
 })
 
-local tab_options = { "tabstop", "softtabstop", "shiftwidth" }
+local tab_options = { "tabstop",
+    "softtabstop", "shiftwidth" }
+-- opt.vartabstop = {2,4,4,4,8,20}
 local tab_width = 4
 for i = 1, #tab_options do
 	opt[tab_options[i]] = tab_width
@@ -37,4 +39,6 @@ opt.wrap =false
 
 opt.cursorline = true
 opt.cursorcolumn = true
+
+
 

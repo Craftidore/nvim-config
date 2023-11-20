@@ -2,6 +2,8 @@
 
 Keymaps = require('keybinds.utils');
 
+Keymaps.noremap("i", "jj", '<Esc>'); -- Remove last character from line
+
 -- ## Leader Keys
 
 -- <leader>; adds ; to the end of the line without changing cursor position. Same for , : " ' ( ) [ ] { } \ .
