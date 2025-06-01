@@ -2,7 +2,11 @@
 
 Keymaps = require('keybinds.utils');
 
-Keymaps.noremap("i", "jj", '<Esc>'); -- Remove last character from line
+Keymaps.noremap("i", "jj", '<Esc>');
+Keymaps.noremap("i", "jk", '<Esc>');
+vim.cmd([[command! -nargs=* W w]]);
+vim.cmd([[command! -nargs=* WQ wq]]);
+vim.cmd([[command! -nargs=* Wq wq]]);
 
 -- ## Leader Keys
 

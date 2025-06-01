@@ -12,6 +12,6 @@ function SetTab()
     opt.expandtab = false
 end
 
-create_aucmd({"BufNewFile","BufReadPre"}, {pattern = {vim.fn.expand("~") .. "/mach/*"},
-    callback = SetTab, once = true})
+-- create_aucmd({"BufNewFile","BufReadPre"}, {pattern = {vim.fn.expand("~") .. "/mach/*"},
+--     callback = SetTab, once = true})
 
