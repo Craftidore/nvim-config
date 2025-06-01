@@ -1,0 +1,5 @@
+make
+gcc
+g++
+ripgrep
+wl-clipboard
