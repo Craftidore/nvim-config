@@ -17,6 +17,7 @@ o.relativenumber = true
 o.showmode = false
 -- When wrap is on, break indent
 o.breakindent = true
+o.linebreak = true
 
 o.undofile = true
 
