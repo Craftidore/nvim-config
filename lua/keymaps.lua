@@ -37,3 +37,6 @@ Keymaps.silent('n', '<leader>gu', 'mz?[a-z]<cr><cmd>nohl<cr>gul`z')
 
 -- Better copy-all
 Keymaps.silent('n', '<leader>a', 'mzggVG"+y`z')
+
+-- Better z=
+Keymaps.noremap('n', '<leader>zz', '<cmd>WhichKey<cr>z=', 'Open Spell Suggest Picker (z= alias)')
