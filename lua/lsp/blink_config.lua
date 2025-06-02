@@ -77,7 +77,7 @@ local BlinkConfig = { -- Autocompletion
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
       providers = {
         snippets = {
           should_show_items = function(ctx)
