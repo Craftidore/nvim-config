@@ -45,6 +45,8 @@ require('lazy').setup({
 
   require('plugin.which_key_config'),
 
+  require('plugin.spider_config'),
+
   -- Telescope
   require('plugin.telescope_config'),
 
