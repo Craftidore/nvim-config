@@ -10,6 +10,8 @@ function Keymaps.silent(mode, lhs, rhs)
   keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
 
+Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]])
+
 Keymaps.noremap('i', 'jj', '<Esc>')
 Keymaps.noremap('i', 'jk', '<Esc>')
 
