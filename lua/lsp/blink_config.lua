@@ -59,6 +59,8 @@ local BlinkConfig = { -- Autocompletion
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       preset = 'default',
+      ['<Tab>'] = {},
+      ['<S-Tab>'] = {},
       ['<C-j>'] = { 'snippet_forward', 'fallback' },
       ['<C-k>'] = { 'snippet_backward', 'fallback' },
       ['<C-l>'] = { 'show_signature', 'hide_signature', 'fallback' },
