@@ -47,6 +47,8 @@ require('lazy').setup({
 
   require('plugin.spider_config'),
 
+  require('plugin.various_textobjects_config'),
+
   -- Directory Navigation
   require('plugin.oil_config'),
 
