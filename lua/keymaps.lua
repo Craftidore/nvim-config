@@ -42,3 +42,8 @@ Keymaps.silent('n', '<leader>a', 'mzggVG"+y`z')
 
 -- Better z=
 Keymaps.noremap('n', '<leader>zz', '<cmd>WhichKey<cr>z=', 'Open Spell Suggest Picker (z= alias)')
+
+-- Tmux "Zoom"-y equivalent
+Keymaps.noremap('n', '<C-w>t', '<cmd>tab split<CR>')
+-- alias, for muscle memory
+Keymaps.noremap('n', '<C-w>z', '<cmd>tab split<CR>')
