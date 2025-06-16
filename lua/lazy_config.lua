@@ -47,6 +47,9 @@ require('lazy').setup({
 
   require('plugin.spider_config'),
 
+  -- Directory Navigation
+  require('plugin.oil_config'),
+
   -- Undo Tree
   require('plugin.undotree_config'),
 

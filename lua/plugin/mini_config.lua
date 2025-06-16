@@ -22,7 +22,7 @@ local MiniConfig = {
     -- ... and there is more!
     require('mini.starter').setup()
     require('mini.tabline').setup()
-    require('mini.files').setup()
+    -- require('mini.files').setup()
     -- require('mini.notify').setup() -- I like fidget better...
   end,
 }
