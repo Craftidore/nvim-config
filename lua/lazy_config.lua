@@ -47,6 +47,9 @@ require('lazy').setup({
 
   require('plugin.spider_config'),
 
+  -- Undo Tree
+  require('plugin.undotree_config'),
+
   -- Telescope
   require('plugin.telescope_config'),
 
