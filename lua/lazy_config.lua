@@ -73,6 +73,8 @@ require('lazy').setup({
   require('plugin.mini_config'),
 
   require('plugin.leap_config'),
+
+  require('plugin.harpoon_config'),
 }, {
   ui = lazyUiConfig,
 })
