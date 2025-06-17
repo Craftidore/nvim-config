@@ -20,6 +20,8 @@ Keymaps.noremap('n', '<leader>N', [[<cmd>bprev<CR>]], 'Previous buffer')
 Keymaps.noremap('n', '<leader>bb', [[<cmd>buffers<cr>:b<space>]], 'Open buffer picker')
 Keymaps.noremap('n', '<leader>bq', [[<cmd>bd<cr>]], 'Close buffer')
 Keymaps.noremap('n', '<leader>bd', [[<cmd>bd<cr>]], 'Close buffer')
+-- From https://stackoverflow.com/a/42071865
+Keymaps.noremap('n', '<leader>bo', [[<cmd>%bd|e#|bd#<cr>]], 'Close all buffers except current')
 
 local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\\', '.' }
 for i = 1, #trailingKeys do
