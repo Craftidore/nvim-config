@@ -26,7 +26,7 @@ Keymaps.noremap('n', '<leader>bd', [[<cmd>bd<cr>]], 'Close buffer')
 -- `e#`  - opens last buffer for editing
 -- `bd#` - closes last buffer since vim auto-creates a nameless buffer after `%bd`
 -- `'"`  - reset cursor position after all of this
-Keymaps.noremap('n', '<leader>bo', [[<cmd>%bd|e#|bd#<cr>|'"]], 'Close all buffers except current')
+Keymaps.noremap('n', '<leader>bo', [[<cmd>%bd|e#|bd#<cr>|`"]], 'Close all buffers except current')
 
 local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\\', '.' }
 for i = 1, #trailingKeys do
