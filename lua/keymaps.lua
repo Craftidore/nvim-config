@@ -10,13 +10,17 @@ function Keymaps.silent(mode, lhs, rhs)
   keymap(mode, lhs, rhs, { noremap = true, silent = true })
 end
 
+-- NOTE: Primary Behavior
+
 Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]])
 
 Keymaps.noremap('i', 'jj', '<Esc>', 'Switch to normal mode')
 Keymaps.noremap('i', 'jk', '<Esc>', 'Switch to normal mode')
 
-Keymaps.noremap('n', '<leader>n', [[<cmd>bnext<CR>]], 'Next buffer')
-Keymaps.noremap('n', '<leader>N', [[<cmd>bprev<CR>]], 'Previous buffer')
+-- NOTE: Buffer Commands (namespace: <leader>b)
+
+Keymaps.noremap('n', '<leader>bn', [[<cmd>bnext<CR>]], 'Next buffer')
+Keymaps.noremap('n', '<leader>bN', [[<cmd>bprev<CR>]], 'Previous buffer')
 Keymaps.noremap('n', '<leader>bb', [[<cmd>buffers<cr>:b<space>]], 'Open buffer picker')
 Keymaps.noremap('n', '<leader>bq', [[<cmd>bd<cr>]], 'Close buffer')
 Keymaps.noremap('n', '<leader>bd', [[<cmd>bd<cr>]], 'Close buffer')
@@ -28,12 +32,17 @@ Keymaps.noremap('n', '<leader>bd', [[<cmd>bd<cr>]], 'Close buffer')
 -- `'"`  - reset cursor position after all of this
 Keymaps.noremap('n', '<leader>bo', [[<cmd>%bd|e#|bd#<cr>|`"]], 'Close all buffers except current')
 
+-- NOTE: Trailing Punctuation
+--       (no namespace; <leader>{punctuation})
+
 local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\\', '.' }
 for i = 1, #trailingKeys do
   local key = trailingKeys[i]
   Keymaps.noremap('n', '<leader>' .. key, 'mzA' .. key .. '<Esc>`z', 'Add ' .. key .. ' to end of current line')
 end
 Keymaps.noremap('n', 'X', 'mz$"_x`z') -- Remove last character from line
+
+-- NOTE: System Copy/Paste (<leader>y/c/d/p)
 
 -- Better copy && paste
 local copyPasteModes = { 'n', 'x' }
