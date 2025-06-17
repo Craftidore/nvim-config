@@ -1,4 +1,5 @@
-if vim.env['MACHMOTION'] == nil then
+local utils = require('utils')
+if not utils.is_machmotion() then
   -- Returning nil yields 'true' when requiring
   return false
 end

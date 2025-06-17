@@ -24,4 +24,9 @@ Utils.kfilter = function(t, filterIter)
   return out
 end
 
+Utils.is_machmotion = function()
+  local MACHMOTION = vim.env['MACHMOTION']
+  return MACHMOTION ~= nil and MACHMOTION ~= 'false'
+end
+
 return Utils
