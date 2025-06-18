@@ -7,7 +7,7 @@ end
 local SvnGutter = {
   'mhinz/vim-signify',
   config = function()
-    vim.cmd([[set updatetime=100]])
+    vim.o.updatetime = 100
   end,
 }
 

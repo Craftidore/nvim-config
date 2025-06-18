@@ -6,6 +6,28 @@ I may have fixed that now, I'm not sure.
 
 When upgrading from the old config, you may need to delete the `~/.local/share/nvim/mason/` directory.
 
+## Keybind Namespaces
+
+- `<leader>b`: buffer commands
+- `<leader>t`: Telescope
+- `<leader>l`: LSP
+- `<leader>h`: Harpoon
+- `<leader>lt`: LSP-Telescope
+- `<leader>o`: Open XXX
+- `<leader>u`: Run XXX/Util
+- `<leader>y/c/d/p/Y/C/D/P`: system copy, cut and paste
+- `<C-w>`: window/split/tab commands
+- Uncategorized: (worth remapping elsewhere)
+    - `<leader>w/e/b`: spider-motion
+    - `ZF`: Write buffer
+    - `jj`/`jk`: Esc alternate option
+    - `<leader>zz`: z= alias (with whichkey)
+    - `<leader>a`: Copy entire buffer
+    - `<leader>gu`: lowercase most recent capital letter
+    - `<leader>f`: format buffer
+    - `X`: Delete char from end of line
+    - `s`/`S`: leap.nvim
+
 ## MachMotion
 
 I don't keep a separate config for doing work for my job.
@@ -16,3 +38,4 @@ MACHMOTION='true'
 ```
 
 An additional dependency of `svn` is necessary when doing work for MachMotion.
+

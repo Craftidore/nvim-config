@@ -2,9 +2,9 @@ local WhichKey = {
   'folke/which-key.nvim',
   event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
   opts = {
+    preset = 'helix', -- display in bottom-right corner
     -- delay between pressing a key and opening which-key (milliseconds)
     -- this setting is independent of vim.o.timeoutlen
-    preset = 'helix',
     delay = 0,
     icons = {
       mappings = vim.g.have_nerd_font,
@@ -59,8 +59,13 @@ local WhichKey = {
 
     -- Document existing key chains
     spec = {
-      { '<leader>s', group = '[T]elescope' },
-      -- { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      { '<leader>t', group = '[T]elescope' },
+      { '<leader>b', group = '[B]uffer' },
+      { '<leader>h', group = '[H]arpoon' },
+      { '<leader>l', group = '[L]SP' },
+      { '<leader>lt', group = '[L]SP-Telescope' },
+      { '<leader>o', group = '[O]pen' },
+      { '<leader>u', group = 'Run [U]tility' },
     },
     win = {
       wo = {

@@ -1,3 +1,4 @@
+-- Must be a <cmd> / <cr> thing to be dot-repeatable
 local function makeCmd(str)
   return '<cmd>' .. str .. '<cr>'
 end

@@ -27,42 +27,46 @@ local LspConfig = {
       callback = function(event)
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
-          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
         end
 
         local popupOpts = { border = 'rounded' }
 
         -- Rename variable
-        map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+        map('<leader>lr', vim.lsp.buf.rename, '[L]SP: [r]ename')
 
         -- Execute a code action, usually fixing errors
-        map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+        map('<leader>la', vim.lsp.buf.code_action, '[L]SP: Code [a]ction', { 'n', 'x' })
 
         -- Find references
-        map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        map('<leader>lf', require('telescope.builtin').lsp_references, '[L]SP: Goto Re[f]erences')
 
         -- Jump to the implementation
-        map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        map('<leader>li', require('telescope.builtin').lsp_implementations, '[L]SP: Goto [i]mplementation')
 
         -- Jump to the definition
         --  To jump back, press <C-t>.
-        map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        map('<leader>ltd', require('telescope.builtin').lsp_definitions, '[L]SP: [T]elescope [D]efinitions')
 
         -- Goto declaration (like c header file)
-        map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        map('<leader>ld', vim.lsp.buf.declaration, '[L]SP: Goto [D]eclaration')
 
         -- Fuzzy find symbols in current document.
-        map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
+        map('<leader>ltb', require('telescope.builtin').lsp_document_symbols, '[L]SP: [T]elescope [B]uffer Symbols')
 
         -- Fuzzy find all symbols in workspace.
-        map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
+        map(
+          '<leader>ltw',
+          require('telescope.builtin').lsp_dynamic_workspace_symbols,
+          '[L]SP: [T]elescope [W]orkspace Symbols'
+        )
 
         -- Jump to type
-        map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+        map('<leader>ltt', require('telescope.builtin').lsp_type_definitions, '[L]SP: [T]elescope [T]ype Definitions')
 
-        map('grs', function()
+        map('<leader>ls', function()
           vim.lsp.buf.hover(popupOpts)
-        end, '[G] hove[R] detail[S]')
+        end, '[L]SP: Hover detail[s]')
 
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
         ---@param client vim.lsp.Client
@@ -109,9 +113,9 @@ local LspConfig = {
           })
         end
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-          map('<leader>gh', function()
+          map('<leader>lh', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-          end, '[T]oggle Inlay [H]ints')
+          end, '[L]SP: Toggle Inlay [h]ints')
         end
       end,
     })

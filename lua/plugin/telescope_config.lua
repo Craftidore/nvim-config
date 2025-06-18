@@ -31,7 +31,7 @@ local TelescopeConfig = {
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
 
-    function default_theme(additional_opts)
+    local function default_theme(additional_opts)
       local opts = {
         winblend = 30,
       }
@@ -42,7 +42,7 @@ local TelescopeConfig = {
       end
       return opts
     end
-    function buf_theme(additional_opts)
+    local function buf_theme(additional_opts)
       local opts = {
         winblend = 30,
         previewer = false,
@@ -54,7 +54,7 @@ local TelescopeConfig = {
       end
       return dropdown(opts)
     end
-    function file_theme(additional_opts)
+    local function file_theme(additional_opts)
       local opts = {
         winblend = 30,
         previewer = true,
@@ -67,7 +67,7 @@ local TelescopeConfig = {
       return dropdown(opts)
     end
 
-    function themed(picker, theme, theme_opts)
+    local function themed(picker, theme, theme_opts)
       if theme == nil then
         return function()
           return picker(default_theme(theme_opts))
@@ -118,23 +118,23 @@ local TelescopeConfig = {
       'n',
       '<leader>tb',
       themed(builtin.buffers, default_theme),
-      { desc = 'Telescope search existing [B]uffers' }
-    )
-    vim.keymap.set(
-      'n',
-      '<leader>/',
-      themed(builtin.current_buffer_fuzzy_find, buf_theme),
-      { desc = '[/] Fuzzily search in current buffer' }
+      { desc = '[T]elescope search existing [B]uffers' }
     )
     vim.keymap.set(
       'n',
       '<leader>t/',
-      themed(builtin.live_grep, default_theme, {
-        grep_open_files = true,
-        prompt_title = 'Live Grep',
-      }),
-      { desc = '[T]elescope search [/] open files' }
+      themed(builtin.current_buffer_fuzzy_find, buf_theme),
+      { desc = '[T]elescope Fuzzily search [/] in current buffer' }
     )
+    -- vim.keymap.set(
+    --   'n',
+    --   '<leader>tg/',
+    --   themed(builtin.live_grep, default_theme, {
+    --     grep_open_files = true,
+    --     prompt_title = 'Live Grep',
+    --   }),
+    --   { desc = '[T]elescope search [/] open files' }
+    -- )
     vim.keymap.set(
       'n',
       '<leader>tn',

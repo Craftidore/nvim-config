@@ -12,7 +12,7 @@ end
 
 -- NOTE: Primary Behavior
 
-Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]])
+Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]], 'Save current buffer')
 
 Keymaps.noremap('i', 'jj', '<Esc>', 'Switch to normal mode')
 Keymaps.noremap('i', 'jk', '<Esc>', 'Switch to normal mode')
@@ -35,12 +35,11 @@ Keymaps.noremap('n', '<leader>bo', [[<cmd>%bd|e#|bd#<cr>|`"]], 'Close all buffer
 -- NOTE: Trailing Punctuation
 --       (no namespace; <leader>{punctuation})
 
-local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\\', '.' }
+local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\\', '/', '.' }
 for i = 1, #trailingKeys do
   local key = trailingKeys[i]
   Keymaps.noremap('n', '<leader>' .. key, 'mzA' .. key .. '<Esc>`z', 'Add ' .. key .. ' to end of current line')
 end
-Keymaps.noremap('n', 'X', 'mz$"_x`z') -- Remove last character from line
 
 -- NOTE: System Copy/Paste (<leader>y/c/d/p)
 
@@ -52,6 +51,8 @@ for _, m in ipairs(copyPasteModes) do
     Keymaps.noremap(m, '<leader>' .. k, '"+' .. k, 'Perform ' .. k .. ' to system clipboard')
   end
 end
+
+-- NOTE: Other/Misc (Needs Review)
 
 Keymaps.silent('n', '<leader>gu', 'mz?[a-z]<cr><cmd>nohl<cr>gul`z', 'Lowercase latest uppercase letter')
 
@@ -65,3 +66,5 @@ Keymaps.noremap('n', '<leader>zz', '<cmd>WhichKey<cr>z=', 'Open Spell Suggest Pi
 Keymaps.noremap('n', '<C-w>t', '<cmd>tab split<CR>', 'Zoom in on current buffer')
 -- alias, for muscle memory
 Keymaps.noremap('n', '<C-w>z', '<cmd>tab split<CR>', 'Zoom in on current buffer')
+-- Remove last character from line
+Keymaps.noremap('n', 'X', 'mz$"_x`z')

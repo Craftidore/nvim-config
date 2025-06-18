@@ -1,5 +1,8 @@
 local Oil = {
   'stevearc/oil.nvim',
+  keys = {
+    { '<leader>o.', '<cmd>Oil .<cr>', mode = 'n', desc = 'Open Oil in current directory' },
+  },
   opts = {},
   -- Optional dependencies
   -- dependencies = { { 'echasnovski/mini.icons', opts = {} } },

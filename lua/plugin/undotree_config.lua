@@ -1,9 +1,9 @@
 local UndoTree = {
   'jiaoshijie/undotree',
   dependencies = 'nvim-lua/plenary.nvim',
-  config = true,
+  opts = {},
   keys = { -- load the plugin only when using it's keybinding:
-    { '<leader>gz', "<cmd>lua require('undotree').toggle()<cr>" },
+    { '<leader>ou', "<cmd>lua require('undotree').toggle()<cr>", mode = 'n', desc = '[O]pen [U]ndotree' },
   },
 }
 
