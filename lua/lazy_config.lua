@@ -85,6 +85,8 @@ local plugins = {
 
   require('plugin.harpoon_config'),
 
+  require('plugin.marks_config'), -- Currently only used for signcol marks, no mappings
+
   -- MachMotion:
   require('plugin.svngutter_config'),
 }
