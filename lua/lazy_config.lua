@@ -72,6 +72,7 @@ local plugins = {
   require('lsp').lspconfig,
   require('lsp').conform,
   require('lsp').blink,
+  require('lsp').nvimlint,
 
   -- not quite lsp, but so close
   require('lsp.treesitter_config'),
