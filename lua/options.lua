@@ -1,6 +1,8 @@
 local g = vim.g
 local o = vim.o
 local opt = vim.opt
+local utils = require('utils')
+vim.g.utils = utils
 
 -- Leader key
 g.mapleader = ' '
@@ -46,12 +48,27 @@ o.confirm = true
 local textMax = 80
 opt.colorcolumn = { textMax }
 
+-- Fold source-of-truth:
+
+-- See https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
+opt.foldmethod = 'indent'
+utils.defer.add_defered(function()
+  if utils.has_plugin('nvim-treesitter') then
+    opt.foldmethod = 'expr'
+    opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  end
+end, 'nvim-treesitter')
+opt.foldtext = '' --  just use the normal line with TS syntax highlighting
+opt.foldlevel = 99
+opt.foldlevelstart = 1
+opt.foldnestmax = 4
+
 -- NOTE: Handled by plugin
 -- local tab_options = { "tabstop",
 --     "softtabstop", "shiftwidth" }
 -- -- opt.vartabstop = {2,4,4,4,8,20}
 -- local tab_width = 2
 -- for i = 1, #tab_options do
--- 	opt[tab_options[i]] = tab_width
+--   opt[tab_options[i]] = tab_width
 -- end
 -- opt.expandtab = true

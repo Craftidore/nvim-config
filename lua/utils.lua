@@ -53,4 +53,38 @@ Utils.which_key = function(fn, err)
   end, err)
 end
 
+Utils.has_plugin = function(plugin_path)
+  local success = true
+  local err = function()
+    success = false
+  end
+  xpcall(function()
+    local _ = require(plugin_path)
+  end, err)
+  return success
+end
+
+Utils.defer = {}
+Utils.defer._deferred = { generic = {} }
+Utils.defer.add_defered = function(fn, label)
+  if label == nil then
+    label = 'generic'
+  end
+  if Utils.defer._deferred[label] == nil then
+    Utils.defer._deferred[label] = {}
+  end
+  table.insert(Utils.defer._deferred[label], fn)
+end
+Utils.defer.run = function(label)
+  if label == nil then
+    label = 'generic'
+  end
+  if Utils.defer._deferred[label] == nil then
+    return
+  end
+  for _, v in ipairs(Utils.defer._deferred[label]) do
+    v()
+  end
+end
+
 return Utils

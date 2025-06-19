@@ -1,3 +1,4 @@
+local utils = require('utils')
 local TreesitterConfig = {
 
   -- Other plugins
@@ -6,6 +7,7 @@ local TreesitterConfig = {
   -- - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 
   'nvim-treesitter/nvim-treesitter',
+  lazy = false,
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
   opts = {
