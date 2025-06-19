@@ -48,6 +48,11 @@ local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\
 for i = 1, #trailingKeys do
   local key = trailingKeys[i]
   Keymaps.noremap('n', '<leader>' .. key, 'mzA' .. key .. '<Esc>`z', 'Add ' .. key .. ' to end of current line')
+  utils.which_key(function(whichkey)
+    whichkey.add({
+      { '<leader>' .. key, hidden = true },
+    })
+  end)
 end
 
 -- NOTE: System Copy/Paste (<leader>y/c/d/p)
@@ -58,6 +63,11 @@ local copyPasteKeys = { 'y', 'Y', 'p', 'P', 'd', 'D', 'c', 'C' }
 for _, m in ipairs(copyPasteModes) do
   for _, k in ipairs(copyPasteKeys) do
     Keymaps.noremap(m, '<leader>' .. k, '"+' .. k, 'Perform ' .. k .. ' to system clipboard')
+    utils.which_key(function(whichkey)
+      whichkey.add({
+        { '<leader>' .. k, hidden = true },
+      })
+    end)
   end
 end
 

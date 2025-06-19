@@ -43,4 +43,14 @@ Utils.is_machmotion = function()
   return MACHMOTION ~= nil and MACHMOTION ~= 'false'
 end
 
+Utils.which_key = function(fn, err)
+  if err == nil then
+    err = function(_) end
+  end
+  xpcall(function()
+    local whichkey = require('which-key')
+    fn(whichkey)
+  end, err)
+end
+
 return Utils

@@ -73,9 +73,8 @@ local plugins = {
   require('lsp').conform,
   require('lsp').blink,
   require('lsp').nvimlint,
-
   -- not quite lsp, but so close
-  require('lsp.treesitter_config'),
+  require('lsp').treesitter,
 
   -- Other
   require('plugin.todo_comments_config'),

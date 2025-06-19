@@ -4,12 +4,12 @@ local ConformConfig = { -- Autoformat
   cmd = { 'ConformInfo' },
   keys = {
     {
-      '<leader>fb',
+      '<leader>lf',
       function()
         require('conform').format({ async = true, lsp_format = 'fallback' })
       end,
       mode = '',
-      desc = '[F]ormat [b]uffer',
+      desc = '[L]SP: [F]ormat buffer',
     },
   },
   opts = {
