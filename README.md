@@ -8,6 +8,7 @@ When upgrading from the old config, you may need to delete the `~/.local/share/n
 
 ## Keybind Namespaces
 
+- `<leader>s`: spider motions
 - `<leader>b`: buffer commands
 - `<leader>t`: Telescope
 - `<leader>l`: LSP
@@ -21,10 +22,6 @@ When upgrading from the old config, you may need to delete the `~/.local/share/n
     - `<leader>w/e/b`: spider-motion
     - `ZF`: Write buffer
     - `jj`/`jk`: Esc alternate option
-    - `<leader>zz`: z= alias (with whichkey)
-    - `<leader>a`: Copy entire buffer
-    - `<leader>gu`: lowercase most recent capital letter
-    - `<leader>f`: format buffer
     - `X`: Delete char from end of line
     - `s`/`S`: leap.nvim
 

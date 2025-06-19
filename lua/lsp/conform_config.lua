@@ -4,12 +4,12 @@ local ConformConfig = { -- Autoformat
   cmd = { 'ConformInfo' },
   keys = {
     {
-      '<leader>f',
+      '<leader>fb',
       function()
         require('conform').format({ async = true, lsp_format = 'fallback' })
       end,
       mode = '',
-      desc = '[F]ormat buffer',
+      desc = '[F]ormat [b]uffer',
     },
   },
   opts = {
@@ -30,6 +30,7 @@ local ConformConfig = { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      cpp = { 'clangd' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

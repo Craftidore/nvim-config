@@ -1,21 +1,30 @@
-Keymaps = {}
-local keymap = vim.keymap.set
-function Keymaps.noremap(mode, lhs, rhs, desc)
-  if desc == nil then
-    desc = 'No description provided'
-  end
-  keymap(mode, lhs, rhs, { noremap = true, desc = desc })
-end
-function Keymaps.silent(mode, lhs, rhs)
-  keymap(mode, lhs, rhs, { noremap = true, silent = true })
-end
+local utils = require('utils')
+local Keymaps = utils.keymaps
 
--- NOTE: Primary Behavior
+-- NOTE: Primary Behavior (No-namespace)
 
-Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]], 'Save current buffer')
+Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]], 'Save current buffer (like ZZ)')
 
 Keymaps.noremap('i', 'jj', '<Esc>', 'Switch to normal mode')
 Keymaps.noremap('i', 'jk', '<Esc>', 'Switch to normal mode')
+
+-- - `s`/`S`: Leap.nvim
+-- - `X`: Kill last character
+-- - `x`: Available for use
+
+-- Remove last character from line
+Keymaps.noremap('n', 'X', 'mz$"_x`z', 'Kill [X] the last character on the line')
+
+-- NOTE: Namespaces
+
+Keymaps.noremap('n', '<leader>s', '<NOP>', 'Namespace No-Op')
+Keymaps.noremap('n', '<leader>b', '<NOP>', 'Namespace No-Op')
+Keymaps.noremap('n', '<leader>t', '<NOP>', 'Namespace No-Op')
+Keymaps.noremap('n', '<leader>l', '<NOP>', 'Namespace No-Op')
+Keymaps.noremap('n', '<leader>h', '<NOP>', 'Namespace No-Op')
+Keymaps.noremap('n', '<leader>o', '<NOP>', 'Namespace No-Op')
+Keymaps.noremap('n', '<leader>u', '<NOP>', 'Namespace No-Op')
+Keymaps.noremap('n', '<leader>lt', '<NOP>', 'Namespace No-Op')
 
 -- NOTE: Buffer Commands (namespace: <leader>b)
 
@@ -52,19 +61,23 @@ for _, m in ipairs(copyPasteModes) do
   end
 end
 
--- NOTE: Other/Misc (Needs Review)
+-- NOTE: Utility:
 
-Keymaps.silent('n', '<leader>gu', 'mz?[a-z]<cr><cmd>nohl<cr>gul`z', 'Lowercase latest uppercase letter')
+Keymaps.noremap('n', '<leader>uu', '<NOP>', '[U]til: Cancel util run without undo')
+Keymaps.noremap('n', '<leader>uh', '<CMD>nohl<CR>', '[U]til: Turn search [h]ighlighting off')
+Keymaps.noremap('n', '<leader>ucl', 'mz?[a-z]<cr><cmd>nohl<cr>gul`z', '[U]til: Lowercase latest upper[c]ase [l]etter')
 
 -- Better copy-all
-Keymaps.silent('n', '<leader>a', 'mzggVG"+y`z', 'Copy entire buffer')
+Keymaps.noremap('n', '<leader>ua', 'mzggVG"+y`z', '[U]til: Copy [a]ll of the buffer to clipboard')
 
--- Better z=
-Keymaps.noremap('n', '<leader>zz', '<cmd>WhichKey<cr>z=', 'Open Spell Suggest Picker (z= alias)')
+-- NOTE: Window
 
 -- Tmux "Zoom"-y equivalent
-Keymaps.noremap('n', '<C-w>t', '<cmd>tab split<CR>', 'Zoom in on current buffer')
+Keymaps.noremap('n', '<C-w>t', '<cmd>tab split<CR>', '[W]indow: Zoom in on current buffer (opens [t]ab)')
 -- alias, for muscle memory
-Keymaps.noremap('n', '<C-w>z', '<cmd>tab split<CR>', 'Zoom in on current buffer')
--- Remove last character from line
-Keymaps.noremap('n', 'X', 'mz$"_x`z')
+Keymaps.noremap('n', '<C-w>z', '<cmd>tab split<CR>', '[W]indow: [z]oom in on current buffer (opens tab)')
+
+-- NOTE: Open
+
+-- Better z=
+Keymaps.noremap('n', '<leader>oz', '<cmd>WhichKey<cr>z=', '[O]pen Spell Suggest Picker ([z]= alias)')

@@ -1,4 +1,18 @@
 local Utils = {}
+Utils.keymaps = {}
+(function()
+  local keymap = vim.keymap.set
+  function Utils.keymaps.noremap(mode, lhs, rhs, desc)
+    if desc == nil then
+      desc = 'No description provided'
+    end
+    keymap(mode, lhs, rhs, { noremap = true, desc = desc })
+  end
+
+  function Utils.keymaps.silent(mode, lhs, rhs)
+    keymap(mode, lhs, rhs, { noremap = true, silent = true })
+  end
+end)()
 
 Utils.ifilter = function(t, filterIter)
   local out = {}

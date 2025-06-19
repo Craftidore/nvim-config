@@ -1,21 +1,28 @@
-local defaultModes = { 'n', 'o', 'x' }
-local function spiderMotion(key)
-  return [[<cmd>lua require('spider').motion(']] .. key .. [[')<CR>]]
-end
-
 local SpiderConfig = {
   'chrisgrieser/nvim-spider',
-  keys = {
-    { '<leader>w', spiderMotion('w'), mode = defaultModes },
-    { '<leader>e', spiderMotion('e'), mode = defaultModes },
-    { '<leader>b', spiderMotion('b'), mode = defaultModes },
-  },
-  -- opts = {
-  --   skipInsignificantPunctuation = true,
-  --   consistentOperatorPending = true,
-  --   subwordMovement = true,
-  --   customPatterns = {},
-  -- },
+}
+SpiderConfig.lastSpider = 'w'
+
+local defaultModes = { 'n', 'o', 'x' }
+local function spiderMotion(key)
+  return [[<cmd>lua ]]
+    .. [[require('plugin.spider_config').lastSpider = ]]
+    .. key
+    .. '; '
+    .. [[require('spider').motion(']]
+    .. key
+    .. [[')]]
+    .. [[<CR>]]
+end
+local function doLastSpider()
+  return spiderMotion(SpiderConfig.lastSpider)
+end
+
+SpiderConfig.keys = {
+  { '<leader>sw', spiderMotion('w'), mode = defaultModes, desc = '[S]pider: CamelCase [w]' },
+  { '<leader>se', spiderMotion('e'), mode = defaultModes, desc = '[S]pider: CamelCase [e]' },
+  { '<leader>sb', spiderMotion('b'), mode = defaultModes, desc = '[S]pider: CamelCase [b]' },
+  { '<leader>sn', doLastSpider(), mode = defaultModes, desc = '[S]pider: Repeat last spider command' },
 }
 
 return SpiderConfig
