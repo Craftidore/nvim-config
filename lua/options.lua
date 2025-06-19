@@ -57,7 +57,7 @@ utils.defer.add_defered(function()
     opt.foldmethod = 'expr'
     opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
   end
-end, 'nvim-treesitter')
+end)
 opt.foldtext = '' --  just use the normal line with TS syntax highlighting
 opt.foldlevel = 99
 opt.foldlevelstart = 1
