@@ -15,7 +15,9 @@ local NvimLint = {
         local lint = require('lint')
         lint.try_lint()
         lint.try_lint('typos')
-        lint.try_lint('editorconfig-checker')
+        if vim.b.editorconfig ~= nil then
+          lint.try_lint('editorconfig-checker')
+        end
       end,
     })
   end,
