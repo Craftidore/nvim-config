@@ -12,7 +12,10 @@ local NvimLint = {
       callback = function()
         -- try_lint without arguments runs the linters defined in `linters_by_ft`
         -- for the current filetype
-        require('lint').try_lint()
+        local lint = require('lint')
+        lint.try_lint()
+        lint.try_lint('typos')
+        lint.try_lint('editorconfig-checker')
       end,
     })
   end,
