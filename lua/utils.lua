@@ -87,4 +87,10 @@ Utils.defer.run = function(label)
   end
 end
 
+Utils.marks = {}
+Utils.marks.get_mark_row_col = function(mark)
+  local cur_buf_id = vim.api.nvim_get_current_buf()
+  return vim.api.nvim_buf_get_mark(cur_buf_id, mark)
+end
+
 return Utils

@@ -15,9 +15,27 @@ Keymaps.noremap({ 'n', 'v' }, 'q?', '?', 'Search backwards (normal)')
 Keymaps.noremap({ 'n', 'v' }, ':', 'q:a', 'Vim CMD with buffer editing')
 Keymaps.noremap({ 'n', 'v' }, 'q:', ':', 'Vim CMD (normal)')
 
+-- Not mapped to anything in visual mode
+Keymaps.noremap({ 'v' }, '<C-k>', function()
+  local start_mark = utils.marks.get_mark_row_col('<')
+  local end_mark = utils.marks.get_mark_row_col('>')
+  local diff = end_mark[1] - start_mark[1]
+  local keys = [[<Esc><CMD>'<,'>m '>-]] .. tostring(diff + 2) .. [[<CR>gv=gv]]
+  local keys_escaped = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  vim.api.nvim_feedkeys(keys_escaped, 'v', false)
+end, 'Move selected lines up')
+Keymaps.noremap({ 'v' }, '<C-j>', function()
+  local start_mark = utils.marks.get_mark_row_col('<')
+  local end_mark = utils.marks.get_mark_row_col('>')
+  local diff = end_mark[1] - start_mark[1]
+  local keys = [[<Esc><CMD>'<,'>m '<+]] .. tostring(diff + 1) .. [[<CR>gv=gv]]
+  local keys_escaped = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  vim.api.nvim_feedkeys(keys_escaped, 'v', false)
+end, 'Move selected lines down')
+
 -- - `s`/`S`: Leap.nvim
 -- - `X`: Kill last character
--- - `x`: Available for use
+-- - `x`: ~~Available for use~~ ok, I do actually use this
 
 -- Remove last character from line
 Keymaps.noremap('n', 'X', 'mz$"_x`z', 'Kill [X] the last character on the line')
