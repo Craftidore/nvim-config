@@ -7,7 +7,7 @@ local MiniConfig = {
     --  - va)  - [V]isually select [A]round [)]paren
     --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
     --  - ci'  - [C]hange [I]nside [']quote
-    require('mini.ai').setup({ n_lines = 500 })
+    -- require('mini.ai').setup({ n_lines = 500 })
 
     -- Simple and easy statusline.
     local statusline = require('mini.statusline')
@@ -20,9 +20,26 @@ local MiniConfig = {
     end
 
     -- ... and there is more!
-    require('mini.starter').setup()
-    require('mini.tabline').setup()
-    -- require('mini.files').setup()
+    local starter = require('mini.starter')
+    starter.setup({
+
+      content_hooks = {
+        starter.gen_hook.adding_bullet(),
+        starter.gen_hook.aligning('center', 'center'),
+      },
+      query_updaters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-.',
+      silent = true,
+    })
+    local tabline = require('mini.tabline')
+    tabline.setup({
+      show_icons = true,
+      function(buf_id, label)
+        local suffix = vim.bo[buf_id].modified and '* ' or ''
+        return MiniTabline.default_format(buf_id, label) .. suffix
+      end,
+      tabpage_section = 'left',
+    }) -- Perfect status line for my needs
+    -- require('mini.files').setup() -- I like Oil better
     -- require('mini.notify').setup() -- I like fidget better...
   end,
 }

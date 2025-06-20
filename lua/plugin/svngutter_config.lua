@@ -6,6 +6,7 @@ end
 
 local SvnGutter = {
   'mhinz/vim-signify',
+  event = 'VeryLazy',
   config = function()
     vim.o.updatetime = 100
   end,

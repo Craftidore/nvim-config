@@ -79,52 +79,52 @@ local TelescopeConfig = {
     end
 
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>th', themed(builtin.help_tags, buf_theme), { desc = '[T]elescope search [H]elp' })
-    vim.keymap.set('n', '<leader>tk', themed(builtin.keymaps, default_theme), { desc = '[T]elescope search [K]eymaps' })
-    vim.keymap.set('n', '<leader>tf', themed(builtin.find_files, file_theme), { desc = '[T]elescope search [F]iles' })
+    vim.keymap.set('n', '<leader>th', themed(builtin.help_tags, buf_theme), { desc = 'Telescope search [H]elp' })
+    vim.keymap.set('n', '<leader>tk', themed(builtin.keymaps, default_theme), { desc = 'Telescope search [K]eymaps' })
+    vim.keymap.set('n', '<leader>tf', themed(builtin.find_files, file_theme), { desc = 'Telescope search [F]iles' })
     vim.keymap.set(
       'n',
       '<leader>tt',
       themed(builtin.builtin, file_theme),
-      { desc = '[T]elescope search select [T]elescope' }
+      { desc = 'Telescope search select [t]elescope' }
     )
     vim.keymap.set(
       'n',
       '<leader>tc',
       themed(builtin.colorscheme, file_theme),
-      { desc = '[T]elescope search [C]olorscheme' }
+      { desc = 'Telescope search [C]olorscheme' }
     )
     vim.keymap.set(
       'n',
       '<leader>tw',
       themed(builtin.grep_string, buf_theme),
-      { desc = '[T]elescope search current [W]ord' }
+      { desc = 'Telescope search current [W]ord' }
     )
-    vim.keymap.set('n', '<leader>tg', themed(builtin.live_grep, buf_theme), { desc = '[T]elescope search by [G]rep' })
+    vim.keymap.set('n', '<leader>tg', themed(builtin.live_grep, buf_theme), { desc = 'Telescope search by [G]rep' })
     vim.keymap.set(
       'n',
       '<leader>td',
       themed(builtin.diagnostics, file_theme),
-      { desc = '[T]elescope search [D]iagnostics' }
+      { desc = 'Telescope search [D]iagnostics' }
     )
-    vim.keymap.set('n', '<leader>tr', builtin.resume, { desc = '[T]elescope search [R]esume' })
+    vim.keymap.set('n', '<leader>tr', builtin.resume, { desc = 'Telescope search [R]esume' })
     vim.keymap.set(
       'n',
       '<leader>t.',
       themed(builtin.oldfiles, file_theme),
-      { desc = '[T]elescope search Recent Files ("." for repeat)' }
+      { desc = 'Telescope search Recent Files ("." for repeat)' }
     )
     vim.keymap.set(
       'n',
       '<leader>tb',
       themed(builtin.buffers, default_theme),
-      { desc = '[T]elescope search existing [B]uffers' }
+      { desc = 'Telescope search existing [B]uffers' }
     )
     vim.keymap.set(
       'n',
       '<leader>t/',
       themed(builtin.current_buffer_fuzzy_find, buf_theme),
-      { desc = '[T]elescope Fuzzily search [/] in current buffer' }
+      { desc = 'Telescope Fuzzily search [/] in current buffer' }
     )
     -- vim.keymap.set(
     --   'n',
@@ -133,7 +133,7 @@ local TelescopeConfig = {
     --     grep_open_files = true,
     --     prompt_title = 'Live Grep',
     --   }),
-    --   { desc = '[T]elescope search [/] open files' }
+    --   { desc = 'Telescope search [/] open files' }
     -- )
     vim.keymap.set(
       'n',
@@ -141,7 +141,7 @@ local TelescopeConfig = {
       themed(builtin.find_files, file_theme, {
         cwd = vim.fn.stdpath('config'),
       }),
-      { desc = '[T]elescope search [N]eovim config' }
+      { desc = 'Telescope search [N]eovim config' }
     )
   end,
 }

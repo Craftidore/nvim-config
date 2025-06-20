@@ -60,7 +60,7 @@ local WhichKey = {
     -- Document existing key chains
     spec = {
       { '<leader>s', group = '[S]pider Motions' },
-      { '<leader>t', group = '[T]elescope' },
+      { '<leader>t', group = 'Telescope' },
       { '<leader>b', group = '[B]uffer' },
       { '<leader>h', group = '[H]arpoon' },
       { '<leader>l', group = '[L]SP' },

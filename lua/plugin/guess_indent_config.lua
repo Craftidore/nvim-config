@@ -1,6 +1,6 @@
 local GuessIndentConfig = {
   'NMAC427/guess-indent.nvim',
-  lazy = false,
+  event = 'BufEnter',
   keys = {
     { '<leader>ui', '<CMD>GuessIndent<CR>', mode = 'n', desc = 'Guess Indent' },
   },
