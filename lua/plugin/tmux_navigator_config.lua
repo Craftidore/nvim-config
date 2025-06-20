@@ -1,5 +1,8 @@
+-- NOTE: I was running into issues with nvim inside
+--       of a podman/distrobox container screwing things up
 local TmuxNavigatorConfig = {
   'christoomey/vim-tmux-navigator',
+  enabled = false,
   cmd = {
     'TmuxNavigateLeft',
     'TmuxNavigateDown',
