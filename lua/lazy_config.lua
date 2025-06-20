@@ -87,6 +87,8 @@ local plugins = {
 
   require('plugin.marks_config'), -- Currently only used for signcol marks, no mappings
 
+  require('plugin.tmux_navigator_config'),
+
   -- MachMotion:
   require('plugin.svngutter_config'),
 }

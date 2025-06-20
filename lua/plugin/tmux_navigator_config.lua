@@ -1,0 +1,20 @@
+local TmuxNavigatorConfig = {
+  'christoomey/vim-tmux-navigator',
+  cmd = {
+    'TmuxNavigateLeft',
+    'TmuxNavigateDown',
+    'TmuxNavigateUp',
+    'TmuxNavigateRight',
+    'TmuxNavigatePrevious',
+    'TmuxNavigatorProcessList',
+  },
+  keys = {
+    { '<c-w><c-h>', '<cmd>TmuxNavigateLeft<cr>' },
+    { '<c-w><c-j>', '<cmd>TmuxNavigateDown<cr>' },
+    { '<c-w><c-k>', '<cmd>TmuxNavigateUp<cr>' },
+    { '<c-w><c-l>', '<cmd>TmuxNavigateRight<cr>' },
+    { '<c-w><c-\\>', '<cmd>TmuxNavigatePrevious<cr>' },
+  },
+}
+
+return TmuxNavigatorConfig
