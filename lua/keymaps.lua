@@ -9,11 +9,8 @@ Keymaps.noremap('i', 'jj', '<Esc>', 'Switch to normal mode')
 Keymaps.noremap('i', 'jk', '<Esc>', 'Switch to normal mode')
 
 Keymaps.noremap({ 'n', 'v' }, '/', 'q/a', 'Search forwards with buffer editing')
-Keymaps.noremap({ 'n', 'v' }, 'q/', '/', 'Search forwards (normal)')
 Keymaps.noremap({ 'n', 'v' }, '?', 'q?a', 'Search backwards with buffer editing')
-Keymaps.noremap({ 'n', 'v' }, 'q?', '?', 'Search backwards (normal)')
 Keymaps.noremap({ 'n', 'v' }, ':', 'q:a', 'Vim CMD with buffer editing')
-Keymaps.noremap({ 'n', 'v' }, 'q:', ':', 'Vim CMD (normal)')
 
 -- Not mapped to anything in visual mode
 Keymaps.noremap({ 'v' }, '<C-k>', function()
