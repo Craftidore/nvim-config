@@ -52,7 +52,7 @@ local Harpoon = {
     end, 'Harpoon GoTo 3'),
     makeCmd('<leader>hn', harpoonNext, 'Harpoon next'),
     makeCmd('<leader>hp', harpoonPrev, 'Harpoon prev'),
-    makeCmd('<leader>hs', [[<CMD>b#<CR>]], 'Harpoon: Swap-to-previous-buffer (technically not a harpoon thing)'),
+    makeCmd('<leader>ha', [[<CMD>b#<CR>]], 'Harpoon: Swap-to-previous-buffer (technically not a harpoon thing)'),
   },
 }
 
