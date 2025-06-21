@@ -10,6 +10,9 @@ local LspConfig = {
       'mason-org/mason.nvim',
       tag = 'v2.0.0',
       opts = {},
+      keys = {
+        { '<leader>om', '<CMD>Mason<CR>', mode = 'n', desc = 'Open Mason' },
+      },
     },
     {
       'mason-org/mason-lspconfig.nvim',
@@ -255,11 +258,5 @@ utils.defer.add_deferred(function()
     end
   end
 end, 'which-key')
-
-utils.defer.add_deferred(function()
-  if utils.has_plugin('mason') then
-    utils.keymaps.noremap('n', '<leader>om', '<CMD>Mason<CR>', 'Open Mason')
-  end
-end, 'mason')
 
 return LspConfig

@@ -36,12 +36,9 @@ local TreesitterConfig = {
     },
     indent = { enable = true, disable = { 'ruby' } },
   },
+  keys = {
+    { '<leader>ot', '<CMD>TSInstallInfo<CR>', mode = 'n', desc = 'Open Treesitter Info' },
+  },
 }
-
-utils.defer.add_deferred(function()
-  if utils.has_plugin('nvim-treesitter') then
-    noremap('n', '<leader>ot', '<CMD>TSInstallInfo<CR>', 'Open Treesitter Info')
-  end
-end, 'nvim-treesitter')
 
 return TreesitterConfig

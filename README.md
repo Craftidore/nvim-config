@@ -53,4 +53,18 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - Olical/conjure
 - Separate out util namespaces into separate files
 - See if I can get my MachMotion theme (currently night-owl) to color the mini.status bar orange
+- Require-all-in-directory util function, to populate table
+    - For use with util namespaces
+- Check to see if lazy can load from a folder, and if so, how
+
+## Structure Notes
+
+- General keymaps go in lua/keymaps.lua
+- Plugin specific keymaps go in the plugin config file itself
+    - Preferably as the `keys` param of lazy spec
+    - Barring that, using `utils.keymaps.noremap` inside `config`
+- Post-plugin-load behavior should be listed in the plugin's lazy config as a function deferred on the plugin name
+    - `util.defer.run('plugin-name')` is called in the `after/plugin/plugin-name.lua` file
+    - This is done so post-plugin actions are stored with the config, even though its more verbose
+- LSP-related plugins are complex and such and go in the `lua/lsp` folder instead of the `lua/plugins` folder
 
