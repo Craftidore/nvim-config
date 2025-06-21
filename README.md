@@ -18,12 +18,13 @@ When upgrading from the old config, you may need to delete the `~/.local/share/n
 - `<leader>u`: Run XXX/Util
 - `<leader>y/c/d/p/Y/C/D/P`: system copy, cut and paste
 - `<C-w>`: window/split/tab commands
-- Uncategorized: (worth remapping elsewhere)
-    - `<leader>w/e/b`: spider-motion
+- Uncategorized, but don't currently plan to remap:
     - `ZF`: Write buffer
     - `jj`/`jk`: Esc alternate option
     - `X`: Delete char from end of line
     - `s`/`S`: leap.nvim
+- Uncategorized and need to remap:
+    - Nothing right now
 
 ## MachMotion
 
@@ -41,7 +42,7 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - Investigate abbreviation
 - Surround with mini surround?
 - Investigate sessions (mksession works, but mini.sessions may be better qol wise)
-- ~~See if noice lets me do the vim buffer editing~~
+- ~~See if Noice lets me do the vim buffer editing~~
     - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
 - quick textwidth (80) enable/disable (`gq` to format with textwidth)
 - Fennel Switch
