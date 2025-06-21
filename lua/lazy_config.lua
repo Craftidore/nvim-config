@@ -85,6 +85,8 @@ local plugins = {
 
   require('plugin.harpoon_config'),
 
+  require('plugin.ripgrep_sub_config'),
+
   require('plugin.marks_config'), -- Currently only used for signcol marks, no mappings
 
   -- Disabled because issues inside of podman
