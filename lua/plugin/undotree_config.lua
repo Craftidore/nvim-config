@@ -15,7 +15,7 @@ local UndoTree = {
       'tsplayground',
     },
     window = {
-      winblend = 30,
+      winblend = vim.g.winblend,
     },
     keymaps = {
       ['j'] = 'move_next',

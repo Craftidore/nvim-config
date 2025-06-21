@@ -70,7 +70,7 @@ local WhichKey = {
     },
     win = {
       wo = {
-        winblend = 30,
+        winblend = vim.g.winblend,
       },
     },
   },

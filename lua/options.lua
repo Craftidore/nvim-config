@@ -8,6 +8,9 @@ g.cmdline_auto_height = 3
 -- Used by <leader>oc keymap
 g.quickfix_auto_height = 3
 
+-- Global Winblend, for use with anything that asks for winblend
+g.winblend = 30
+
 -- Leader key
 g.mapleader = ' '
 g.maplocalleader = ' '

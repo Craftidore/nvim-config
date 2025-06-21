@@ -33,7 +33,7 @@ local TelescopeConfig = {
 
     local function default_theme(additional_opts)
       local opts = {
-        winblend = 30,
+        winblend = vim.g.winblend,
       }
       if additional_opts ~= nil then
         for k, v in pairs(additional_opts) do
@@ -44,7 +44,7 @@ local TelescopeConfig = {
     end
     local function buf_theme(additional_opts)
       local opts = {
-        winblend = 30,
+        winblend = vim.g.winblend,
         previewer = false,
       }
       if additional_opts ~= nil then
@@ -56,7 +56,7 @@ local TelescopeConfig = {
     end
     local function file_theme(additional_opts)
       local opts = {
-        winblend = 30,
+        winblend = vim.g.winblend,
         previewer = true,
       }
       if additional_opts ~= nil then
