@@ -2,7 +2,11 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 local utils = require('utils')
-vim.g.utils = utils
+g.utils = utils
+-- Used by c_CTRL-f keymap
+g.cmdline_auto_height = 3
+-- Used by <leader>oc keymap
+g.quickfix_auto_height = 3
 
 -- Leader key
 g.mapleader = ' '

@@ -8,7 +8,12 @@ Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]], 'Save current buffer (like ZZ)')
 Keymaps.noremap('i', 'jj', '<Esc>', 'Switch to normal mode')
 Keymaps.noremap('i', 'jk', '<Esc>', 'Switch to normal mode')
 
-Keymaps.noremap('c', '<C-f>', '<C-f>a', 'Open cmdline-window')
+Keymaps.noremap(
+  'c',
+  '<C-f>',
+  '<C-f><C-w>' .. tostring(vim.g.cmdline_auto_height ~= nil and vim.g.cmdline_auto_height or 3) .. '_a',
+  'Open cmdline-window'
+)
 
 -- Not mapped to anything in visual mode
 Keymaps.noremap({ 'v' }, '<C-k>', function()
@@ -111,4 +116,9 @@ Keymaps.noremap('n', '<C-w>z', '<cmd>tab split<CR>', '[W]indow: [z]oom in on cur
 
 -- Better z=
 Keymaps.noremap('n', '<leader>oz', '<CMD>WhichKey<CR>z=', '[O]pen Spell Suggest Picker ([z]= alias)')
-Keymaps.noremap('n', '<leader>oc', '<CMD>copen<CR>)', '[O]pen Qui[c]kfix (:copen alias)')
+Keymaps.noremap(
+  'n',
+  '<leader>oc',
+  '<CMD>copen<CR><C-w>' .. tostring(vim.g.quickfix_auto_height ~= nil and vim.g.quickfix_auto_height or 3) .. '_',
+  '[O]pen Qui[c]kfix (:copen alias)'
+)
