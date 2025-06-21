@@ -40,3 +40,8 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 - Investigate abbreviation
 - Surround with mini surround?
+- Investigate sessions
+- Keymaps
+    - Open Lazy
+    - Open Mason
+    - Open TS List of things
