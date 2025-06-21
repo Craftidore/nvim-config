@@ -2,6 +2,12 @@ require('options')
 require('lazy_config')
 require('keymaps')
 
-require('utils').defer.run()
+local utils = require('utils')
 
-pcall(vim.cmd, [[colorscheme duskfox]])
+utils.defer.run()
+
+if not utils.is_machmotion() then
+  utils.set_colorscheme('duskfox')
+else
+  utils.set_colorscheme('night-owl')
+end

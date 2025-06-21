@@ -17,20 +17,16 @@ Keymaps.noremap(
 
 -- Not mapped to anything in visual mode
 Keymaps.noremap({ 'v' }, '<C-k>', function()
-  local start_mark = utils.marks.get_mark_row_col('<')
-  local end_mark = utils.marks.get_mark_row_col('>')
-  local diff = end_mark[1] - start_mark[1]
-  local keys = [[<Esc><CMD>'<,'>m '>-]] .. tostring(diff + 2) .. [[<CR>gv=gv]]
-  local keys_escaped = vim.api.nvim_replace_termcodes(keys, true, false, true)
-  vim.api.nvim_feedkeys(keys_escaped, 'v', false)
+  local lines = utils.visual.get_visual_lines()
+  local diff = lines[2] - lines[1]
+  local keys = "<Esc><CMD>'<,'>m '>-" .. tostring(diff + 2) .. '<CR>gv=gv'
+  vim.api.nvim_feedkeys(utils.keys.escape_keys(keys), 'v', false)
 end, 'Move selected lines up')
 Keymaps.noremap({ 'v' }, '<C-j>', function()
-  local start_mark = utils.marks.get_mark_row_col('<')
-  local end_mark = utils.marks.get_mark_row_col('>')
-  local diff = end_mark[1] - start_mark[1]
-  local keys = [[<Esc><CMD>'<,'>m '<+]] .. tostring(diff + 1) .. [[<CR>gv=gv]]
-  local keys_escaped = vim.api.nvim_replace_termcodes(keys, true, false, true)
-  vim.api.nvim_feedkeys(keys_escaped, 'v', false)
+  local lines = utils.visual.get_visual_lines()
+  local diff = lines[2] - lines[1]
+  local keys = "<Esc><CMD>'<,'>m '<+" .. tostring(diff + 1) .. '<CR>gv=gv'
+  vim.api.nvim_feedkeys(utils.keys.escape_keys(keys), 'v', false)
 end, 'Move selected lines down')
 
 -- - `s`/`S`: Leap.nvim

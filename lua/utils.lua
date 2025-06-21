@@ -38,6 +38,40 @@ Utils.kfilter = function(t, filterIter)
   return out
 end
 
+Utils.set_colorscheme = function(colorscheme)
+  -- NOTE: vim.cmd is a table which can be called as a function,
+  -- which gives the LSP grief
+  local function vim_cmd(arg)
+    vim.cmd(arg)
+  end
+  xpcall(vim_cmd, function()
+    vim_cmd('echom Failed to set colorscheme: ' .. tostring(colorscheme))
+  end, 'colorscheme ' .. colorscheme)
+end
+
+Utils.keys = {}
+Utils.keys.escape_keys = function(keys)
+  return vim.api.nvim_replace_termcodes(keys, true, false, true)
+end
+Utils.keys.escape = Utils.keys.escape_keys('<Esc>')
+Utils.keys.cr = Utils.keys.escape_keys('<CR>')
+
+Utils.visual = {}
+Utils.visual.get_visual_lines = function()
+  local curpos_info = vim.fn.getpos('.')
+  local visual_end_info = vim.fn.getpos('v')
+  local start_lnum
+  local end_lnum
+  if curpos_info[2] < visual_end_info[2] then
+    start_lnum = curpos_info[2]
+    end_lnum = visual_end_info[2]
+  else
+    start_lnum = visual_end_info[2]
+    end_lnum = curpos_info[2]
+  end
+  return { start_lnum, end_lnum }
+end
+
 Utils.is_machmotion = function()
   local MACHMOTION = vim.env['MACHMOTION']
   return MACHMOTION ~= nil and MACHMOTION ~= 'false'
