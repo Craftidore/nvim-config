@@ -1,0 +1,11 @@
+{
+  "Method": {
+    "prefix": "method",
+    "description": "Function Method",
+    "body": [
+      "${1:return-type} ${2:class-name}::${3:method-name}(${4}) {",
+      "${5}",
+      "}"
+    ]
+  }
+}
