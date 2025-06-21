@@ -151,6 +151,6 @@ utils.defer.add_deferred(function()
       { '<leader>t', group = '[T]elescope' },
     })
   end
-end, 'lazy')
+end, 'which-key')
 
 return TelescopeConfig

@@ -66,7 +66,7 @@ utils.defer.add_deferred(function()
   utils.keymaps.wk_add({
     { '<leader>b', group = '[B]uffer' },
   })
-end, 'lazy')
+end, 'which-key')
 
 -- NOTE: Trailing Punctuation
 --       (no namespace; <leader>{punctuation})
@@ -75,11 +75,11 @@ local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\
 for i = 1, #trailingKeys do
   local key = trailingKeys[i]
   Keymaps.noremap('n', '<leader>' .. key, 'mzA' .. key .. '<Esc>`z', 'Add ' .. key .. ' to end of current line')
-  utils.which_key(function(whichkey)
-    whichkey.add({
+  utils.defer.add_deferred(function()
+    utils.keymaps.wk_add({
       { '<leader>' .. key, hidden = true },
     })
-  end)
+  end, 'which-key')
 end
 
 -- NOTE: System Copy/Paste (<leader>y/c/d/p)
@@ -90,11 +90,11 @@ local copyPasteKeys = { 'y', 'Y', 'p', 'P', 'd', 'D', 'c', 'C' }
 for _, m in ipairs(copyPasteModes) do
   for _, k in ipairs(copyPasteKeys) do
     Keymaps.noremap(m, '<leader>' .. k, '"+' .. k, 'Perform ' .. k .. ' to system clipboard')
-    utils.which_key(function(whichkey)
-      whichkey.add({
+    utils.defer.add_deferred(function()
+      utils.keymaps.wk_add({
         { '<leader>' .. k, hidden = true },
       })
-    end)
+    end, 'which-key')
   end
 end
 
@@ -111,7 +111,7 @@ utils.defer.add_deferred(function()
   utils.keymaps.wk_add({
     { '<leader>u', group = 'Run [U]tility' },
   })
-end, 'lazy')
+end, 'which-key')
 
 Keymaps.noremap('n', '<leader>uu', '<NOP>', 'Util: Cancel util run without undo')
 Keymaps.noremap('n', '<leader>uh', '<CMD>nohl<CR>', 'Util: Turn search [h]ighlighting off')
@@ -124,9 +124,9 @@ Keymaps.noremap('n', '<leader>ua', 'mzggVG"+y`z', 'Util: Copy [a]ll of the buffe
 
 utils.defer.add_deferred(function()
   utils.keymaps.wk_add({
-    { '<leader>o', group = 'Open' },
+    { '<leader>o', group = '[O]pen' },
   })
-end, 'lazy')
+end, 'which-key')
 
 -- Better z=
 Keymaps.noremap('n', '<leader>oz', '<CMD>WhichKey<CR>z=', 'Open Spell Suggest Picker ([z]= alias)')

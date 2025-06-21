@@ -32,6 +32,6 @@ utils.defer.add_deferred(function()
       { '<leader>s', group = '[S]pider Motions' },
     })
   end
-end, 'lazy')
+end, 'which-key')
 
 return SpiderConfig

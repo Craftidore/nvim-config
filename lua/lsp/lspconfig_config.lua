@@ -254,6 +254,6 @@ utils.defer.add_deferred(function()
       })
     end
   end
-end, 'lazy')
+end, 'which-key')
 
 return LspConfig

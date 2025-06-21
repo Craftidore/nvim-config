@@ -60,8 +60,8 @@ local WhichKey = {
     -- Document existing key chains
     spec = {
       -- Formerly things were here, but now they live in
-      -- plugin_config -> utils.defer -> 'lazy'
-      -- keymaps -> utils.defer -> 'lazy' for non-plugin namespaces
+      -- plugin_config -> utils.defer -> 'which-key'
+      -- keymaps -> utils.defer -> 'which-key' for non-plugin namespaces
     },
     win = {
       wo = {

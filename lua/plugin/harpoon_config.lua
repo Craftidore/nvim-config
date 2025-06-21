@@ -63,6 +63,6 @@ utils.defer.add_deferred(function()
       { '<leader>h', group = '[H]arpoon' },
     })
   end
-end, 'lazy')
+end, 'which-key')
 
 return Harpoon
