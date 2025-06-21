@@ -6,9 +6,6 @@ local SonokaiConfig = {
     vim.g.sonokai_style = 'espresso'
     vim.g.sonokai_enable_italic = true
   end,
-  config = function()
-    -- vim.cmd.colorscheme('sonokai')
-  end,
 }
 
 return SonokaiConfig
