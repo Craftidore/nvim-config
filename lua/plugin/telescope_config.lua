@@ -1,3 +1,4 @@
+local utils = vim.g.utils
 local TelescopeConfig = {
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -143,5 +144,13 @@ local TelescopeConfig = {
     )
   end,
 }
+
+utils.defer.add_deferred(function()
+  if utils.has_plugin('telescope') then
+    utils.keymaps.wk_add({
+      { '<leader>t', group = '[T]elescope' },
+    })
+  end
+end, 'lazy')
 
 return TelescopeConfig

@@ -62,6 +62,12 @@ Keymaps.noremap('n', '<leader>bd', [[<cmd>bd<cr>]], 'Close buffer')
 -- `'"`  - reset cursor position after all of this
 Keymaps.noremap('n', '<leader>bo', [[<cmd>%bd|e#|bd#<cr>|`"]], 'Close all buffers except current')
 
+utils.defer.add_deferred(function()
+  utils.keymaps.wk_add({
+    { '<leader>b', group = '[B]uffer' },
+  })
+end, 'lazy')
+
 -- NOTE: Trailing Punctuation
 --       (no namespace; <leader>{punctuation})
 
@@ -92,15 +98,6 @@ for _, m in ipairs(copyPasteModes) do
   end
 end
 
--- NOTE: Utility:
-
-Keymaps.noremap('n', '<leader>uu', '<NOP>', '[U]til: Cancel util run without undo')
-Keymaps.noremap('n', '<leader>uh', '<CMD>nohl<CR>', '[U]til: Turn search [h]ighlighting off')
-Keymaps.noremap('n', '<leader>ucl', 'mz?[a-z]<cr><cmd>nohl<cr>gul`z', '[U]til: Lowercase latest upper[c]ase [l]etter')
-
--- Better copy-all
-Keymaps.noremap('n', '<leader>ua', 'mzggVG"+y`z', '[U]til: Copy [a]ll of the buffer to clipboard')
-
 -- NOTE: Window
 
 -- Tmux "Zoom"-y equivalent
@@ -108,13 +105,34 @@ Keymaps.noremap('n', '<C-w>t', '<cmd>tab split<CR>', '[W]indow: Zoom in on curre
 -- alias, for muscle memory
 Keymaps.noremap('n', '<C-w>z', '<cmd>tab split<CR>', '[W]indow: [z]oom in on current buffer (opens tab)')
 
+-- NOTE: Utility:
+
+utils.defer.add_deferred(function()
+  utils.keymaps.wk_add({
+    { '<leader>u', group = 'Run [U]tility' },
+  })
+end, 'lazy')
+
+Keymaps.noremap('n', '<leader>uu', '<NOP>', 'Util: Cancel util run without undo')
+Keymaps.noremap('n', '<leader>uh', '<CMD>nohl<CR>', 'Util: Turn search [h]ighlighting off')
+Keymaps.noremap('n', '<leader>ucl', 'mz?[a-z]<cr><cmd>nohl<cr>gul`z', '[U]til: Lowercase latest upper[c]ase [l]etter')
+
+-- Better copy-all
+Keymaps.noremap('n', '<leader>ua', 'mzggVG"+y`z', 'Util: Copy [a]ll of the buffer to clipboard')
+
 -- NOTE: Open
 
+utils.defer.add_deferred(function()
+  utils.keymaps.wk_add({
+    { '<leader>o', group = 'Open' },
+  })
+end, 'lazy')
+
 -- Better z=
-Keymaps.noremap('n', '<leader>oz', '<CMD>WhichKey<CR>z=', '[O]pen Spell Suggest Picker ([z]= alias)')
+Keymaps.noremap('n', '<leader>oz', '<CMD>WhichKey<CR>z=', 'Open Spell Suggest Picker ([z]= alias)')
 Keymaps.noremap(
   'n',
   '<leader>oc',
   '<CMD>copen<CR><C-w>' .. tostring(vim.g.quickfix_auto_height ~= nil and vim.g.quickfix_auto_height or 3) .. '_',
-  '[O]pen Qui[c]kfix (:copen alias)'
+  'Open Qui[c]kfix (:copen alias)'
 )

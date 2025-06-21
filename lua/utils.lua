@@ -12,6 +12,12 @@ Utils.keymaps = {}
   function Utils.keymaps.silent(mode, lhs, rhs)
     keymap(mode, lhs, rhs, { noremap = true, silent = true })
   end
+
+  function Utils.keymaps.wk_add(...)
+    if Utils.has_plugin('which-key') then
+      require('which-key').add(...)
+    end
+  end
 end)()
 
 Utils.ifilter = function(t, filterIter)
@@ -100,7 +106,7 @@ end
 
 Utils.defer = {}
 Utils.defer._deferred = { generic = {} }
-Utils.defer.add_defered = function(fn, label)
+Utils.defer.add_deferred = function(fn, label)
   if label == nil then
     label = 'generic'
   end

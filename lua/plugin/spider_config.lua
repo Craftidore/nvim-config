@@ -1,3 +1,4 @@
+local utils = vim.g.utils
 local SpiderConfig = {
   'chrisgrieser/nvim-spider',
 }
@@ -24,5 +25,13 @@ SpiderConfig.keys = {
   { '<leader>sb', spiderMotion('b'), mode = defaultModes, desc = '[S]pider: CamelCase [b]' },
   { '<leader>sn', doLastSpider(), mode = defaultModes, desc = '[S]pider: Repeat last spider command' },
 }
+
+utils.defer.add_deferred(function()
+  if utils.has_plugin('spider') then
+    utils.keymaps.wk_add({
+      { '<leader>s', group = '[S]pider Motions' },
+    })
+  end
+end, 'lazy')
 
 return SpiderConfig

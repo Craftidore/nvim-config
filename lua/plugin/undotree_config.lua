@@ -29,7 +29,7 @@ local UndoTree = {
     },
   },
   keys = { -- load the plugin only when using it's keybinding:
-    { '<leader>ou', "<cmd>lua require('undotree').toggle()<cr>", mode = 'n', desc = '[O]pen [U]ndotree' },
+    { '<leader>ou', "<cmd>lua require('undotree').toggle()<cr>", mode = 'n', desc = 'Open [U]ndotree' },
   },
 }
 

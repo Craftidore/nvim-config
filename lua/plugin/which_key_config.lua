@@ -1,6 +1,6 @@
 local WhichKey = {
   'folke/which-key.nvim',
-  event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
+  event = 'VeryLazy',
   opts = {
     preset = 'helix', -- display in bottom-right corner
     -- delay between pressing a key and opening which-key (milliseconds)
@@ -59,14 +59,9 @@ local WhichKey = {
 
     -- Document existing key chains
     spec = {
-      { '<leader>s', group = '[S]pider Motions' },
-      { '<leader>t', group = 'Telescope' },
-      { '<leader>b', group = '[B]uffer' },
-      { '<leader>h', group = '[H]arpoon' },
-      { '<leader>l', group = '[L]SP' },
-      { '<leader>lt', group = '[L]SP-Telescope' },
-      { '<leader>o', group = '[O]pen' },
-      { '<leader>u', group = 'Run [U]tility' },
+      -- Formerly things were here, but now they live in
+      -- plugin_config -> utils.defer -> 'lazy'
+      -- keymaps -> utils.defer -> 'lazy' for non-plugin namespaces
     },
     win = {
       wo = {

@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = vim.g.utils
 
 -- Much of this is adapted from kickstart.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -105,3 +105,5 @@ end)
 lazyOpts.ui = lazyUiConfig
 
 require('lazy').setup(lazyOpts)
+
+utils.defer.run('lazy')

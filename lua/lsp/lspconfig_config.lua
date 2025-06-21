@@ -1,3 +1,4 @@
+local utils = vim.g.utils
 -- Shamelessly lifted from kickstart.nvim with minimal changes
 local LspConfig = {
   -- Main LSP Configuration
@@ -241,5 +242,18 @@ local LspConfig = {
     })
   end,
 }
+
+utils.defer.add_deferred(function()
+  if utils.has_plugin('lspconfig') then
+    utils.keymaps.wk_add({
+      { '<leader>l', group = '[L]SP' },
+    })
+    if utils.has_plugin('telescope') then
+      utils.keymaps.wk_add({
+        { '<leader>lt', group = '[L]SP-Telescope' },
+      })
+    end
+  end
+end, 'lazy')
 
 return LspConfig

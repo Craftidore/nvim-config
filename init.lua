@@ -1,10 +1,13 @@
+vim.g.utils = require('utils')
+local utils = vim.g.utils
+
 require('options')
-require('lazy_config')
+-- Some keymaps require custom vim.g opts
 require('keymaps')
+-- Lazy calls defer.run('lazy'), which is used by keymaps->whichkey
+require('lazy_config')
 
-local utils = require('utils')
-
-utils.defer.run()
+-- vim.g.utils.defer.run()
 
 if not utils.is_machmotion() then
   utils.set_colorscheme('duskfox')

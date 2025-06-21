@@ -1,3 +1,4 @@
+local utils = vim.g.utils
 local function makeCmd(key, func, desc)
   return {
     key,
@@ -55,5 +56,13 @@ local Harpoon = {
     makeCmd('<leader>ha', [[<CMD>b#<CR>]], 'Harpoon: Swap-to-previous-buffer (technically not a harpoon thing)'),
   },
 }
+
+utils.defer.add_deferred(function()
+  if utils.has_plugin('harpoon') then
+    utils.keymaps.wk_add({
+      { '<leader>h', group = '[H]arpoon' },
+    })
+  end
+end, 'lazy')
 
 return Harpoon
