@@ -113,4 +113,4 @@ Keymaps.noremap('n', '<C-w>z', '<cmd>tab split<CR>', '[W]indow: [z]oom in on cur
 
 -- Better z=
 Keymaps.noremap('n', '<leader>oz', '<CMD>WhichKey<CR>z=', '[O]pen Spell Suggest Picker ([z]= alias)')
-Keymaps.noremap('n', '<leader>oc', '<CMD>copen<CR>)', '[O]pen Qui[c]kfix (:copen alias)'
+Keymaps.noremap('n', '<leader>oc', '<CMD>copen<CR>)', '[O]pen Qui[c]kfix (:copen alias)')
