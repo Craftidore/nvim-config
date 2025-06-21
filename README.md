@@ -41,6 +41,9 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - Investigate abbreviation
 - Surround with mini surround?
 - Investigate sessions
+- ~~See if noice lets me do the vim buffer editing~~
+    - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
+- quick textwidth (80) enable/disable (`gq` to format with textwidth)
 - Keymaps
     - Open Lazy
     - Open Mason

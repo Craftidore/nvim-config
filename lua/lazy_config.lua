@@ -87,11 +87,13 @@ local plugins = {
 
   require('plugin.marks_config'), -- Currently only used for signcol marks, no mappings
 
-  -- Disabled
+  -- Disabled because issues inside of podman
   require('plugin.tmux_navigator_config'),
+  -- Disabled because it doesn't support q:, q/ or q?
+  require('plugin.noice_config'),
 
   -- MachMotion:
-  require('plugin.svngutter_config'),
+  require('plugin.vim_signify_config'),
 }
 
 local lazyOpts = utils.ifilter(plugins, function(v, _, _)
