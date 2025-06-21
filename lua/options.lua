@@ -59,14 +59,12 @@ opt.colorcolumn = { textMax }
 -- See https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
 opt.foldmethod = 'indent'
 utils.defer.add_deferred(function()
-  if utils.has_plugin('nvim-treesitter') then
-    opt.foldmethod = 'expr'
-    opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-  end
-end)
+  opt.foldmethod = 'expr'
+  opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+end, 'nvim-treesitter')
 opt.foldtext = '' --  just use the normal line with TS syntax highlighting
 opt.foldlevel = 99
-opt.foldlevelstart = 1
+opt.foldlevelstart = 2
 opt.foldnestmax = 4
 
 -- NOTE: Handled by plugin
