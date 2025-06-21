@@ -40,7 +40,7 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 - Investigate abbreviation
 - Surround with mini surround?
-- Investigate sessions
+- Investigate sessions (mksession works, but mini.sessions may be better qol wise)
 - ~~See if noice lets me do the vim buffer editing~~
     - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
 - quick textwidth (80) enable/disable (`gq` to format with textwidth)
@@ -48,3 +48,13 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - Open Lazy
     - Open Mason
     - Open TS List of things
+- Fennel Switch
+    - Investigate switch to fennel?
+    - (Because lisp is fun, not because this needs it)
+    - https://miguelcrespo.co/posts/configuring-neovim-with-fennel
+    - https://github.com/udayvir-singh/tangerine.nvim
+    - miguelcrespo/scratch-buffer.nvim
+    - Olical/conjure
+- Separate out util namespaces into separate files
+- See if I can get my MachMotion theme (currently night-owl) to color the mini.status bar orange
+
