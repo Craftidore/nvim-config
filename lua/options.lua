@@ -13,7 +13,7 @@ g.winblend = 30
 -- Leader key
 g.mapleader = ' '
 g.maplocalleader = ' '
-vim.keymap.set('', '<Space>', '<Nop>', { noremap = true, silent = true })
+utils.keymaps.silent('', '<Space>', '<Nop>')
 
 -- For checking in plugin configs
 g.have_nerd_font = true

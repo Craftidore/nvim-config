@@ -1,4 +1,5 @@
 local utils = vim.g.utils
+local noremap = utils.keymaps.noremap
 local TelescopeConfig = {
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -80,67 +81,40 @@ local TelescopeConfig = {
     end
 
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>th', themed(builtin.help_tags, buf_theme), { desc = 'Telescope search [H]elp' })
-    vim.keymap.set('n', '<leader>tk', themed(builtin.keymaps, default_theme), { desc = 'Telescope search [K]eymaps' })
-    vim.keymap.set('n', '<leader>tf', themed(builtin.find_files, file_theme), { desc = 'Telescope search [F]iles' })
-    vim.keymap.set(
-      'n',
-      '<leader>tt',
-      themed(builtin.builtin, file_theme),
-      { desc = 'Telescope search select [t]elescope' }
-    )
-    vim.keymap.set('n', '<leader>tc', function()
+    noremap('n', '<leader>th', themed(builtin.help_tags, buf_theme), 'Telescope search [H]elp')
+    noremap('n', '<leader>tk', themed(builtin.keymaps, default_theme), 'Telescope search [K]eymaps')
+    noremap('n', '<leader>tf', themed(builtin.find_files, file_theme), 'Telescope search [F]iles')
+    noremap('n', '<leader>tt', themed(builtin.builtin, file_theme), 'Telescope search select [t]elescope')
+
+    noremap('n', '<leader>tc', function()
       vim.cmd([[colorscheme default]])
       themed(builtin.colorscheme, file_theme, { enable_preview = true, ignore_builtins = true })()
-    end, { desc = 'Telescope search [C]olorscheme' })
-    vim.keymap.set(
-      'n',
-      '<leader>tw',
-      themed(builtin.grep_string, buf_theme),
-      { desc = 'Telescope search current [W]ord' }
-    )
-    vim.keymap.set('n', '<leader>tg', themed(builtin.live_grep, buf_theme), { desc = 'Telescope search by [G]rep' })
-    vim.keymap.set(
-      'n',
-      '<leader>td',
-      themed(builtin.diagnostics, file_theme),
-      { desc = 'Telescope search [D]iagnostics' }
-    )
-    vim.keymap.set('n', '<leader>tr', builtin.resume, { desc = 'Telescope search [R]esume' })
-    vim.keymap.set(
-      'n',
-      '<leader>t.',
-      themed(builtin.oldfiles, file_theme),
-      { desc = 'Telescope search Recent Files ("." for repeat)' }
-    )
-    vim.keymap.set(
-      'n',
-      '<leader>tb',
-      themed(builtin.buffers, default_theme),
-      { desc = 'Telescope search existing [B]uffers' }
-    )
-    vim.keymap.set(
+    end, 'Telescope search [C]olorscheme')
+
+    noremap('n', '<leader>tw', themed(builtin.grep_string, buf_theme), 'Telescope search current [W]ord')
+
+    noremap('n', '<leader>tg', themed(builtin.live_grep, buf_theme), 'Telescope search by [G]rep')
+    noremap('n', '<leader>td', themed(builtin.diagnostics, file_theme), 'Telescope search [D]iagnostics')
+
+    noremap('n', '<leader>tr', builtin.resume, 'Telescope search [R]esume')
+    noremap('n', '<leader>t.', themed(builtin.oldfiles, file_theme), 'Telescope search Recent Files ("." for repeat)')
+
+    noremap('n', '<leader>tb', themed(builtin.buffers, default_theme), 'Telescope search existing [B]uffers')
+
+    noremap(
       'n',
       '<leader>t/',
       themed(builtin.current_buffer_fuzzy_find, buf_theme),
-      { desc = 'Telescope Fuzzily search [/] in current buffer' }
+      'Telescope Fuzzily search [/] in current buffer'
     )
-    -- vim.keymap.set(
-    --   'n',
-    --   '<leader>tg/',
-    --   themed(builtin.live_grep, default_theme, {
-    --     grep_open_files = true,
-    --     prompt_title = 'Live Grep',
-    --   }),
-    --   { desc = 'Telescope search [/] open files' }
-    -- )
-    vim.keymap.set(
+
+    -- noremap( 'n', '<leader>tg/', themed(builtin.live_grep, default_theme, { grep_open_files = true, prompt_title = 'Live Grep', }), 'Telescope search [/] open files')
+    --
+    noremap(
       'n',
       '<leader>tn',
-      themed(builtin.find_files, file_theme, {
-        cwd = vim.fn.stdpath('config'),
-      }),
-      { desc = 'Telescope search [N]eovim config' }
+      themed(builtin.find_files, file_theme, { cwd = vim.fn.stdpath('config') }),
+      'Telescope search [N]eovim config'
     )
   end,
 }
