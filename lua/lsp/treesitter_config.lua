@@ -1,4 +1,5 @@
-local utils = require('utils')
+local utils = vim.g.utils
+local noremap = utils.keymaps.noremap
 local TreesitterConfig = {
 
   -- Other plugins
@@ -36,5 +37,11 @@ local TreesitterConfig = {
     indent = { enable = true, disable = { 'ruby' } },
   },
 }
+
+utils.defer.add_deferred(function()
+  if utils.has_plugin('nvim-treesitter') then
+    noremap('n', '<leader>ot', '<CMD>TSInstallInfo<CR>', 'Open Treesitter Info')
+  end
+end, 'nvim-treesitter')
 
 return TreesitterConfig

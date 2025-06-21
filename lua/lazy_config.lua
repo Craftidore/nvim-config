@@ -1,4 +1,5 @@
 local utils = vim.g.utils
+local noremap = utils.keymaps.noremap
 
 -- Much of this is adapted from kickstart.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -105,5 +106,7 @@ end)
 lazyOpts.ui = lazyUiConfig
 
 require('lazy').setup(lazyOpts)
+
+noremap('n', '<leader>ol', '<CMD>Lazy<CR>')
 
 utils.defer.run('lazy')
