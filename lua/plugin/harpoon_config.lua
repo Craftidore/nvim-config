@@ -39,21 +39,27 @@ local Harpoon = {
   branch = 'harpoon2',
   dependencies = { 'nvim-lua/plenary.nvim' },
   keys = {
-    makeCmd('<leader>hh', harpoonAdd, 'Add to harpoon list'),
-    makeCmd('<leader>ha', harpoonAdd, 'Add to harpoon list'),
-    makeCmd('<leader>hs', harpoonShowList, 'Show harpoon list'),
-    makeCmd('<leader>hj', function()
+    makeCmd('<leader>hh', harpoonAdd, 'Harpoon: Add to list'),
+    makeCmd('<leader>ho', harpoonShowList, 'Harpoon: Show list'),
+    makeCmd('<leader>ha', function()
       harpoonGoTo(1)
-    end, 'Harpoon GoTo 1'),
-    makeCmd('<leader>hk', function()
+    end, 'Harpoon: GoTo 1'),
+    makeCmd('<leader>hs', function()
       harpoonGoTo(2)
-    end, 'Harpoon GoTo 2'),
-    makeCmd('<leader>hl', function()
+    end, 'Harpoon: GoTo 2'),
+    makeCmd('<leader>hd', function()
       harpoonGoTo(3)
-    end, 'Harpoon GoTo 3'),
-    makeCmd('<leader>hn', harpoonNext, 'Harpoon next'),
-    makeCmd('<leader>hp', harpoonPrev, 'Harpoon prev'),
-    makeCmd('<leader>ha', [[<CMD>b#<CR>]], 'Harpoon: Swap-to-previous-buffer (technically not a harpoon thing)'),
+    end, 'Harpoon: GoTo 3'),
+    makeCmd('<leader>hf', function()
+      harpoonGoTo(4)
+    end, 'Harpoon: GoTo 4'),
+    makeCmd('<leader>hg', function()
+      harpoonGoTo(5)
+    end, 'Harpoon: GoTo 5'),
+    makeCmd('<leader>hn', harpoonNext, 'Harpoon: Next'),
+    makeCmd('<leader>hp', harpoonPrev, 'Harpoon: Prev'),
+    -- I'm debating removing this one, since I ought to be in the habit of using CTRL-^
+    makeCmd('<leader>hl', [[<CMD>b#<CR>]], 'Harpoon: Swap-to-previous-buffer (not harpoon)'),
   },
 }
 
