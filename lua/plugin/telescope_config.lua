@@ -88,12 +88,10 @@ local TelescopeConfig = {
       themed(builtin.builtin, file_theme),
       { desc = 'Telescope search select [t]elescope' }
     )
-    vim.keymap.set(
-      'n',
-      '<leader>tc',
-      themed(builtin.colorscheme, file_theme),
-      { desc = 'Telescope search [C]olorscheme' }
-    )
+    vim.keymap.set('n', '<leader>tc', function()
+      vim.cmd([[colorscheme default]])
+      themed(builtin.colorscheme, file_theme, { ignore_builtins = true })()
+    end, { desc = 'Telescope search [C]olorscheme' })
     vim.keymap.set(
       'n',
       '<leader>tw',

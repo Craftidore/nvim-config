@@ -44,7 +44,7 @@ local lazyUiConfig = {
 local plugins = {
   -- Themes
   require('theme.night-owl'),
-  require('theme.miasma'),
+  require('theme.nightfox'),
   require('theme.sonokai'),
 
   -- Primary Plugins

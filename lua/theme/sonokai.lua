@@ -1,11 +1,13 @@
 local SonokaiConfig = {
   'sainnhe/sonokai',
-  lazy = false,
+  -- lazy = false,
   priority = 1000,
   init = function()
     vim.g.sonokai_style = 'espresso'
     vim.g.sonokai_enable_italic = true
-    vim.cmd.colorscheme('sonokai')
+  end,
+  config = function()
+    -- vim.cmd.colorscheme('sonokai')
   end,
 }
 
