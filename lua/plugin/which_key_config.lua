@@ -69,6 +69,10 @@ local WhichKey = {
       -- keymaps -> utils.defer -> 'which-key' for non-plugin namespaces
       -- Built-in mappings that I'd like to show up are still located here
 
+      -- NOTE: ZZ and ZQ because my custom 'ZF' is there and it feels weird only seeing that one
+      { 'ZZ', mode = 'n', desc = 'Save and Quit (:wq)' },
+      { 'ZQ', mode = 'n', desc = 'Quit Without Saving (:q!)' },
+
       -- NOTE: Vim's built-in 'dumb' completion
       { '<C-x><C-f>', mode = 'i', desc = 'Complete [f]ile names' },
       { '<C-x><C-l>', mode = 'i', desc = 'Complete whole [l]ines' },
