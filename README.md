@@ -37,27 +37,6 @@ MACHMOTION='true'
 
 An additional dependency of `svn` is necessary when doing work for MachMotion.
 
-## TODO
-
-- Investigate abbreviation
-- Surround with mini surround?
-- Investigate sessions (mksession works, but mini.sessions may be better qol wise)
-- ~~See if Noice lets me do the vim buffer editing~~
-    - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
-- quick textwidth (80) enable/disable (`gq` to format with textwidth)
-- Fennel Switch
-    - Investigate switch to fennel?
-    - (Because lisp is fun, not because this needs it)
-    - https://miguelcrespo.co/posts/configuring-neovim-with-fennel
-    - https://github.com/udayvir-singh/tangerine.nvim
-    - miguelcrespo/scratch-buffer.nvim
-    - Olical/conjure
-- Separate out util namespaces into separate files
-- See if I can get my MachMotion theme (currently night-owl) to color the mini.status bar orange
-- Require-all-in-directory util function, to populate table
-    - For use with util namespaces
-- Check to see if lazy can load from a folder, and if so, how
-
 ## Structure Notes
 
 - General keymaps go in lua/keymaps.lua
@@ -68,4 +47,30 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - `util.defer.run('plugin-name')` is called in the `after/plugin/plugin-name.lua` file
     - This is done so post-plugin actions are stored with the config, even though its more verbose
 - LSP-related plugins are complex and such and go in the `lua/lsp` folder instead of the `lua/plugins` folder
+
+## TODO
+
+- Investigate abbreviation
+- Surround with mini surround?
+- Investigate sessions (mksession works, but mini.sessions may be better qol wise)
+- Investigate [local] AI integration for work
+    - Even if its just to prove to my boss that it won't make me meaningfully faster
+- ~~See if Noice lets me do the vim buffer editing~~
+    - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
+- quick textwidth (80) enable/disable (`gq` to format with textwidth)
+- Fennel Switch
+    - Investigate switch to fennel?
+    - (Because lisp is fun, not because this needs it)
+    - https://miguelcrespo.co/posts/configuring-neovim-with-fennel
+    - udayvir-singh/tangerine.nvim
+    - miguelcrespo/scratch-buffer.nvim
+    - Olical/conjure
+- Separate out util namespaces into separate files
+- See if I can get my MachMotion theme (currently night-owl) to color the mini.status bar orange
+- Require-all-in-directory util function, to populate table
+    - For use with util namespaces
+- Check to see if lazy can load from a folder, and if so, how
+- Try to better understand what the lsp config is doing
+    - I'd like to rewrite it to be a bit cleaner
+    - And much of it is not 100% understood since it came from kickstart.nvim
 
