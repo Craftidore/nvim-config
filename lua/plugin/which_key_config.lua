@@ -39,6 +39,11 @@ local WhichKey = {
         F12 = '<F12>',
       },
     },
+    triggers = {
+      { '<auto>', mode = 'nixsotc' },
+      -- For vim's built-in 'dumb' completion
+      { '<C-x>', mode = 'nixsotc' },
+    },
     plugins = { -- default unless marked by empty comment
       marks = true,
       registers = true,
@@ -59,9 +64,20 @@ local WhichKey = {
 
     -- Document existing key chains
     spec = {
-      -- Formerly things were here, but now they live in
+      -- Formerly plugin/custom namespaces were here, but now they live in
       -- plugin_config -> utils.defer -> 'which-key'
       -- keymaps -> utils.defer -> 'which-key' for non-plugin namespaces
+      -- Built-in mappings that I'd like to show up are still located here
+
+      -- NOTE: Vim's built-in 'dumb' completion
+      { '<C-x><C-f>', mode = 'i', desc = 'Complete [f]ile names' },
+      { '<C-x><C-l>', mode = 'i', desc = 'Complete whole [l]ines' },
+      { '<C-x><C-d>', mode = 'i', desc = 'Complete macro [d]efinitions (also in included files)' },
+      { '<C-x><C-i>', mode = 'i', desc = 'Complete current and [i]ncluded files' },
+      { '<C-x><C-k>', mode = 'i', desc = 'Complete [k] words from a dictionary' },
+      { '<C-x><C-t>', mode = 'i', desc = 'words from a thesaurus' },
+      { '<C-x><C-]>', mode = 'i', desc = 'tags' },
+      { '<C-x><C-v>', mode = 'i', desc = 'Vim command line' },
     },
     win = {
       wo = {

@@ -59,9 +59,11 @@ local BlinkConfig = { -- Autocompletion
       -- <c-k>: Toggle signature help
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      preset = 'default',
-      ['<Tab>'] = {},
-      ['<S-Tab>'] = {},
+      preset = 'none',
+      ['<C-e>'] = { 'hide' },
+      ['<C-y>'] = { 'select_and_accept' },
+      ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
+      ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
       ['<C-j>'] = { 'snippet_forward', 'fallback' },
       ['<C-k>'] = { 'snippet_backward', 'fallback' },
       ['<C-l>'] = { 'show_signature', 'hide_signature', 'fallback' },
@@ -111,4 +113,5 @@ local BlinkConfig = { -- Autocompletion
     signature = { enabled = true },
   },
 }
+
 return BlinkConfig
