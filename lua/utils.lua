@@ -140,6 +140,7 @@ Utils.scratch.get_scratch = function(id)
     normal! ggdG
     setlocal filetype=scratch
     setlocal buftype=nofile
+    setlocal nobuflisted
   ]])
 end
 
