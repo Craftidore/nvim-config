@@ -12,6 +12,9 @@ local TelescopeConfig = {
         return vim.fn.executable('make') == 1
       end,
     },
+    {
+      'albenisolmos/telescope-oil.nvim',
+    },
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
@@ -21,6 +24,13 @@ local TelescopeConfig = {
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
+        },
+        ['oil'] = {
+          -- Otherwise it includes .git folders
+          hidden = false,
+          debug = false,
+          no_ignore = false,
+          show_preview = true,
         },
       },
     })
@@ -32,6 +42,9 @@ local TelescopeConfig = {
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    local function oil_directories()
+      require('telescope').extensions.oil.oil()
+    end
 
     local function default_theme(additional_opts)
       local opts = {
@@ -84,6 +97,7 @@ local TelescopeConfig = {
     noremap('n', '<leader>th', themed(builtin.help_tags, buf_theme), 'Telescope search [H]elp')
     noremap('n', '<leader>tk', themed(builtin.keymaps, default_theme), 'Telescope search [K]eymaps')
     noremap('n', '<leader>tf', themed(builtin.find_files, file_theme), 'Telescope search [F]iles')
+    noremap('n', '<leader>to', oil_directories, 'Telescope open dir in [o]il')
     noremap('n', '<leader>tt', themed(builtin.builtin, file_theme), 'Telescope search select [t]elescope')
 
     noremap('n', '<leader>tc', function()
