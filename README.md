@@ -51,6 +51,7 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 ## TODO
 
 - Investigate abbreviation
+- Investigate albenisolmos/telescope-oil.nvim
 - Surround with mini surround?
 - Investigate sessions (mksession works, but mini.sessions may be better qol wise)
 - Investigate [local] AI integration for work

@@ -27,7 +27,8 @@ local MiniConfig = {
         starter.gen_hook.adding_bullet(),
         starter.gen_hook.aligning('center', 'center'),
       },
-      query_updaters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-.',
+      -- 'Z' absent so ZZ functions porperly
+      query_updaters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY0123456789_-.',
       silent = true,
     })
     local tabline = require('mini.tabline')
