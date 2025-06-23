@@ -23,6 +23,17 @@ autocmd({ 'ColorschemePre' }, {
 
 autocmd({ 'Colorscheme' }, {
   group = grps.colorscheme,
+  callback = function(ev)
+    if ev.match == 'minicyan' or ev.match == 'minischeme' then
+      -- This is inconsistent and it bugs me
+      local cline_hl = vim.api.nvim_get_hl(0, { name = 'CursorLine', create = false })
+      vim.api.nvim_set_hl(0, 'CursorLineSign', { ctermbg = cline_hl.ctermbg, bg = cline_hl.bg })
+    end
+  end,
+})
+
+autocmd({ 'Colorscheme' }, {
+  group = grps.colorscheme,
   callback = function()
     -- TODO: Set custom highlights
 
