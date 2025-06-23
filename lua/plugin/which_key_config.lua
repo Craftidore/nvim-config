@@ -79,9 +79,10 @@ local WhichKey = {
       { '<C-x><C-d>', mode = 'i', desc = 'Complete macro [d]efinitions (also in included files)' },
       { '<C-x><C-i>', mode = 'i', desc = 'Complete current and [i]ncluded files' },
       { '<C-x><C-k>', mode = 'i', desc = 'Complete [k] words from a dictionary' },
-      { '<C-x><C-t>', mode = 'i', desc = 'words from a thesaurus' },
-      { '<C-x><C-]>', mode = 'i', desc = 'tags' },
-      { '<C-x><C-v>', mode = 'i', desc = 'Vim command line' },
+      { '<C-x><C-t>', mode = 'i', desc = 'Complete words from a [t]hesaurus' },
+      { '<C-x><C-]>', mode = 'i', desc = 'Complete tags' },
+      { '<C-x><C-v>', mode = 'i', desc = 'Complete [v]im command line' },
+      { '<C-x><C-z>', mode = 'i', desc = 'Complete nothing; cancel' },
     },
     win = {
       wo = {
