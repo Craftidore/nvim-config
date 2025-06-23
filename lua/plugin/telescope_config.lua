@@ -101,7 +101,6 @@ local TelescopeConfig = {
     noremap('n', '<leader>tt', themed(builtin.builtin, file_theme), 'Telescope search select [t]elescope')
 
     noremap('n', '<leader>tc', function()
-      vim.cmd([[colorscheme default]])
       themed(builtin.colorscheme, file_theme, { enable_preview = true, ignore_builtins = true })()
     end, 'Telescope search [C]olorscheme')
 

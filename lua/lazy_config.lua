@@ -1,4 +1,5 @@
 local utils = vim.g.utils
+
 local noremap = utils.keymaps.noremap
 
 -- Much of this is adapted from kickstart.nvim
@@ -58,6 +59,8 @@ local lazyOpts = {
   require('plugin.spider_config'),
 
   require('plugin.various_textobjects_config'),
+
+  require('plugin.buffer_manager_config'),
 
   -- Directory Navigation
   require('plugin.oil_config'),
