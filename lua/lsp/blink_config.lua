@@ -1,3 +1,4 @@
+local utils = vim.g.utils
 local BlinkConfig = { -- Autocompletion
   'saghen/blink.cmp',
   event = 'VimEnter',
@@ -60,6 +61,13 @@ local BlinkConfig = { -- Autocompletion
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       preset = 'none',
+      -- Refused to map to <C-x><C-s>
+      -- (i_CTRL-s is ordinarily show-signature)
+      ['<C-s>'] = {
+        function(cmp)
+          cmp.show({ providers = { 'snippets' } })
+        end,
+      },
       ['<C-e>'] = { 'hide' },
       ['<C-y>'] = { 'select_and_accept' },
       ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
@@ -82,7 +90,7 @@ local BlinkConfig = { -- Autocompletion
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
+      default = { 'lsp', 'path', 'lazydev', 'buffer' },
       providers = {
         snippets = {
           should_show_items = function(ctx)
