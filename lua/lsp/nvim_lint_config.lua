@@ -1,3 +1,13 @@
+local function lint_ignore(ft)
+  local ignored_filetypes = {
+    'help',
+    'ministarter',
+  }
+  local contains = vim.g.utils.lua.contains
+  local bad_ft = contains(ignored_filetypes, ft)
+  return bad_ft
+end
+
 local NvimLint = {
   'mfussenegger/nvim-lint',
   lazy = false,
@@ -9,7 +19,12 @@ local NvimLint = {
   end,
   init = function()
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost' }, {
-      callback = function()
+      callback = function(ev)
+        local filetype = vim.api.nvim_get_option_value('filetype', { buf = ev.buf })
+        if lint_ignore(filetype) then
+          return
+        end
+
         local lint = require('lint')
         -- Let this fail silently, since linters may not be installed yet
         xpcall(function()
