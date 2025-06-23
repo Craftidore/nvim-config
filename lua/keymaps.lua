@@ -4,6 +4,7 @@ local Keymaps = utils.keymaps
 -- NOTE: Primary Behavior (No-namespace)
 
 Keymaps.noremap('n', 'ZF', [[<CMD>w<CR>]], 'Save current buffer (like ZZ)')
+Keymaps.noremap('n', 'ZQ', [[<CMD>qall<CR>]], 'Close all buffers (like ZZ)')
 
 Keymaps.noremap('i', 'jj', '<Esc>', 'Switch to normal mode')
 Keymaps.noremap('i', 'jk', '<Esc>', 'Switch to normal mode')
@@ -119,6 +120,30 @@ Keymaps.noremap('n', '<leader>ucl', 'mz?[a-z]<cr><cmd>nohl<cr>gul`z', '[U]til: L
 
 -- Better copy-all
 Keymaps.noremap('n', '<leader>ua', 'mzggVG"+y`z', 'Util: Copy [a]ll of the buffer to clipboard')
+
+-- Enable/Disable Textwidth (uses vim.g.text_width)
+utils.defer.add_deferred(function()
+  utils.keymaps.wk_add({
+    { '<leader>uw', group = 'Manage opt_local.text[w]idth' },
+  })
+end, 'which-key')
+Keymaps.noremap('n', '<leader>uwt', function()
+  local current_text_width = vim.api.nvim_get_option_value('textwidth', { scope = 'local' })
+  if current_text_width == 0 then
+    vim.api.nvim_set_option_value('textwidth', vim.g.text_width, { scope = 'local' })
+  else
+    vim.api.nvim_set_option_value('textwidth', 0, { scope = 'local' })
+  end
+end, 'Toggle :set textwidth for current buffer')
+
+Keymaps.noremap('n', '<leader>uwe', function()
+  vim.cmd([[setlocal textwidth=80]])
+  -- vim.api.nvim_set_option_value('textwidth', vim.g.text_width, { scope = 'local' })
+end, 'Enable :set textwidth for current buffer')
+
+Keymaps.noremap('n', '<leader>uwd', function()
+  vim.api.nvim_set_option_value('textwidth', 0, { scope = 'local' })
+end, 'Disable :set textwidth for current buffer')
 
 -- NOTE: Open
 

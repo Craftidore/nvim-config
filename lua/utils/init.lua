@@ -1,4 +1,13 @@
 local Utils = {}
+
+Utils.echom = function(...)
+  local msgs = {}
+  for _, v in ipairs({ ... }) do
+    table.insert(msgs, { v })
+  end
+  vim.api.nvim_echo(msgs, true, {})
+end
+
 Utils.keymaps = require('utils.keymaps')
 
 Utils.lua = require('utils.lua')

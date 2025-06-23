@@ -51,8 +51,11 @@ o.cursorcolumn = true
 
 o.confirm = true
 
-local textMax = 80
-opt.colorcolumn = { textMax }
+-- vim.g.text_width used by colorcolumn, and textwidth enable/disable keymaps
+vim.g.text_width = 80
+opt.colorcolumn = { vim.g.text_width }
+opt.formatoptions:remove({ 'l' })
+opt.formatoptions:append({ 't' })
 
 -- Fold source-of-truth:
 
