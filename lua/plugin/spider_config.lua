@@ -27,7 +27,7 @@ SpiderConfig.keys = {
 }
 
 utils.defer.add_deferred(function()
-  if utils.has_plugin('spider') then
+  if utils.plugins.has_plugin('spider') then
     utils.keymaps.wk_add({
       { '<leader>s', group = '[S]pider Motions' },
     })

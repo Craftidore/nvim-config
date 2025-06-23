@@ -42,7 +42,7 @@ local lazyUiConfig = {
   },
 }
 
-local plugins = {
+local lazyOpts = {
   -- Themes
   require('theme.night-owl'),
   require('theme.nightfox'),
@@ -98,10 +98,6 @@ local plugins = {
   -- MachMotion:
   require('plugin.vim_signify_config'),
 }
-
-local lazyOpts = utils.ifilter(plugins, function(v, _, _)
-  return v ~= false
-end)
 
 lazyOpts.ui = lazyUiConfig
 

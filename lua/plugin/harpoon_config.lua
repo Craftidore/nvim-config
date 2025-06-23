@@ -64,7 +64,7 @@ local Harpoon = {
 }
 
 utils.defer.add_deferred(function()
-  if utils.has_plugin('harpoon') then
+  if utils.plugins.has_plugin('harpoon') then
     utils.keymaps.wk_add({
       { '<leader>h', group = '[H]arpoon' },
     })

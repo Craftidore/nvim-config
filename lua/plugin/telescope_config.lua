@@ -134,7 +134,7 @@ local TelescopeConfig = {
 }
 
 utils.defer.add_deferred(function()
-  if utils.has_plugin('telescope') then
+  if utils.plugins.has_plugin('telescope') then
     utils.keymaps.wk_add({
       { '<leader>t', group = '[T]elescope' },
     })

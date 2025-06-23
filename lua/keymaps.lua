@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = vim.g.utils
 local Keymaps = utils.keymaps
 
 -- NOTE: Primary Behavior (No-namespace)

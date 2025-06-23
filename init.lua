@@ -1,4 +1,4 @@
-vim.g.utils = require('utils')
+vim.g.utils = require('utils.init')
 local utils = vim.g.utils
 
 require('options')
