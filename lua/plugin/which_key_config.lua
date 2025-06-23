@@ -74,14 +74,17 @@ local WhichKey = {
       { 'ZQ', mode = 'n', desc = 'Quit Without Saving (:q!)' },
 
       -- NOTE: Vim's built-in 'dumb' completion
-      { '<C-x><C-f>', mode = 'i', desc = 'Complete [f]ile names' },
       { '<C-x><C-l>', mode = 'i', desc = 'Complete whole [l]ines' },
-      { '<C-x><C-d>', mode = 'i', desc = 'Complete macro [d]efinitions (also in included files)' },
-      { '<C-x><C-i>', mode = 'i', desc = 'Complete current and [i]ncluded files' },
+      { '<C-x><C-n>', mode = 'i', desc = 'Complete [n] keywords in current file' },
       { '<C-x><C-k>', mode = 'i', desc = 'Complete [k] words from a dictionary' },
       { '<C-x><C-t>', mode = 'i', desc = 'Complete words from a [t]hesaurus' },
-      { '<C-x><C-]>', mode = 'i', desc = 'Complete tags' },
+      { '<C-x><C-i>', mode = 'i', desc = 'Complete current and [i]ncluded files' },
+      { '<C-x><C-]>', mode = 'i', desc = 'Complete tags []]' },
+      { '<C-x><C-f>', mode = 'i', desc = 'Complete [f]ile names' },
+      { '<C-x><C-d>', mode = 'i', desc = 'Complete [d]efinitions or macro (also in included files)' },
       { '<C-x><C-v>', mode = 'i', desc = 'Complete [v]im command line' },
+      { '<C-x><C-u>', mode = 'i', desc = 'Complete [u]ser defined completion' },
+      { '<C-x><C-o>', mode = 'i', desc = 'Complete [o]mni (intelligent) completion' },
       { '<C-x><C-z>', mode = 'i', desc = 'Complete nothing; cancel' },
     },
     win = {
