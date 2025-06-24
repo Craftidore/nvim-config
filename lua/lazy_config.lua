@@ -93,6 +93,8 @@ local lazyOpts = {
 
   require('plugin.marks_config'), -- Currently only used for signcol marks, no mappings
 
+  require('plugin.autoclose_config'),
+
   -- Disabled because issues inside of podman
   require('plugin.tmux_navigator_config'),
   -- Disabled because it doesn't support q:, q/ or q?
