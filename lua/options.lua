@@ -7,7 +7,6 @@ g.cmdline_auto_height = 3
 -- Used by <leader>oc keymap
 g.quickfix_auto_height = 3
 
--- Global Winblend, for use with anything that asks for winblend
 g.winblend = 30
 
 -- Leader key
@@ -54,8 +53,10 @@ o.confirm = true
 -- vim.g.text_width used by colorcolumn, and textwidth enable/disable keymaps
 vim.g.text_width = 80
 opt.colorcolumn = { vim.g.text_width }
-opt.formatoptions:remove({ 'l' })
-opt.formatoptions:append({ 't' })
+opt.formatoptions:append({ 't' }) -- Autowrap at text-width at end-of-line
+opt.formatoptions:remove({ 'l' }) -- If disabled, autowrap even if you're adding to a line that's already >textwidth
+opt.formatoptions:remove({ 'r' }) -- Add * to multi-line comments after <CR>
+opt.formatoptions:remove({ 'o' }) -- Add * to multi-line comments after o/O
 
 -- Fold source-of-truth:
 
@@ -70,12 +71,10 @@ opt.foldlevel = 99
 opt.foldlevelstart = 2
 opt.foldnestmax = 4
 
--- NOTE: Handled by plugin
--- local tab_options = { "tabstop",
---     "softtabstop", "shiftwidth" }
--- -- opt.vartabstop = {2,4,4,4,8,20}
--- local tab_width = 2
--- for i = 1, #tab_options do
---   opt[tab_options[i]] = tab_width
--- end
--- opt.expandtab = true
+-- Guess Indent handles this, but for empty files...
+local tab_options = { 'tabstop', 'softtabstop', 'shiftwidth' }
+local tab_width = 4
+for i = 1, #tab_options do
+  opt[tab_options[i]] = tab_width
+end
+opt.expandtab = not utils.is_machmotion()

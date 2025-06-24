@@ -11,7 +11,7 @@ local LspConfig = {
       tag = 'v2.0.0',
       opts = {},
       keys = {
-        { '<leader>om', '<CMD>Mason<CR>', mode = 'n', desc = 'Open Mason' },
+        { '<leader>om', '<CMD>Mason<CR>', mode = 'n', desc = 'Open [m]ason' },
       },
     },
     {

@@ -165,4 +165,4 @@ Keymaps.noremap(
 -- Open Scratch Buf
 Keymaps.noremap('n', '<leader>ox', function()
   utils.scratch.get_scratch('lox_buf')
-end)
+end, 'Open Scratch [x] Buffer')

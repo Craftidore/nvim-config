@@ -108,6 +108,6 @@ lazyOpts.ui = lazyUiConfig
 
 require('lazy').setup(lazyOpts)
 
-noremap('n', '<leader>ol', '<CMD>Lazy<CR>')
+noremap('n', '<leader>ol', '<CMD>Lazy<CR>', 'Open [l]azy')
 
 utils.defer.run('lazy')

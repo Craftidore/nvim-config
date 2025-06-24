@@ -37,7 +37,7 @@ local TreesitterConfig = {
     indent = { enable = true, disable = { 'ruby' } },
   },
   keys = {
-    { '<leader>ot', '<CMD>TSInstallInfo<CR>', mode = 'n', desc = 'Open Treesitter Info' },
+    { '<leader>ot', '<CMD>TSInstallInfo<CR>', mode = 'n', desc = 'Open [t]reesitter Info' },
   },
 }
 
