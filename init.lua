@@ -12,7 +12,7 @@ require('lazy_config')
 -- vim.g.utils.defer.run()
 
 if not utils.is_machmotion() then
-  utils.set_colorscheme('night-owl')
-else
   utils.set_colorscheme('duskfox')
+else
+  utils.set_colorscheme('night-owl')
 end
