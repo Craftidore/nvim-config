@@ -2,9 +2,10 @@ local AutocloseConfig = {
   'm4xshen/autoclose.nvim',
   opts = {
     keys = {
-      ['$'] = { escape = true, close = true, pair = '$$', enabled_filetypes = { 'tex', 'markdown' } },
+      ['$'] = { escape = false, close = true, pair = '$$', enabled_filetypes = { 'tex', 'markdown' } },
       ['<'] = { escape = true, close = true, pair = '<>', enabled_filetypes = { 'html', 'xml' } },
       ["'"] = { escape = true, close = false, pair = "''" },
+      ['"'] = { escape = true, close = true, pair = '""', disabled_filetypes = { 'vim' } },
     },
     options = {
       disable_filetypes = { 'text' },

@@ -102,7 +102,9 @@ local TelescopeConfig = {
 
     noremap('n', '<leader>tc', function()
       themed(builtin.colorscheme, file_theme, { enable_preview = true, ignore_builtins = true })()
-    end, 'Telescope search [C]olorscheme')
+    end, 'Telescope search [c]olorscheme')
+
+    noremap('n', '<leader>te', themed(builtin.commands, file_theme, {}), 'Telescope [e]xecute Command')
 
     noremap('n', '<leader>tw', themed(builtin.grep_string, buf_theme), 'Telescope search current [W]ord')
 
