@@ -52,9 +52,11 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 - Investigate abbreviation
 - Surround with mini surround?
-- Investigate sessions (mksession works, but mini.sessions may be better qol wise)
+- Investigate sessions (mksession works, but mini.sessions may be better qol
+wise)
 - Investigate [local] AI integration for work
-    - Even if its just to prove to my boss that it won't make me meaningfully faster
+    - Even if its just to prove to my boss that it won't make me meaningfully
+    faster
 - ~~See if Noice lets me do the vim buffer editing~~
     - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
 - quick textwidth (80) enable/disable (`gq` to format with textwidth)
@@ -66,12 +68,16 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - miguelcrespo/scratch-buffer.nvim
     - Olical/conjure
 - Separate out util namespaces into separate files
-- See if I can get my MachMotion theme (currently night-owl) to color the mini.status bar orange
+- See if I can get my MachMotion theme (currently night-owl) to color the
+mini.status bar orange
 - Require-all-in-directory util function, to populate table
     - For use with util namespaces
-- Check to see if lazy can load from a folder, and if so, how
+- Check to see if lazy can load from a folder, and if so, how. Update: Use
+import key of lazy config table
 - Try to better understand what the lsp config is doing
     - I'd like to rewrite it to be a bit cleaner
     - And much of it is not 100% understood since it came from kickstart.nvim
-- Check if ftdetect stuff should be changed to use vim.filetype (help vim.filetype)
-
+- Check if ftdetect stuff should be changed to use vim.filetype (help
+vim.filetype)
+- Move files that should always be loaded into `~/config/nvim/plugin` rather
+    than sourcing from init.lua
