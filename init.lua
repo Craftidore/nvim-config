@@ -1,8 +1,10 @@
 vim.g.utils = require('utils.init')
 local utils = vim.g.utils
 
+-- Some keymaps require custom vim.g opts, so that's first
 require('options')
--- Some keymaps require custom vim.g opts
+require('commands')
+require('autocmd')
 require('keymaps')
 -- Lazy calls defer.run('lazy'), which is used by keymaps->whichkey
 require('lazy_config')

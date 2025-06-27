@@ -73,4 +73,5 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - Try to better understand what the lsp config is doing
     - I'd like to rewrite it to be a bit cleaner
     - And much of it is not 100% understood since it came from kickstart.nvim
+- Check if ftdetect stuff should be changed to use vim.filetype (help vim.filetype)
 

@@ -58,8 +58,10 @@ opt.formatoptions:remove({ 'l' }) -- If disabled, autowrap even if you're adding
 opt.formatoptions:remove({ 'r' }) -- Add * to multi-line comments after <CR>
 opt.formatoptions:remove({ 'o' }) -- Add * to multi-line comments after o/O
 
--- Fold source-of-truth:
+o.undofile = true
+o.undolevels = 1000 -- default
 
+-- Fold source-of-truth:
 -- See https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
 opt.foldmethod = 'indent'
 utils.defer.add_deferred(function()
@@ -67,9 +69,9 @@ utils.defer.add_deferred(function()
   opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 end, 'nvim-treesitter')
 opt.foldtext = '' --  just use the normal line with TS syntax highlighting
-opt.foldlevel = 99
-opt.foldlevelstart = 2
-opt.foldnestmax = 4
+o.foldlevel = 99
+o.foldlevelstart = 2
+o.foldnestmax = 4
 
 -- Guess Indent handles this, but for empty files...
 local tab_options = { 'tabstop', 'softtabstop', 'shiftwidth' }
@@ -78,3 +80,5 @@ for i = 1, #tab_options do
   opt[tab_options[i]] = tab_width
 end
 opt.expandtab = not utils.is_machmotion()
+
+o.scrolloff = 1

@@ -99,6 +99,8 @@ for _, m in ipairs(copyPasteModes) do
   end
 end
 
+--
+
 -- NOTE: Window
 
 -- Tmux "Zoom"-y equivalent
@@ -137,8 +139,7 @@ Keymaps.noremap('n', '<leader>uwt', function()
 end, 'Toggle :set textwidth for current buffer')
 
 Keymaps.noremap('n', '<leader>uwe', function()
-  vim.cmd([[setlocal textwidth=80]])
-  -- vim.api.nvim_set_option_value('textwidth', vim.g.text_width, { scope = 'local' })
+  vim.api.nvim_set_option_value('textwidth', vim.g.text_width, { scope = 'local' })
 end, 'Enable :set textwidth for current buffer')
 
 Keymaps.noremap('n', '<leader>uwd', function()

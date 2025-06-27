@@ -7,7 +7,10 @@ local MarksConfig = {
     -- whether to map keybinds or not. default true
     default_mappings = false,
     -- which builtin marks to show. default {}
-    builtin_marks = { '.', '<', '>', '^' },
+    -- CRAFTI-NOTE: See :help marks for the marks
+    --              Currently most I have kept disabled because I
+    --              preferred seeing git signs.
+    builtin_marks = { '<', '>' },
     -- whether movements cycle back to the beginning/end of buffer. default true
     cyclic = true,
     -- whether the shada file is updated after modifying uppercase marks. default false

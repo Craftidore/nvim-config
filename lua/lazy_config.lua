@@ -79,6 +79,7 @@ local lazyOpts = {
   require('lsp').nvimlint,
   -- not quite lsp, but so close
   require('lsp').treesitter,
+  require('lsp').treesitter_context,
 
   -- Other
   require('plugin.todo_comments_config'),
