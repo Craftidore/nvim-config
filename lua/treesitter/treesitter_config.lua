@@ -25,6 +25,7 @@ utils.defer.add_deferred(function()
   local auto_install = {
     'bash',
     'c',
+    'cpp',
     'diff',
     'lua',
     'luadoc',
@@ -33,6 +34,10 @@ utils.defer.add_deferred(function()
     'query',
     'vim',
     'vimdoc',
+    'xml',
+    'json',
+    'javascript',
+    'svelte',
   }
   require('nvim-treesitter').install(auto_install):wait(300000) -- max. 5 minutes
 end, 'nvim-treesitter')
