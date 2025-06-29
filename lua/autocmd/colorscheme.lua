@@ -1,28 +1,19 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local grps = {
-  general = 'crafti.general',
-  colorscheme = 'crafti.colorscheme',
-}
+local group = 'colorscheme'
 
--- NOTE: General
-
-augroup(grps.general, { clear = true })
-
--- NOTE: Colorscheme
-
-augroup(grps.colorscheme, { clear = true })
+augroup(group, { clear = true })
 
 autocmd({ 'ColorschemePre' }, {
-  group = grps.colorscheme,
+  group = group,
   callback = function(_)
     vim.cmd([[highlight clear]])
   end,
 })
 
 autocmd({ 'Colorscheme' }, {
-  group = grps.colorscheme,
+  group = group,
   callback = function(ev)
     if ev.match == 'minicyan' or ev.match == 'minischeme' then
       -- This is inconsistent and it bugs me
@@ -33,7 +24,7 @@ autocmd({ 'Colorscheme' }, {
 })
 
 autocmd({ 'Colorscheme' }, {
-  group = grps.colorscheme,
+  group = group,
   callback = function()
     -- TODO: Set custom highlights
 

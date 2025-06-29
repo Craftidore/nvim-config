@@ -45,7 +45,7 @@ M.load_modules = function(req_path, ignore)
   local paths = M.glob_path(full_path, '*.lua')
   local modules = {}
   for _, v in ipairs(paths) do
-    if not v:match(ignore .. '$') then
+    if ignore == nil or not v:match(ignore .. '$') then
       local normalized = remove_suffix(remove_prefix(v, lua_path), '.lua')
       local file_only = M.get_filename(normalized)
       modules[file_only] = require(normalized)

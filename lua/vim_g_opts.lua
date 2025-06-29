@@ -1,5 +1,7 @@
 local g = vim.g
 
+-- g.defer_verbose = true
+--
 -- For checking in plugin configs
 g.have_nerd_font = true
 

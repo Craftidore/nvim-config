@@ -6,10 +6,6 @@ require('vim_g_opts')
 
 -- Lazy calls defer.run('lazy'), which is used by keymaps->whichkey
 require('lazy_config')
-require('options')
-require('commands')
-require('autocmd')
-require('keymaps')
 
 if not utils.is_machmotion() then
   utils.set_colorscheme('duskfox')

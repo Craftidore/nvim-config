@@ -39,14 +39,15 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 ## Structure Notes
 
-- General keymaps go in lua/keymaps.lua
+- General keymaps go in lua/keymaps/
 - Plugin specific keymaps go in the plugin config file itself
     - Preferably as the `keys` param of lazy spec
     - Barring that, using `utils.keymaps.noremap` inside `config`
 - Post-plugin-load behavior should be listed in the plugin's lazy config as a function deferred on the plugin name
-    - `util.defer.run('plugin-name')` is called in the `after/plugin/plugin-name.lua` file
+    - `util.defer.run('plugin-name')` is called in the config function for plugins that need it
     - This is done so post-plugin actions are stored with the config, even though its more verbose
 - LSP-related plugins are complex and such and go in the `lua/lsp` folder instead of the `lua/plugins` folder
+- `plugin/` is used to auto-load `lua/{autocmd,commands,keymaps,options}/*.lua`
 
 ## TODO
 
@@ -71,15 +72,17 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - Olical/conjure
 - [x] Separate out util namespaces into separate files
 - See if I can get my MachMotion theme (currently night-owl) to color the
-mini.status bar orange
+    mini.status bar orange
+    - They do have highlight groups; see `help mini.tabline`
 - [x] Require-all-in-directory util function, to populate table
     - For use with util namespaces
-- Check to see if lazy can load from a folder, and if so, how. Update: Use
-import key of lazy config table
+- [x] Check to see if lazy can load from a folder, and if so, how. Update: Use
+    import key of lazy config table
+    - Ok, so, it's `spec = { { import = 'path' }, { import = 'other-path' } }`
 - Try to better understand what the lsp config is doing
     - I'd like to rewrite it to be a bit cleaner
     - And much of it is not 100% understood since it came from kickstart.nvim
 - Check if ftdetect stuff should be changed to use vim.filetype (help
-vim.filetype)
-- Move files that should always be loaded into `~/config/nvim/plugin` rather
+    vim.filetype)
+- [x] Move files that should always be loaded into `~/config/nvim/plugin` rather
     than sourcing from init.lua
