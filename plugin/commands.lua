@@ -1,3 +1,3 @@
 local utils = vim.g.utils
 
-utils.path.load_modules('primary')
+utils.path.load_modules('commands')
