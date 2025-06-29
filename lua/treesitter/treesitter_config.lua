@@ -7,7 +7,7 @@ local TreesitterConfig = {
 
   'nvim-treesitter/nvim-treesitter',
   keys = {
-    { '<leader>ot', '<CMD>TSInstallInfo<CR>', mode = 'n', desc = 'Open [t]reesitter Info' },
+    { '<leader>ot', '<CMD>TSContext<CR>', mode = 'n', desc = 'Open [t]reesitter Info' },
   },
   lazy = false,
   branch = 'main',
