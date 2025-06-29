@@ -1,3 +1,4 @@
+local utils = vim.g.utils
 local WhichKey = {
   'folke/which-key.nvim',
   event = 'VeryLazy',
@@ -92,6 +93,10 @@ local WhichKey = {
       },
     },
   },
+  config = function(opts)
+    require('which-key').setup(opts.opts)
+    utils.defer.run('which-key')
+  end,
 }
 
 return WhichKey

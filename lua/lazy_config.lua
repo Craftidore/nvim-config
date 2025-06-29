@@ -43,71 +43,15 @@ local lazyUiConfig = {
   },
 }
 
-local lazyOpts = {
-  -- Themes
-  require('theme.night-owl'),
-  require('theme.nightfox'),
-  require('theme.sonokai'),
-
-  -- Primary Plugins
-  require('plugin.guess_indent_config'),
-
-  require('plugin.gitsigns_config'),
-
-  require('plugin.which_key_config'),
-
-  require('plugin.spider_config'),
-
-  require('plugin.various_textobjects_config'),
-
-  require('plugin.buffer_manager_config'),
-
-  -- Directory Navigation
-  require('plugin.oil_config'),
-
-  -- Undo Tree
-  require('plugin.undotree_config'),
-
-  -- Telescope
-  require('plugin.telescope_config'),
-
-  -- LSP
-  require('lsp').lazydev_config,
-  require('lsp').lspconfig_config,
-  require('lsp').conform_config,
-  require('lsp').blink_config,
-  require('lsp').nvimlint_config,
-  -- not quite lsp_config, but so close
-  require('lsp').treesitter_config,
-  require('lsp').treesitter_context_config,
-
-  -- Other
-  require('plugin.todo_comments_config'),
-
-  require('plugin.mini_config'),
-
-  require('plugin.leap_config'),
-
-  require('plugin.harpoon_config'),
-
-  require('plugin.ripgrep_sub_config'),
-
-  require('plugin.marks_config'), -- Currently only used for signcol marks, no mappings
-
-  require('plugin.autoclose_config'),
-
-  -- Disabled because issues inside of podman
-  require('plugin.tmux_navigator_config'),
-  -- Disabled because it doesn't support q:, q/ or q?
-  require('plugin.noice_config'),
-
-  -- MachMotion:
-  require('plugin.vim_signify_config'),
-}
-
-lazyOpts.ui = lazyUiConfig
-
-require('lazy').setup(lazyOpts)
+require('lazy').setup({
+  spec = {
+    { import = 'themes' },
+    { import = 'plugins' },
+    { import = 'lsp' },
+    { import = 'treesitter' },
+  },
+  ui = lazyUiConfig,
+})
 
 noremap('n', '<leader>ol', '<CMD>Lazy<CR>', 'Open [l]azy')
 

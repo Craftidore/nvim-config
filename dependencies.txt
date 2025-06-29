@@ -3,3 +3,5 @@ gcc
 g++
 ripgrep
 wl-clipboard
+tar
+curl
