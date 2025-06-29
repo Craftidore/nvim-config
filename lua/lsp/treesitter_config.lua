@@ -1,13 +1,13 @@
-local utils = vim.g.utils
-local noremap = utils.keymaps.noremap
 local TreesitterConfig = {
-
   -- Other plugins
   -- - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
   -- - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
   -- - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 
   'nvim-treesitter/nvim-treesitter',
+  keys = {
+    { '<leader>ot', '<CMD>TSInstallInfo<CR>', mode = 'n', desc = 'Open [t]reesitter Info' },
+  },
   lazy = false,
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
@@ -35,9 +35,6 @@ local TreesitterConfig = {
       additional_vim_regex_highlighting = { 'ruby' },
     },
     indent = { enable = true, disable = { 'ruby' } },
-  },
-  keys = {
-    { '<leader>ot', '<CMD>TSInstallInfo<CR>', mode = 'n', desc = 'Open [t]reesitter Info' },
   },
 }
 
