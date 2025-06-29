@@ -1,21 +1,7 @@
-local g = vim.g
 local o = vim.o
 local opt = vim.opt
 local utils = vim.g.utils
--- Used by c_CTRL-f keymap
-g.cmdline_auto_height = 3
--- Used by <leader>oc keymap
-g.quickfix_auto_height = 3
-
-g.winblend = 30
-
--- Leader key
-g.mapleader = ' '
-g.maplocalleader = ' '
 utils.keymaps.silent('', '<Space>', '<Nop>')
-
--- For checking in plugin configs
-g.have_nerd_font = true
 
 o.number = true
 o.relativenumber = true
@@ -50,8 +36,6 @@ o.cursorcolumn = true
 
 o.confirm = true
 
--- vim.g.text_width used by colorcolumn, and textwidth enable/disable keymaps
-vim.g.text_width = 80
 opt.colorcolumn = { vim.g.text_width }
 opt.formatoptions:append({ 't' }) -- Autowrap at text-width at end-of-line
 opt.formatoptions:remove({ 'l' }) -- If disabled, autowrap even if you're adding to a line that's already >textwidth

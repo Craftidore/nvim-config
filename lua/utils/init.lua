@@ -1,4 +1,4 @@
-local Utils = {}
+local Utils = require('utils.path').load_modules('utils', 'init.lua')
 
 Utils.echom = function(...)
   local msgs = {}
@@ -7,10 +7,6 @@ Utils.echom = function(...)
   end
   vim.api.nvim_echo(msgs, true, {})
 end
-
-Utils.keymaps = require('utils.keymaps')
-
-Utils.lua = require('utils.lua')
 
 Utils.set_colorscheme = function(colorscheme)
   -- NOTE: vim.cmd is a table which can be called as a function,
@@ -23,25 +19,15 @@ Utils.set_colorscheme = function(colorscheme)
   end, 'colorscheme ' .. colorscheme)
 end
 
-Utils.keys = require('utils.keys')
-
-Utils.visual = require('utils.visual')
-
 Utils.is_machmotion = function()
   local MACHMOTION = vim.env['MACHMOTION']
   return MACHMOTION ~= nil and MACHMOTION ~= 'false'
 end
-
-Utils.plugins = require('utils.plugins')
-
-Utils.defer = require('utils.defer')
 
 Utils.marks = {}
 Utils.marks.get_mark_row_col = function(mark)
   local cur_buf_id = vim.api.nvim_get_current_buf()
   return vim.api.nvim_buf_get_mark(cur_buf_id, mark)
 end
-
-Utils.scratch = require('utils.scratch')
 
 return Utils

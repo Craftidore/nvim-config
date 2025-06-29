@@ -50,16 +50,18 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 ## TODO
 
-- Investigate abbreviation
+- ~~Investigate abbreviation~~
+    - Abbreviations are neat, will probably use snippets except for one-off things
 - Surround with mini surround?
-- Investigate sessions (mksession works, but mini.sessions may be better qol
-wise)
+- [x] Investigate sessions (mksession works, but mini.sessions may be better qol
+    wise)
+    - Planning not to use this for now. mksession works.
 - Investigate [local] AI integration for work
     - Even if its just to prove to my boss that it won't make me meaningfully
-    faster
+        faster
 - ~~See if Noice lets me do the vim buffer editing~~
     - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
-- quick textwidth (80) enable/disable (`gq` to format with textwidth)
+- [x] quick textwidth (80) enable/disable (`gq` to format with textwidth)
 - Fennel Switch
     - Investigate switch to fennel?
     - (Because lisp is fun, not because this needs it)
@@ -67,10 +69,10 @@ wise)
     - udayvir-singh/tangerine.nvim
     - miguelcrespo/scratch-buffer.nvim
     - Olical/conjure
-- Separate out util namespaces into separate files
+- [x] Separate out util namespaces into separate files
 - See if I can get my MachMotion theme (currently night-owl) to color the
 mini.status bar orange
-- Require-all-in-directory util function, to populate table
+- [x] Require-all-in-directory util function, to populate table
     - For use with util namespaces
 - Check to see if lazy can load from a folder, and if so, how. Update: Use
 import key of lazy config table

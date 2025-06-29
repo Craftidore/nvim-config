@@ -1,7 +1,9 @@
-vim.g.utils = require('utils.init')
+vim.g.utils = require('utils')
 local utils = vim.g.utils
 
 -- Some keymaps require custom vim.g opts, so that's first
+require('vim_g_opts')
+
 require('options')
 require('commands')
 require('autocmd')

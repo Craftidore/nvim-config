@@ -72,14 +72,14 @@ local lazyOpts = {
   require('plugin.telescope_config'),
 
   -- LSP
-  require('lsp').lazydev,
-  require('lsp').lspconfig,
-  require('lsp').conform,
-  require('lsp').blink,
-  require('lsp').nvimlint,
-  -- not quite lsp, but so close
-  require('lsp').treesitter,
-  require('lsp').treesitter_context,
+  require('lsp').lazydev_config,
+  require('lsp').lspconfig_config,
+  require('lsp').conform_config,
+  require('lsp').blink_config,
+  require('lsp').nvimlint_config,
+  -- not quite lsp_config, but so close
+  require('lsp').treesitter_config,
+  require('lsp').treesitter_context_config,
 
   -- Other
   require('plugin.todo_comments_config'),

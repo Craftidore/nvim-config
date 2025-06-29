@@ -39,4 +39,16 @@ Lua.contains = function(arr, value, test)
   return false
 end
 
+-- Stolen from https://www.reddit.com/r/neovim/comments/su0em7/pathjoin_for_lua_or_vimscript_do_we_have_anything/
+Lua.split = function(inputString, sep)
+  local fields = {}
+
+  local pattern = string.format('([^%s]+)', sep)
+  local _ = string.gsub(inputString, pattern, function(c)
+    fields[#fields + 1] = c
+  end)
+
+  return fields
+end
+
 return Lua
