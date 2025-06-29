@@ -9,16 +9,16 @@ api.nvim_create_user_command(
       " Don't care about warning as error messages just the warnings
     g/error C2220/d
       " Swap path sep
-    %s;\\;/;g
+    %s;\\;/;ge
       " Vim Quickfix likes fname:lnum:error
-    %s/(/:/
+    %s/(/:/e
       " Vim Quickfix doesn't like the column data
-    %s/,\d\+)//
-    %s;^\d\+>Z:;/var/home/craftidore/HomeDir/MachMotion/mach;
+    %s/,\d\+)//e
+    %s;^\d\+>Z:;/var/home/craftidore/HomeDir/MachMotion/mach;e
       " If any lines didn't have a path, they were a mistake Ex: Powershell errors
     g/^\d>/d
       " Remove 
-    %s///g
+    %s///ge
   ]],
   {}
 )
