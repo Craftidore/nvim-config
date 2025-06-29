@@ -47,7 +47,7 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - `util.defer.run('plugin-name')` is called in the config function for plugins that need it
     - This is done so post-plugin actions are stored with the config, even though its more verbose
 - LSP-related plugins are complex and such and go in the `lua/lsp` folder instead of the `lua/plugins` folder
-- `plugin/` is used to auto-load `lua/{autocmd,commands,keymaps,options}/*.lua`
+- `plugin/` is used to auto-load `lua/{commands,keymaps,options}/*.lua`
 
 ## TODO
 
