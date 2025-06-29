@@ -51,6 +51,9 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 ## TODO
 
+- MachMotion nvim instance was having issues installing parsers from treesitter & would hang.
+    - Copying parsers manually from my primary install fixed it, but dunno why it was an issue in the first place.
+    - Dunno if it was a service outage or a genuine issue with that distrobox
 - ~~Investigate abbreviation~~
     - Abbreviations are neat, will probably use snippets except for one-off things
 - Surround with mini surround?
@@ -82,7 +85,8 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - Try to better understand what the lsp config is doing
     - I'd like to rewrite it to be a bit cleaner
     - And much of it is not 100% understood since it came from kickstart.nvim
-- Check if ftdetect stuff should be changed to use vim.filetype (help
-    vim.filetype)
+- Check if ftdetect stuff should be changed to use vim.filetype
+    (help vim.filetype)
 - [x] Move files that should always be loaded into `~/config/nvim/plugin` rather
     than sourcing from init.lua
+
