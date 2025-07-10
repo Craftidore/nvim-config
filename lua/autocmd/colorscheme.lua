@@ -5,12 +5,17 @@ local group = 'colorscheme'
 
 augroup(group, { clear = true })
 
-autocmd({ 'ColorschemePre' }, {
-  group = group,
-  callback = function(_)
-    vim.cmd([[highlight clear]])
-  end,
-})
+-- NOTE: This used to fix an issue with colors carrying over between colorschemes,
+--       but that's not happening now, so its disabled.
+--
+-- autocmd({ 'ColorschemePre' }, {
+--   group = group,
+--   callback = function(ev)
+--     if vim.g.colors_name == 'sonokai' then
+--       vim.cmd([[highlight clear]])
+--     end
+--   end,
+-- })
 
 autocmd({ 'Colorscheme' }, {
   group = group,
