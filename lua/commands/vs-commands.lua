@@ -10,10 +10,10 @@ api.nvim_create_user_command(
     g/error C2220/d
       " Swap path sep
     %s;\\;/;ge
-      " Vim Quickfix likes fname:lnum:error
+      " Vim Quickfix likes fname:lnum:cnum:error
     %s/(/:/e
-      " Vim Quickfix doesn't like the column data
-    %s/,\d\+)//e
+      " Use : for column data
+    %s/,\(\d\+\))/:\1/e
     %s;^\d\+>Z:;/var/home/craftidore/HomeDir/MachMotion/mach;e
       " If any lines didn't have a path, they were a mistake Ex: Powershell errors
     g/^\d>/d
