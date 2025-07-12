@@ -5,7 +5,7 @@ local Keymaps = utils.keymaps
 
 -- Better copy && paste
 local copyPasteModes = { 'n', 'x' }
-local copyPasteKeys = { 'y', 'Y', 'p', 'P', 'd', 'D', 'c', 'C' }
+local copyPasteKeys = { 'y', 'p', 'P', 'd', 'D', 'c', 'C' }
 for _, m in ipairs(copyPasteModes) do
   for _, k in ipairs(copyPasteKeys) do
     Keymaps.noremap(m, '<leader>' .. k, '"+' .. k, 'Perform ' .. k .. ' to system clipboard')
@@ -15,4 +15,10 @@ for _, m in ipairs(copyPasteModes) do
       })
     end, 'which-key')
   end
+end
+
+-- Because Y is different *eyerolling*
+Keymaps.noremap({ 'n', 'x' }, '<leader>Y', '"+y$', 'Perform Y to system clipboard')
+utils.defer.add_deferred(function()
+  utils.keymaps.wk_add({ { '<leader>Y', hidden = true } })
 end
