@@ -21,4 +21,4 @@ end
 Keymaps.noremap({ 'n', 'x' }, '<leader>Y', '"+y$', 'Perform Y to system clipboard')
 utils.defer.add_deferred(function()
   utils.keymaps.wk_add({ { '<leader>Y', hidden = true } })
-end
+end)
