@@ -113,7 +113,12 @@ local TelescopeConfig = {
       'Telescope search current [W]ord'
     )
 
-    noremap('n', '<leader>tg', themed(builtin.live_grep, buf_theme), 'Telescope search by [G]rep')
+    noremap(
+      'n',
+      '<leader>tg',
+      themed(builtin.live_grep, buf_theme, { enable_preview = true }),
+      'Telescope search by [G]rep'
+    )
     noremap('n', '<leader>td', themed(builtin.diagnostics, file_theme), 'Telescope search [D]iagnostics')
 
     noremap('n', '<leader>tr', builtin.resume, 'Telescope search [R]esume')
