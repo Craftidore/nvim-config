@@ -41,7 +41,15 @@ local MiniConfig = {
       tabpage_section = 'left',
     }) -- Perfect status line for my needs
     -- require('mini.files').setup() -- I like Oil better
-    -- require('mini.notify').setup() -- I like fidget better...
+    require('mini.notify').setup({
+      lsp_progress = {
+        enable = false, -- I like fidget better...
+      },
+      window = {
+        winblend = vim.g.winblend,
+      },
+    })
+    vim.notify = require('mini.notify').make_notify()
   end,
 }
 
