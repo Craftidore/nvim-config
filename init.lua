@@ -12,5 +12,5 @@ require('lazy_config')
 if not utils.is_machmotion() then
   utils.set_colorscheme('duskfox')
 else
-  utils.set_colorscheme('night-owl')
+  utils.set_colorscheme('kanagawa')
 end
