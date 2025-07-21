@@ -11,7 +11,7 @@ augroup(group, { clear = true })
 autocmd({ 'ColorschemePre' }, {
   group = group,
   callback = function(ev)
-    if vim.g.colors_name == 'sonokai' then
+    if vim.g.colors_name == 'sonokai' or string.find(ev.match, 'kanagawa') then
       vim.cmd([[highlight clear]])
     end
   end,
