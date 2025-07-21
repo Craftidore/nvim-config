@@ -5,3 +5,4 @@ ripgrep
 wl-clipboard
 tar
 curl
+tree-sitter-cli
