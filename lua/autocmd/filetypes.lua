@@ -16,3 +16,12 @@ api.nvim_create_autocmd({ 'LspAttach' }, {
     end
   end,
 })
+
+api.nvim_create_autocmd({ 'BufEnter', 'BufCreate' }, {
+  pattern = { '*.tex' },
+  group = group,
+  desc = 'Default-add comment wrap/continue for TeX buffer',
+  callback = function()
+    vim.bo.formatoptions = vim.bo.formatoptions .. 'cro'
+  end,
+})
