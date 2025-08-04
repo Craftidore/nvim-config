@@ -51,21 +51,29 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 ## TODO
 
-- MachMotion nvim instance was having issues installing parsers from treesitter & would hang.
-    - Copying parsers manually from my primary install fixed it, but dunno why it was an issue in the first place.
-    - Dunno if it was a service outage or a genuine issue with that distrobox
-- ~~Investigate abbreviation~~
-    - Abbreviations are neat, will probably use snippets except for one-off things
-- Surround with mini surround?
 - [x] Investigate sessions (mksession works, but mini.sessions may be better qol
     wise)
     - Planning not to use this for now. mksession works.
+- [x] quick textwidth (80) enable/disable (`gq` to format with textwidth)
+- [x] Separate out util namespaces into separate files
+- [x] Require-all-in-directory util function, to populate table
+    - For use with util namespaces
+- [x] Check to see if lazy can load from a folder, and if so, how. Update: Use
+    import key of lazy config table
+    - Ok, so, it's `spec = { { import = 'path' }, { import = 'other-path' } }`
+- [x] Move files that should always be loaded into `~/config/nvim/plugin` rather
+- [x] MachMotion nvim instance was having issues installing parsers from treesitter & would hang.
+    - Copying parsers manually from my primary install fixed it, but dunno why it was an issue in the first place.
+    - Dunno if it was a service outage or a genuine issue with that distrobox
+    - Issue was that treesitter-cli wasn't installed. Has been added to dependencies.txt
+- ~~Investigate abbreviation~~
+    - Abbreviations are neat, will probably use snippets except for one-off things
+- Surround with mini surround?
 - Investigate [local] AI integration for work
     - Even if its just to prove to my boss that it won't make me meaningfully
         faster
 - ~~See if Noice lets me do the vim buffer editing~~
     - It does not; I think I'll experiment with `<C-f>` -> `<C-f>a` for now
-- [x] quick textwidth (80) enable/disable (`gq` to format with textwidth)
 - Fennel Switch
     - Investigate switch to fennel?
     - (Because lisp is fun, not because this needs it)
@@ -73,20 +81,12 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - udayvir-singh/tangerine.nvim
     - miguelcrespo/scratch-buffer.nvim
     - Olical/conjure
-- [x] Separate out util namespaces into separate files
 - See if I can get my MachMotion theme (currently night-owl) to color the
     mini.status bar orange
     - They do have highlight groups; see `help mini.tabline`
-- [x] Require-all-in-directory util function, to populate table
-    - For use with util namespaces
-- [x] Check to see if lazy can load from a folder, and if so, how. Update: Use
-    import key of lazy config table
-    - Ok, so, it's `spec = { { import = 'path' }, { import = 'other-path' } }`
 - Try to better understand what the lsp config is doing
     - I'd like to rewrite it to be a bit cleaner
     - And much of it is not 100% understood since it came from kickstart.nvim
 - Check if ftdetect stuff should be changed to use vim.filetype
     (help vim.filetype)
-- [x] Move files that should always be loaded into `~/config/nvim/plugin` rather
     than sourcing from init.lua
-
