@@ -1,3 +1,3 @@
-local utils = vim.g.utils
-
-utils.path.load_modules('commands')
+-- [nfnl] plugin/commands.fnl
+local utils = _G.vim.g.utils
+return utils.path.load_modules("commands")

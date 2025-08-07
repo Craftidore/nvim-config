@@ -1,0 +1,2 @@
+[ :EdenEast/nightfox.nvim ]
+

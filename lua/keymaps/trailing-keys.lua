@@ -1,16 +1,13 @@
-local utils = vim.g.utils
+-- [nfnl] lua/keymaps/trailing-keys.fnl
+local utils = _G.vim.g.utils
 local Keymaps = utils.keymaps
-
--- NOTE: Trailing Punctuation
---       (no namespace; <leader>{punctuation})
-
-local trailingKeys = { ',', ';', ':', '"', "'", '(', ')', '[', ']', '{', '}', '\\', '/', '.' }
-for i = 1, #trailingKeys do
-  local key = trailingKeys[i]
-  Keymaps.noremap('n', '<leader>' .. key, 'mzA' .. key .. '<Esc>`z', 'Add ' .. key .. ' to end of current line')
-  utils.defer.add_deferred(function()
-    utils.keymaps.wk_add({
-      { '<leader>' .. key, hidden = true },
-    })
-  end, 'which-key')
+local trailing_keys = {",", ";", ":", "\"", "'", "(", ")", "[", "]", "{", "}", "\\", "/", "."}
+for i = 1, #trailing_keys do
+  local key = trailing_keys[i]
+  Keymaps.noremap("n", ("<leader>" .. key), ("mzA" .. key .. "<Esc>`z"), ("Add " .. key .. " to end of current line"))
+  local function _1_()
+    return utils.keymaps.wk_add({{("<leader>" .. key), hidden = true}})
+  end
+  utils.defer.add_deferred(_1_, "which-key")
 end
+return nil

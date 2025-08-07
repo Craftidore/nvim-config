@@ -1,1 +1,2 @@
--- Crafti's Keymaps (autoloaded)
+-- [nfnl] lua/keymaps/keymaps.fnl
+

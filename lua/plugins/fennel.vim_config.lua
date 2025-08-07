@@ -1,3 +1,2 @@
-return {
-  'jaawerth/fennel.vim',
-}
+-- [nfnl] lua/plugins/fennel.vim_config.fnl
+return {"jaawerth/fennel.vim"}

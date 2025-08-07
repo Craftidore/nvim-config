@@ -51,6 +51,7 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 
 ## TODO
 
+<<<<<<< HEAD
 - [x] Investigate sessions (mksession works, but mini.sessions may be better qol
     wise)
     - Planning not to use this for now. mksession works.
@@ -68,6 +69,11 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - Issue was that treesitter-cli wasn't installed. Has been added to dependencies.txt
 - ~~Investigate abbreviation~~
     - Abbreviations are neat, will probably use snippets except for one-off things
+=======
+- MachMotion nvim instance was having issues installing parsers from treesitter & would hang.
+    - Copying parsers manually from my primary install fixed it, but dunno why it was an issue in the first place.
+    - Dunno if it was a service outage or a genuine issue with that distrobox
+>>>>>>> fennel
 - Surround with mini surround?
 - Investigate [local] AI integration for work
     - Even if its just to prove to my boss that it won't make me meaningfully
@@ -87,6 +93,9 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - Try to better understand what the lsp config is doing
     - I'd like to rewrite it to be a bit cleaner
     - And much of it is not 100% understood since it came from kickstart.nvim
+<<<<<<< HEAD
 - Check if ftdetect stuff should be changed to use vim.filetype
     (help vim.filetype)
     than sourcing from init.lua
+=======
+>>>>>>> fennel

@@ -1,262 +1,118 @@
+-- [nfnl] lua/lsp/lspconfig_config.fnl
+local vim = _G.vim
 local utils = vim.g.utils
--- Shamelessly lifted from kickstart.nvim with minimal changes
-local LspConfig = {
-  -- Main LSP Configuration
-  'neovim/nvim-lspconfig',
-  dependencies = {
-    -- Mason must be loaded before its dependents so we need to set it up here.
-    -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-    {
-      'mason-org/mason.nvim',
-      tag = 'v2.0.0',
-      opts = {},
-      keys = {
-        { '<leader>om', '<CMD>Mason<CR>', mode = 'n', desc = 'Open [m]ason' },
-      },
-    },
-    {
-      'mason-org/mason-lspconfig.nvim',
-    },
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-    -- Useful status updates for LSP.
-    { 'j-hui/fidget.nvim', opts = {} },
-
-    -- Allows extra capabilities provided by blink.cmp
-    'saghen/blink.cmp',
-  },
-  config = function()
-    vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
-      callback = function(event)
-        local map = function(keys, func, desc, mode)
-          mode = mode or 'n'
-          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
-        end
-
-        local popupOpts = { border = 'rounded' }
-
-        -- Rename variable
-        map('<leader>lr', vim.lsp.buf.rename, 'LSP: [r]ename')
-
-        -- Execute a code action, usually fixing errors
-        map('<leader>la', vim.lsp.buf.code_action, 'LSP: Code [a]ction', { 'n', 'x' })
-
-        -- Find references
-        map('<leader>lf', require('telescope.builtin').lsp_references, 'LSP: Goto Re[f]erences')
-
-        -- Jump to the implementation
-        map('<leader>li', require('telescope.builtin').lsp_implementations, 'LSP: Goto [i]mplementation')
-
-        -- Jump to the definition
-        --  To jump back, press <C-t>.
-        map('<leader>ltd', require('telescope.builtin').lsp_definitions, 'LSP: Telescope [d]efinitions')
-
-        -- Goto declaration (like c header file)
-        map('<leader>ld', vim.lsp.buf.declaration, 'LSP: Goto [d]eclaration')
-
-        -- Fuzzy find symbols in current document.
-        map('<leader>ltb', require('telescope.builtin').lsp_document_symbols, 'LSP: Telescope [b]uffer Symbols')
-
-        -- Fuzzy find all symbols in workspace.
-        map(
-          '<leader>ltw',
-          require('telescope.builtin').lsp_dynamic_workspace_symbols,
-          'LSP: Telescope [w]orkspace Symbols'
-        )
-
-        -- Jump to type
-        map('<leader>ltt', require('telescope.builtin').lsp_type_definitions, 'LSP: Telescope [t]ype Definitions')
-
-        map('<leader>ls', function()
-          vim.lsp.buf.hover(popupOpts)
-        end, 'LSP: Hover detail[s]')
-
-        -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-        ---@param client vim.lsp.Client
-        ---@param method vim.lsp.protocol.Method
-        ---@param bufnr? integer some lsp support methods only in specific files
-        ---@return boolean
-        local function client_supports_method(client, method, bufnr)
-          if vim.fn.has('nvim-0.11') == 1 then
-            return client:supports_method(method, bufnr)
-          else
-            return client.supports_method(method, { bufnr = bufnr })
-          end
-        end
-
-        -- The following two autocommands are used to highlight references of the
-        -- word under your cursor when your cursor rests there for a little while.
-        --    See `:help CursorHold` for information about when this is executed
-        --
-        -- When you move your cursor, the highlights will be cleared (the second autocommand).
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if
-          client
-          and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
-        then
-          local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
-          vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-            buffer = event.buf,
-            group = highlight_augroup,
-            callback = vim.lsp.buf.document_highlight,
-          })
-
-          vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-            buffer = event.buf,
-            group = highlight_augroup,
-            callback = vim.lsp.buf.clear_references,
-          })
-
-          vim.api.nvim_create_autocmd('LspDetach', {
-            group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
-            callback = function(event2)
-              vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds({ group = 'kickstart-lsp-highlight', buffer = event2.buf })
-            end,
-          })
-        end
-        if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-          map('<leader>lh', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-          end, 'LSP: Toggle Inlay [h]ints')
-        end
-      end,
-    })
-
-    -- Diagnostic Config
-    -- See :help vim.diagnostic.Opts
-    vim.diagnostic.config({
-      severity_sort = true,
-      float = { border = 'rounded', source = 'if_many' },
-      underline = { severity = vim.diagnostic.severity.ERROR },
-      signs = vim.g.have_nerd_font and {
-        text = {
-          [vim.diagnostic.severity.ERROR] = '󰅚 ',
-          [vim.diagnostic.severity.WARN] = '󰀪 ',
-          [vim.diagnostic.severity.INFO] = '󰋽 ',
-          [vim.diagnostic.severity.HINT] = '󰌶 ',
-        },
-      } or {},
-      virtual_text = {
-        source = 'if_many',
-        spacing = 2,
-        format = function(diagnostic)
-          local diagnostic_message = {
-            [vim.diagnostic.severity.ERROR] = diagnostic.message,
-            [vim.diagnostic.severity.WARN] = diagnostic.message,
-            [vim.diagnostic.severity.INFO] = diagnostic.message,
-            [vim.diagnostic.severity.HINT] = diagnostic.message,
-          }
-          return diagnostic_message[diagnostic.severity]
-        end,
-      },
-    })
-
-    -- LSP servers and clients are able to communicate to each other what features they support.
-    --  By default, Neovim doesn't support everything that is in the LSP specification.
-    --  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-    --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-    -- Enable the following language servers
-    --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-    --
-    --  Add any additional override configuration in the following tables. Available keys are:
-    --  - cmd (table): Override the default command used to start the server
-    --  - filetypes (table): Override the default list of associated filetypes for the server
-    --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-    --  - settings (table): Override the default settings passed when initializing the server.
-    --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-    local servers = {
-      clangd = {
-        cmd = { 'clangd' },
-        capabilities = capabilities,
-        init_options = {
-          fallbackFlags = { '-std=c++20' },
-        },
-        filetypes = { 'h', 'hpp', 'c', 'cpp' },
-        -- settings = {},
-      },
-      -- gopls = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-      -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-      --
-      -- Some languages (like typescript) have entire language plugins that can be useful:
-      --    https://github.com/pmizio/typescript-tools.nvim
-      --
-      -- But for many setups, the LSP (`ts_ls`) will work just fine
-      -- ts_ls = {},
-      --
-
-      lua_ls = {
-        -- cmd = { ... },
-        -- filetypes = { ... },
-        -- capabilities = {},
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            diagnostics = { disable = { 'missing-fields' } },
-          },
-        },
-      },
-    }
-
-    -- Ensure the servers and tools above are installed
-    --
-    -- To check the current status of installed tools and/or manually install
-    -- other tools, you can run
-    --    :Mason
-    --
-    -- You can press `g?` for help in this menu.
-    --
-    -- `mason` had to be setup earlier: to configure its options see the
-    -- `dependencies` table for `nvim-lspconfig` above.
-    --
-    -- You can add other tools here that you want Mason to install
-    -- for you, so that they are available from within Neovim.
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
-      'cpplint',
-      'typos',
-      'editorconfig-checker',
-    })
-    require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
-
-    require('mason-lspconfig').setup({
-      automatic_enable = true,
-      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-      automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for ts_ls)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    })
-  end,
-}
-
-utils.defer.add_deferred(function()
-  if utils.plugins.has_plugin('lspconfig') then
-    utils.keymaps.wk_add({
-      { '<leader>l', group = '[L]SP' },
-    })
-    if utils.plugins.has_plugin('telescope') then
-      utils.keymaps.wk_add({
-        { '<leader>lt', group = 'LSP-[t]elescope' },
-      })
+local lsp_config
+local function _1_()
+  local function _2_(event)
+    local map
+    local function _3_(keys, func, desc, _3fmode)
+      local mode
+      if (_3fmode == nil) then
+        mode = "n"
+      else
+        mode = _3fmode
+      end
+      return vim.keymap.set(mode, keys, func, {buffer = event.buf, desc = desc})
+    end
+    map = _3_
+    local popup_opts = {border = "rounded"}
+    map("<leader>lr", vim.lsp.buf.rename, "LSP: [r]ename")
+    map("<leader>la", vim.lsp.buf.code_action, "LSP: Code [a]ction", {n = "x"})
+    map("<leader>lf", require("telescope.builtin").lsp_references, "LSP: Goto Re[f]erences")
+    map("<leader>li", require("telescope.builtin").lsp_implementations, "LSP: Goto [i]mplementation")
+    map("<leader>ltd", require("telescope.builtin").lsp_definitions, "LSP: Telescope [d]efinitions")
+    map("<leader>ld", vim.lsp.buf.declaration, "LSP: Goto [d]eclaration")
+    map("<leader>ltb", require("telescope.builtin").lsp_document_symbols, "LSP: Telescope [b]uffer Symbols")
+    map("<leader>ltw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "LSP: Telescope [w]orkspace Symbols")
+    map("<leader>ltt", require("telescope.builtin").lsp_type_definitions, "LSP: Telescope [t]ype Definitions")
+    local function _5_()
+      return vim.lsp.buf.hover(popup_opts)
+    end
+    map("<leader>ls", _5_, "LSP: Hover detail[s]")
+    local function client_supports_method(client, method, bufnr)
+      if (vim.fn.has("nvim-0.11") == 1) then
+        return client:supports_method(method, bufnr)
+      else
+        return client.supports_method(method, {bufnr = bufnr})
+      end
+    end
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if (client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)) then
+      local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", {clear = false})
+      vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {buffer = event.buf, group = highlight_augroup, callback = vim.lsp.buf.document_highlight})
+      vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"}, {buffer = event.buf, group = highlight_augroup, callback = vim.lsp.buf.clear_references})
+      local function _7_(event2)
+        vim.lsp.buf.clear_references()
+        return vim.api.nvim_clear_autocmds({group = "kickstart-lsp-highlight", buffer = event2.buf})
+      end
+      vim.api.nvim_create_autocmd("LspDetach", {group = vim.api.nvim_create_augroup("kickstart-lsp-detach", {clear = true}), callback = _7_})
+    else
+    end
+    if (client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)) then
+      local function _9_()
+        return vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({bufnr = event.buf}))
+      end
+      return map("<leader>lh", _9_, "LSP: Toggle Inlay [h]ints")
+    else
+      return nil
     end
   end
-end, 'which-key')
-
-return LspConfig
+  vim.api.nvim_create_autocmd("LspAttach", {group = vim.api.nvim_create_augroup("kickstart-lsp-attach", {clear = true}), callback = _2_})
+  local _11_
+  if vim.g.have_nerd_font then
+    _11_ = {text = {[vim.diagnostic.severity.ERROR] = "\243\176\133\154 ", [vim.diagnostic.severity.WARN] = "\243\176\128\170 ", [vim.diagnostic.severity.INFO] = "\243\176\139\189 ", [vim.diagnostic.severity.HINT] = "\243\176\140\182 "}}
+  else
+    _11_ = {}
+  end
+  local function _13_(diagnostic)
+    local diagnostic_message = {[vim.diagnostic.severity.ERROR] = diagnostic.message, [vim.diagnostic.severity.WARN] = diagnostic.message, [vim.diagnostic.severity.INFO] = diagnostic.message, [vim.diagnostic.severity.HINT] = diagnostic.message}
+    return diagnostic_message[diagnostic.severity]
+  end
+  vim.diagnostic.config({severity_sort = true, float = {border = "rounded", source = "if_many"}, underline = {severity = vim.diagnostic.severity.ERROR}, signs = _11_, virtual_text = {source = "if_many", spacing = 2, format = _13_}})
+  local capabilities = require("blink.cmp").get_lsp_capabilities()
+  local servers = {clangd = {cmd = {"clangd"}, capabilities = capabilities, init_options = {fallbackFlags = {"-std=c++20"}}, filetypes = {"h", "hpp", "c", "cpp"}}, lua_ls = {settings = {Lua = {completion = {callSnippet = "Replace"}}, diagnostics = {disable = {"missing-fields"}}}}}
+  local ensure_installed
+  local function _14_()
+    if (servers ~= nil) then
+      return servers
+    else
+      return {}
+    end
+  end
+  ensure_installed = vim.tbl_keys(_14_())
+  vim.list_extend(ensure_installed, {"stylua", "cpplint", "typos", "editorconfig-checker"})
+  require("mason-tool-installer").setup({ensure_installed = ensure_installed})
+  local function _15_(server_name)
+    local server
+    if (servers[server_name] ~= nil) then
+      server = servers[server_name]
+    else
+      server = {}
+    end
+    local function _17_()
+      if (server.capabilities ~= nil) then
+        return server.capabilities
+      else
+        return {}
+      end
+    end
+    server["capabilities"] = vim.tbl_deep_extend("force", {}, capabilities, _17_())
+    return require("lspconfig")[server_name].setup(server)
+  end
+  return require("mason-lspconfig").setup({automatic_enable = true, ensure_installed = {}, handlers = {_15_}, automatic_installation = false})
+end
+lsp_config = {"neovim/nvim-lspconfig", dependencies = {{"mason-org/mason.nvim", tag = "v2.0.0", opts = {}, keys = {{"<leader>om", "<CMD>Mason<CR>", mode = "n", desc = "Open [m]ason"}}}, "mason-org/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim", {"j-hui/fidget.nvim", opts = {}}, "saghen/blink.cmp"}, config = _1_}
+local function _18_()
+  if utils.plugins.has_plugin("lsp-config") then
+    utils.keymaps.wk_add({{"<leader>l", group = "[L]SP"}})
+    if utils.plugins.has_plugin("telescope") then
+      return utils.keymaps.wk_add({{"<leader>lt", group = "LSP-[t]elescope"}})
+    else
+      return nil
+    end
+  else
+    return nil
+  end
+end
+utils.defer.add_deferred(_18_, "which-key")
+return lsp_config

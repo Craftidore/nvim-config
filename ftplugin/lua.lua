@@ -1,1 +1,2 @@
--- All indent opts are in indent/lua.lua
+-- [nfnl] ftplugin/lua.fnl
+

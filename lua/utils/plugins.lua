@@ -1,14 +1,15 @@
-local Plugin = {}
-
-Plugin.has_plugin = function(plugin_path)
+-- [nfnl] lua/utils/plugins.fnl
+local function _1_(plugin_path)
   local success = true
-  local err = function()
+  local function err()
     success = false
+    return nil
   end
-  xpcall(function()
+  local function _2_()
     local _ = require(plugin_path)
-  end, err)
+    return nil
+  end
+  xpcall(_2_, err)
   return success
 end
-
-return Plugin
+return {has_plugin = _1_}

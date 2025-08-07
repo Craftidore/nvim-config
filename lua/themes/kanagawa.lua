@@ -1,3 +1,2 @@
-local Kanagawa = { 'rebelot/kanagawa.nvim' }
-
-return Kanagawa
+-- [nfnl] lua/themes/kanagawa.fnl
+return {"rebelot/kanagawa.nvim"}

@@ -1,57 +1,64 @@
-local M = {}
-
-M.path_sep = '/'
-if vim.fn.stdpath('config'):sub(1, 1) ~= M.path_sep then
-  M.path_sep = '\\'
+-- [nfnl] lua/utils/path.fnl
+local vim = _G.vim
+local path_sep
+do
+  local first_path_char = vim.fn.stdpath("config"):sub(1, 1)
+  if (first_path_char ~= "/") then
+    path_sep = "\\"
+  else
+    path_sep = "/"
+  end
 end
-
-M.join_paths = function(...)
-  local args = { ... }
-  return vim.fn.join(args, M.path_sep)
+local remove_prefix
+local function _2_(path, prefix)
+  return path:sub((#prefix + 2))
 end
-
-M.glob_path = function(path, glob)
+remove_prefix = _2_
+local remove_suffix
+local function _3_(path, suffix)
+  return path:gsub((suffix .. "$"), "")
+end
+remove_suffix = _3_
+local join_paths
+local function _4_(...)
+  return vim.fn.join({...}, path_sep)
+end
+join_paths = _4_
+local glob_path
+local function _5_(path, glob)
   return vim.fn.globpath(path, glob, false, true)
 end
-
-local function remove_prefix(path, prefix)
-  return path:sub(#prefix + 2)
-end
-
-local function remove_suffix(path, suffix)
-  return path:gsub(suffix .. '$', '')
-end
-
-M.get_filename = function(path)
-  if M.path_sep == '/' then
-    return path:sub(string.find(path, '/[^/]*$') + 1)
+glob_path = _5_
+local get_filename
+local function _6_(path)
+  if (path_sep == "/") then
+    return path:sub((string.find(path, "/[^/]*$") + 1))
   else
-    return path:sub(string.find(path, '\\[^\\]*$') + 1)
+    return path:sub((string.find(path, "\\[^\\]*$") + 1))
   end
 end
-
-M.get_directory = function(path)
-  if M.path_sep == '/' then
-    return path:sub(1, string.find(path, '/[^/]*$') + 1)
+get_filename = _6_
+local function _8_(path)
+  if (path_sep == "/") then
+    return path:sub(1, (string.find(path, "/[^/]*$") + 1))
   else
-    return path:sub(1, string.find(path, '\\[^\\]*$') + 1)
+    return path:sub(1, (string.find(path, "\\[^\\]*$") + 1))
   end
 end
-
-M.load_modules = function(req_path, ignore)
-  local config_path = vim.fn.stdpath('config')
-  local lua_path = M.join_paths(config_path, 'lua')
-  local full_path = M.join_paths(lua_path, req_path)
-  local paths = M.glob_path(full_path, '*.lua')
+local function _10_(req_path, ignore)
+  local config_path = vim.fn.stdpath("config")
+  local lua_path = join_paths(config_path, "lua")
+  local full_path = join_paths(lua_path, req_path)
+  local paths = glob_path(full_path, "*.lua")
   local modules = {}
   for _, v in ipairs(paths) do
-    if ignore == nil or not v:match(ignore .. '$') then
-      local normalized = remove_suffix(remove_prefix(v, lua_path), '.lua')
-      local file_only = M.get_filename(normalized)
+    if ((ignore == nil) or not v:match((ignore .. "$"))) then
+      local normalized = remove_suffix(remove_prefix(v, lua_path), ".lua")
+      local file_only = get_filename(normalized)
       modules[file_only] = require(normalized)
+    else
     end
   end
   return modules
 end
-
-return M
+return {path_sep = path_sep, join_paths = join_paths, glob_path = glob_path, get_filename = get_filename, get_directory = _8_, load_modules = _10_}

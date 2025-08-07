@@ -1,1 +1,2 @@
--- Crafti's Commands (autoloaded)
+-- [nfnl] lua/commands/commands.fnl
+
