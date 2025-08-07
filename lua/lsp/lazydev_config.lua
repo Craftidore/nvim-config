@@ -1,14 +1,3 @@
-local LazyDev = {}
-
-LazyDev = {
-  'folke/lazydev.nvim',
-  ft = 'lua',
-  opts = {
-    library = {
-      -- Load luvit types when the `vim.uv` word is found
-      { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-    },
-  },
-}
-
-return LazyDev
+-- [nfnl] lua/lsp/lazydev_config.fnl
+local vim = _G.vim
+return {"folke/lazydev.nvim", ft = "lua", opts = {library = {{path = "${3rd}/luv/library", words = {"vim%.uv"}}}}}

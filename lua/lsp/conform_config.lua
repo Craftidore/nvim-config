@@ -1,43 +1,14 @@
-local ConformConfig = { -- Autoformat
-  'stevearc/conform.nvim',
-  event = { 'BufWritePre' },
-  cmd = { 'ConformInfo' },
-  keys = {
-    {
-      '<leader>lF',
-      function()
-        require('conform').format({ async = true, lsp_format = 'fallback' })
-      end,
-      mode = 'n',
-      desc = 'LSP: [F]ormat buffer',
-    },
-  },
-  opts = {
-    notify_on_error = false,
-    format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        return nil
-      else
-        return {
-          timeout_ms = 500,
-          lsp_format = 'fallback',
-        }
-      end
-    end,
-    formatters_by_ft = {
-      lua = { 'stylua' },
-      cpp = { 'clangd' },
-      -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
-      --
-      -- You can use 'stop_after_first' to run the first available formatter from the list
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
-    },
-  },
-}
-
-return ConformConfig
+-- [nfnl] lua/lsp/conform_config.fnl
+local vim = _G.vim
+local function _1_()
+  return require("conform").format({async = true, lsp_format = "fallback"})
+end
+local function _2_(bufnr)
+  local disable_filetypes = {c = true, cpp = true}
+  if not disable_filetypes[vim.bo[bufnr].filetype] then
+    return {timeout_ms = 500, lsp_format = "fallback"}
+  else
+    return nil
+  end
+end
+return {"stevearc/conform.nvim", event = {"BufWritePre"}, cmd = {"ConformInfo"}, keys = {{"<leader>lF", _1_, mode = "n", desc = "LSP: [F]ormat buffer"}}, opts = {format_on_save = _2_, formatters_by_ft = {lua = {"stylua"}, cpp = {"clangd"}}, notify_on_error = false}}

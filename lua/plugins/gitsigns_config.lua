@@ -1,17 +1,6 @@
+-- [nfnl] lua/plugins/gitsigns_config.fnl
 local utils = vim.g.utils
-local GitsignsConfig = {
-  'lewis6991/gitsigns.nvim',
-  event = 'VeryLazy',
-  enabled = not utils.is_machmotion(),
-  opts = {
-    signs = {
-      add = { text = '+' },
-      change = { text = '~' },
-      delete = { text = '_' },
-      topdelete = { text = '‾' },
-      changedelete = { text = '~' },
-    },
-  },
-}
-
-return GitsignsConfig
+local gitsigns_config = {"lewis6991/gitsigns.nvim", enabled = not utils.is_machmotion(), event = "VeryLazy", opts = {signs = {add = {text = "+"}, change = {text = "~"}, topdelete = {text = "\226\128\190"}}}}
+do local _ = {text = "_"} end
+do local _ = {text = "~"} end
+return gitsigns_config

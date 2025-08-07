@@ -1,54 +1,51 @@
-local Lua = {}
-
-Lua.ifilter = function(t, filterIter)
+-- [nfnl] lua/utils/lua.fnl
+local function _1_(t, filter_iter)
   local out = {}
-
-  for k, v in pairs(t) do
-    if filterIter(v, k, t) then
+  for k, v in ipairs(t) do
+    if filter_iter(v, k, t) then
       table.insert(out, v)
+    else
     end
   end
-
-  return out
+  return nil
 end
-
-Lua.kfilter = function(t, filterIter)
+local function _3_(t, filter_iter)
   local out = {}
-
   for k, v in pairs(t) do
-    if filterIter(v, k, t) then
-      out[k] = v
+    if filter_iter(v, k, t) then
+      table.insert(out, v)
+    else
     end
   end
-
-  return out
+  return nil
 end
-
--- Shamelessly adapted from https://www.reddit.com/r/learnprogramming/comments/s41ykx/lua_is_there_a_method_to_see_if_a_table_or_array/
-Lua.contains = function(arr, value, test)
-  if test == nil then
-    test = function(lhs, rhs)
-      return lhs == rhs
+local function _5_(arr, value, _3ftest)
+  local test
+  if (_3ftest == nil) then
+    local function _6_(lhs, rhs)
+      return (lhs == rhs)
     end
+    test = _6_
+  else
+    test = _3ftest
   end
+  local result = false
   for i = 1, #arr do
     if test(arr[i], value) then
-      return true
+      result = true
+    else
     end
   end
-  return false
+  return result
 end
-
--- Stolen from https://www.reddit.com/r/neovim/comments/su0em7/pathjoin_for_lua_or_vimscript_do_we_have_anything/
-Lua.split = function(inputString, sep)
+local function _9_(inputString, sep)
   local fields = {}
-
-  local pattern = string.format('([^%s]+)', sep)
-  local _ = string.gsub(inputString, pattern, function(c)
-    fields[#fields + 1] = c
-  end)
-
+  local pattern = string.format("([^%s]+)", sep)
+  local function _10_(c)
+    fields[(#fields + 1)] = c
+    return nil
+  end
+  string.gsub(inputString, pattern, _10_)
   return fields
 end
-
-return Lua
+return {ifilter = _1_, kfilter = _3_, contains = _5_, split = _9_}

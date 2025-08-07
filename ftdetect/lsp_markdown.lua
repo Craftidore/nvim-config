@@ -1,8 +1,3 @@
--- Normal 'markdown' filetype doesn't highlight `code` right
--- NOTE: Update: Fixed code highlighting with render_markdown plugin
--- vim.filetype.add({
---   extension = {
---     -- NOTE: Seems like the default priority for user filetype is lower than 'markdown'
---     ['md'] = 'lsp_markdown',
---   },
--- })
+-- [nfnl] ftdetect/lsp_markdown.fnl
+local vim = _G.vim
+return nil

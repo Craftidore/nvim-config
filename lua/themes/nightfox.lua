@@ -1,3 +1,2 @@
-local NightFox = { 'EdenEast/nightfox.nvim' }
-
-return NightFox
+-- [nfnl] lua/themes/nightfox.fnl
+return {"EdenEast/nightfox.nvim"}

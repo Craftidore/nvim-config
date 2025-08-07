@@ -1,1 +1,2 @@
--- Honestly, this is just a proof of concept
+-- [nfnl] ftplugin/tmp.fnl
+

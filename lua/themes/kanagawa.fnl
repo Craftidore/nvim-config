@@ -1,0 +1,2 @@
+[ :rebelot/kanagawa.nvim ]
+

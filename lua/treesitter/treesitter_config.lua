@@ -1,45 +1,14 @@
-local utils = vim.g.utils
-local TreesitterConfig = {
-  -- Other plugins
-  -- - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-  -- - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-  -- - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-
-  'nvim-treesitter/nvim-treesitter',
-  keys = {
-    { '<leader>ot', '<CMD>TSContext<CR>', mode = 'n', desc = 'Open [t]reesitter Info' },
-  },
-  lazy = false,
-  branch = 'main',
-  build = ':TSUpdate',
-  opts = {
-    -- install_dir = vim.fn.stdpath('data') .. '/site/',
-  },
-  config = function(lazy_opts)
-    require('nvim-treesitter').setup(lazy_opts.opts)
-    utils.defer.run('nvim-treesitter')
-  end,
-}
-
-utils.defer.add_deferred(function()
-  local auto_install = {
-    'bash',
-    'c',
-    'cpp',
-    'diff',
-    'lua',
-    'luadoc',
-    'markdown',
-    'markdown_inline',
-    'query',
-    'vim',
-    'vimdoc',
-    'xml',
-    'json',
-    'javascript',
-    'svelte',
-  }
-  require('nvim-treesitter').install(auto_install):wait(300000) -- max. 5 minutes
-end, 'nvim-treesitter')
-
-return TreesitterConfig
+-- [nfnl] lua/treesitter/treesitter_config.fnl
+local utils = _G.vim.g.utils
+local treesitter_config
+local function _1_(lazy_opts)
+  require("nvim-treesitter").setup(lazy_opts.opts)
+  return utils.defer.run("nvim-treesitter")
+end
+treesitter_config = {"nvim-treesitter/nvim-treesitter", keys = {{"<leader>ot", "<CMD>TSContext<CR>", mode = "n", desc = "Open [t]reesitter Info"}}, branch = "main", build = ":TSUpdate", opts = {}, config = _1_, lazy = false}
+local function _2_()
+  local auto_install = {"bash", "c", "cpp", "diff", "lua", "luadoc", "markdown", "markdown_inline", "query", "vim", "vimdoc", "xml", "json", "javascript", "svelte"}
+  return require("nvim-treesitter").install(auto_install):wait(300000)
+end
+utils.defer.add_deferred(_2_, "nvim-treesitter")
+return treesitter_config
