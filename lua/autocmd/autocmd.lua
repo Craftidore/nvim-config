@@ -1,1 +1,2 @@
--- Crafti's Autocmds (autoloaded)
+-- [nfnl] lua/autocmd/autocmd.fnl
+
