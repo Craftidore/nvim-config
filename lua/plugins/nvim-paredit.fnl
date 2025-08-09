@@ -118,21 +118,21 @@
 (utils.defer.add_deferred (fn []
   (when (utils.plugins.has_plugin :nvim-paredit)
     (utils.keymaps.wk_add
-     [ { 1 :<leader>s :group "ParEdit [S]exp Operations" } ])
+     [ { 1 :<localleader>s :group "ParEdit [S]exp Operations" } ])
     (utils.keymaps.wk_add
-     [ { 1 "<leader>s)" :group "Slurp/Barf Forwards [)]" } ])
+     [ { 1 "<localleader>s)" :group "Slurp/Barf Forwards [)]" } ])
     (utils.keymaps.wk_add
-     [ { 1 "<leader>s(" :group "Slurp/Barf Backwards [(]" } ])
+     [ { 1 "<localleader>s(" :group "Slurp/Barf Backwards [(]" } ])
     (utils.keymaps.wk_add
-     [ { 1 "<leader>se" :group "Drag [e]lement" } ])
+     [ { 1 "<localleader>se" :group "Drag [e]lement" } ])
     (utils.keymaps.wk_add
-     [ { 1 "<leader>sp" :group "Drag [p]air" } ])
+     [ { 1 "<localleader>sp" :group "Drag [p]air" } ])
     (utils.keymaps.wk_add
-     [ { 1 "<leader>sf" :group "Drag [f]orm" } ])
+     [ { 1 "<localleader>sf" :group "Drag [f]orm" } ])
     (utils.keymaps.wk_add
-     [ { 1 "<leader>sg" :group "Jump to previous element tail" } ])
+     [ { 1 "<localleader>sg" :group "Jump to previous element tail" } ])
     (utils.keymaps.wk_add
-     [ { 1 "<leader>sj" :group "Jump to ___" } ])))
+     [ { 1 "<localleader>sj" :group "Jump to ___" } ])))
   :which-key)
 
 nvim-paredit

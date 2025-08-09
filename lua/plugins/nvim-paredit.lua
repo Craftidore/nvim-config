@@ -9,14 +9,14 @@ end
 nvim_paredit = {"julienvincent/nvim-paredit", config = _1_}
 local function _2_()
   if utils.plugins.has_plugin("nvim-paredit") then
-    utils.keymaps.wk_add({{"<leader>s", group = "ParEdit [S]exp Operations"}})
-    utils.keymaps.wk_add({{"<leader>s)", group = "Slurp/Barf Forwards [)]"}})
-    utils.keymaps.wk_add({{"<leader>s(", group = "Slurp/Barf Backwards [(]"}})
-    utils.keymaps.wk_add({{"<leader>se", group = "Drag [e]lement"}})
-    utils.keymaps.wk_add({{"<leader>sp", group = "Drag [p]air"}})
-    utils.keymaps.wk_add({{"<leader>sf", group = "Drag [f]orm"}})
-    utils.keymaps.wk_add({{"<leader>sg", group = "Jump to previous element tail"}})
-    return utils.keymaps.wk_add({{"<leader>sj", group = "Jump to ___"}})
+    utils.keymaps.wk_add({{"<localleader>s", group = "ParEdit [S]exp Operations"}})
+    utils.keymaps.wk_add({{"<localleader>s)", group = "Slurp/Barf Forwards [)]"}})
+    utils.keymaps.wk_add({{"<localleader>s(", group = "Slurp/Barf Backwards [(]"}})
+    utils.keymaps.wk_add({{"<localleader>se", group = "Drag [e]lement"}})
+    utils.keymaps.wk_add({{"<localleader>sp", group = "Drag [p]air"}})
+    utils.keymaps.wk_add({{"<localleader>sf", group = "Drag [f]orm"}})
+    utils.keymaps.wk_add({{"<localleader>sg", group = "Jump to previous element tail"}})
+    return utils.keymaps.wk_add({{"<localleader>sj", group = "Jump to ___"}})
   else
     return nil
   end
