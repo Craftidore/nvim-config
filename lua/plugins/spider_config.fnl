@@ -20,15 +20,15 @@
   (spider-motion spider-config.last_spider))
 
 (set spider-config.keys
-  [ { 1 :<leader>sw 2 (spider-motion :w) :mode default-modes :desc "[S]pider: CamelCase [w]" }
-    { 1 :<leader>se 2 (spider-motion :e) :mode default-modes :desc "[S]pider: CamelCase [e]" }
-    { 1 :<leader>sb 2 (spider-motion :b) :mode default-modes :desc "[S]pider: CamelCase [b]" }
-    { 1 :<leader>sn 2 (do-last-spider)   :mode default-modes :desc "[S]pider: Repeat last spider command" } ])
+  [ { 1 :<leader>kw 2 (spider-motion :w) :mode default-modes :desc "Spider [k]: CamelCase [w]" }
+    { 1 :<leader>se 2 (spider-motion :e) :mode default-modes :desc "Spider [k]: CamelCase [e]" }
+    { 1 :<leader>sb 2 (spider-motion :b) :mode default-modes :desc "Spider [k]: CamelCase [b]" }
+    { 1 :<leader>sn 2 (do-last-spider)   :mode default-modes :desc "Spider [k]: Repeat last spider command" } ])
 
 (utils.defer.add_deferred (fn []
   (when (utils.plugins.has_plugin :spider)
     (utils.keymaps.wk_add
-     [ { 1 :<leader>s :group "[S]pider Motions" } ])))
+     [ { 1 :<leader>k :group "Spider [k] Motions" } ])))
   :which-key)
 
 spider-config
