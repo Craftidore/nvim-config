@@ -3,12 +3,12 @@
 (local utils vim.g.utils)
 
 ; Some keymaps require custom vim.g opts, so that's first
-(require :vim_g_opts)
+(require :vim-g-opts)
 ; Some autocmds react to Lazy/colorscheme things
 (require :autocmd)
 
 ; Lazy calls defer.run('lazy'), which is used by keymaps->whichkey
-(require :lazy_config)
+(require :lazy-config)
 
 (if (not (utils.is_machmotion))
   (utils.set_colorscheme :duskfox)

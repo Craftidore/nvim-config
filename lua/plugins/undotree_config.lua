@@ -1,3 +1,0 @@
--- [nfnl] lua/plugins/undotree_config.fnl
-local g = _G.vim.g
-return {"jiaoshijie/undotree", dependencies = "nvim-lua/plenary.nvim", opts = {float_diff = true, layout = "left_bottom", position = "left", ignore_filetype = {"ministarter", "undotree", "undotreeDiff", "qf", "TelescopePrompt", "spectre_panel", "tsplayground"}, window = {winblend = g.winblend}, keymaps = {j = "move_next", k = "move_prev", gj = "move2parent", J = "move_change_next", K = "move_change_prev", ["<cr>"] = "action_enter", p = "enter_diffbuf", q = "quit"}}, keys = {{"<leader>ou", "<cmd>lua require('undotree').toggle()<cr>", mode = "n", desc = "Open [U]ndotree"}}}
