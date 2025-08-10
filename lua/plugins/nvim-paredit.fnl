@@ -6,28 +6,9 @@
     (fn []
       (local paredit (require :nvim-paredit))
       ((. (require :nvim-paredit) :setup)
-        {:keys
-         { "<localleader>@" false
-           ">)" false
-           ">(" false
-           "<)" false
-           "<(" false
-           ">e" false
-           "<e" false
-           ">p" false
-           "<p" false
-           ">f" false
-           "<f" false
-           "<localleader>o" false
-           "<localleader>O" false
-           "E" false
-           "W" false
-           "B" false
-           "gE" false
-           "(" false
-           ")" false
-           "T" false
-           "<localleader>s@" [ paredit.unwrap.unwrap_form_under_cursor "Splice sexp" ]
+        {:use_default_keys false
+         :keys
+         { "<localleader>s@" [ paredit.unwrap.unwrap_form_under_cursor "Splice sexp" ]
            "<localleader>s)l" [ paredit.api.slurp_forwards "Slurp forwards" ]
            "<localleader>s(l" [ paredit.api.barf_backwards "Barf backwards" ]
 

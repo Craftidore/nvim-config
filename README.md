@@ -86,5 +86,6 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     mini.status bar orange
     - They do have highlight groups; see `help mini.tabline`
 - Try to better understand what the lsp config is doing
-    - I'd like to rewrite it to be a bit cleaner
-    - And much of it is not 100% understood since it came from kickstart.nvim
+- I'd like to rewrite it to be a bit cleaner
+- And much of it is not 100% understood since it came from kickstart.nvim
+- Investigate https://github.com/julienvincent/nvim-paredit
