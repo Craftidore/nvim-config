@@ -7,7 +7,7 @@
 (local default-modes [ :n :o :x ])
 (fn spider-motion [key]
   (.. "<cmd>lua "
-      "require('plugins.spider_config').last_spider = "
+      "require('plugins.spider-config').last_spider = "
       key
       "; "
       "require('spider').motion('"

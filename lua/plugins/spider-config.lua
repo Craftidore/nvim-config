@@ -5,7 +5,7 @@ local spider_config = {"chrisgrieser/nvim-spider"}
 spider_config.last_spider = "w"
 local default_modes = {"n", "o", "x"}
 local function spider_motion(key)
-  return ("<cmd>lua " .. "require('plugins.spider_config').last_spider = " .. key .. "; " .. "require('spider').motion('" .. key .. "')" .. "<CR>")
+  return ("<cmd>lua " .. "require('plugins.spider-config').last_spider = " .. key .. "; " .. "require('spider').motion('" .. key .. "')" .. "<CR>")
 end
 local function do_last_spider()
   return spider_motion(spider_config.last_spider)
