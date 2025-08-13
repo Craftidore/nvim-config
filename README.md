@@ -89,3 +89,4 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - I'd like to rewrite it to be a bit cleaner
 - And much of it is not 100% understood since it came from kickstart.nvim
 - Investigate https://github.com/julienvincent/nvim-paredit
+- Rewrite the next-to-word regex (well, lua pattern) for autopairs. It's triggering in situations I don't want it to too much.
