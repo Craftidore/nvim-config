@@ -13,7 +13,7 @@
 (Keymaps.noremap :n :<leader>uh :<CMD>nohl<CR>
                  "Util: Turn search [h]ighlighting off")
 
-(Keymaps.noremap :n :<leader>ucl "mz?[a-z]<cr><cmd>nohl<cr>gul`z"
+(Keymaps.noremap :n :<leader>ucl "mz?[A-Z]<cr><cmd>nohl<cr>gul`z"
                  "[U]til: Lowercase latest upper[c]ase [l]etter")
 
 (Keymaps.noremap :n :<leader>ua "mzggVG\"+y`z"

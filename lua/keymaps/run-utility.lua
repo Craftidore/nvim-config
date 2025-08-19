@@ -9,7 +9,7 @@ end
 utils.defer.add_deferred(_1_, "which-key")
 Keymaps.noremap("n", "<leader>uu", "<NOP>", "Util: Cancel util run without undo")
 Keymaps.noremap("n", "<leader>uh", "<CMD>nohl<CR>", "Util: Turn search [h]ighlighting off")
-Keymaps.noremap("n", "<leader>ucl", "mz?[a-z]<cr><cmd>nohl<cr>gul`z", "[U]til: Lowercase latest upper[c]ase [l]etter")
+Keymaps.noremap("n", "<leader>ucl", "mz?[A-Z]<cr><cmd>nohl<cr>gul`z", "[U]til: Lowercase latest upper[c]ase [l]etter")
 Keymaps.noremap("n", "<leader>ua", "mzggVG\"+y`z", "Util: Copy [a]ll of the buffer to clipboard")
 local function _2_()
   return utils.keymaps.wk_add({{"<leader>uw", group = "Manage opt_local.text[w]idth"}})
