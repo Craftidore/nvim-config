@@ -7,7 +7,7 @@ api.nvim_create_augroup(group, {clear = true})
 local function _1_()
   if utils.is_machmotion() then
     vim.cmd("LspStop")
-    vim.cmd("LspStop")
+    vim.treesitter.start()
     vim.notify("C++ Lsp disabled", vim.log.levels.INFO)
   else
   end

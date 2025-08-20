@@ -15,7 +15,7 @@
     (fn []
       (when (utils.is_machmotion)
         (vim.cmd :LspStop)
-        (vim.cmd :LspStop)
+        (vim.treesitter.start)
         (vim.notify "C++ Lsp disabled" vim.log.levels.INFO))
       nil)})
 
