@@ -13,9 +13,12 @@
     :desc "Default-disable C++ LSP if in MachMotion env"
     :callback 
     (fn []
-      (when (utils.is_machmotion)
+      (when (and (utils.is_machmotion)
+                 ; For use with ../commands/machmotion-commands.fnl
+                 ; Don't want to deal with Lua falsy values, so ~= true
+                 (~= vim.b.allow_cpp_lsp true)
+                 (~= vim.g.allow_cpp_lsp true))
         (vim.cmd :LspStop)
-        (vim.treesitter.start)
         (vim.notify "C++ Lsp disabled" vim.log.levels.INFO))
       nil)})
 
