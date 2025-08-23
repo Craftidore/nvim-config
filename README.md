@@ -23,6 +23,8 @@ When upgrading from the old config, you may need to delete the `~/.local/share/n
     - `jj`/`jk`: Esc alternate option
     - `X`: Delete char from end of line
     - `s`/`S`: leap.nvim
+    - `<M-CR>`: Break line, deleting character beneath cursor (for spliting
+      lines on space)
 - Uncategorized and need to remap:
     - Nothing right now
 
