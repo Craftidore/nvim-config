@@ -1,0 +1,218 @@
+{
+  "AbstractCollapsibleCallout": {
+    "prefix": "abstract-collapsible-callout",
+    "description": "Abstract (collapsable) callout",
+    "body": [
+      "> [!abstract]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "AbstractCallout": {
+    "prefix": "abstract-callout",
+    "description": "Abstract callout",
+    "body": [
+      "> [!abstract] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "InfoCollapsibleCallout": {
+    "prefix": "info-collapsible-callout",
+    "description": "Info (collapsable) callout",
+    "body": [
+      "> [!info]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "InfoCallout": {
+    "prefix": "info-callout",
+    "description": "Info callout",
+    "body": [
+      "> [!info] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "TodoCollapsibleCallout": {
+    "prefix": "todo-collapsible-callout",
+    "description": "Todo (collapsable) callout",
+    "body": [
+      "> [!todo]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "TodoCallout": {
+    "prefix": "todo-callout",
+    "description": "Todo callout",
+    "body": [
+      "> [!todo] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "TipCollapsibleCallout": {
+    "prefix": "tip-collapsible-callout",
+    "description": "Tip (collapsable) callout",
+    "body": [
+      "> [!tip]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "TipCallout": {
+    "prefix": "tip-callout",
+    "description": "Tip callout",
+    "body": [
+      "> [!tip] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "SuccessCollapsibleCallout": {
+    "prefix": "success-collapsible-callout",
+    "description": "Success (collapsable) callout",
+    "body": [
+      "> [!success]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "SuccessCallout": {
+    "prefix": "success-callout",
+    "description": "Success callout",
+    "body": [
+      "> [!success] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "QuestionCollapsibleCallout": {
+    "prefix": "question-collapsible-callout",
+    "description": "Question (collapsable) callout",
+    "body": [
+      "> [!question]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "QuestionCallout": {
+    "prefix": "question-callout",
+    "description": "Question callout",
+    "body": [
+      "> [!question] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "WarningCollapsibleCallout": {
+    "prefix": "warning-collapsible-callout",
+    "description": "Warning (collapsable) callout",
+    "body": [
+      "> [!warning]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "WarningCallout": {
+    "prefix": "warning-callout",
+    "description": "Warning callout",
+    "body": [
+      "> [!warning] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "FailureCollapsibleCallout": {
+    "prefix": "failure-collapsible-callout",
+    "description": "Failure (collapsable) callout",
+    "body": [
+      "> [!failure]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "FailureCallout": {
+    "prefix": "failure-callout",
+    "description": "Failure callout",
+    "body": [
+      "> [!failure] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "DangerCollapsibleCallout": {
+    "prefix": "danger-collapsible-callout",
+    "description": "Danger (collapsable) callout",
+    "body": [
+      "> [!danger]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "DangerCallout": {
+    "prefix": "danger-callout",
+    "description": "Danger callout",
+    "body": [
+      "> [!danger] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "BugCollapsibleCallout": {
+    "prefix": "bug-collapsible-callout",
+    "description": "Bug (collapsable) callout",
+    "body": [
+      "> [!bug]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "BugCallout": {
+    "prefix": "bug-callout",
+    "description": "Bug callout",
+    "body": [
+      "> [!bug] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "ExampleCollapsibleCallout": {
+    "prefix": "example-collapsible-callout",
+    "description": "Example (collapsable) callout",
+    "body": [
+      "> [!example]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "ExampleCallout": {
+    "prefix": "example-callout",
+    "description": "Example callout",
+    "body": [
+      "> [!example] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "QuoteCollapsibleCallout": {
+    "prefix": "quote-collapsible-callout",
+    "description": "Quote (collapsable) callout",
+    "body": [
+      "> [!quote]- ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  },
+  "QuoteCallout": {
+    "prefix": "quote-callout",
+    "description": "Quote callout",
+    "body": [
+      "> [!quote] ${1:name}",
+      "> ",
+      "> ${2:block-data}"
+    ]
+  }
+}
