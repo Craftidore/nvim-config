@@ -36,6 +36,7 @@
 ((. (require :lazy) :setup)
  { :spec [{:import "themes"}
           {:import "plugins"}
+          {:import "dap"}
           {:import "lsp"}
           {:import "treesitter"}]
    :ui lazyUiConfig})

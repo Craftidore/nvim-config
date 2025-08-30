@@ -22,6 +22,6 @@ else
   _3_ = {cmd = "\226\140\152", config = "\240\159\155\160", event = "\240\159\147\133", ft = "\240\159\147\130", init = "\226\154\153", keys = "\240\159\151\157", plugin = "\240\159\148\140", runtime = "\240\159\146\187", require = "\240\159\140\153", source = "\240\159\147\132", start = "\240\159\154\128", task = "\240\159\147\140", lazy = "\240\159\146\164 "}
 end
 lazyUiConfig = {icons = _3_}
-require("lazy").setup({spec = {{import = "themes"}, {import = "plugins"}, {import = "lsp"}, {import = "treesitter"}}, ui = lazyUiConfig})
+require("lazy").setup({spec = {{import = "themes"}, {import = "plugins"}, {import = "dap"}, {import = "lsp"}, {import = "treesitter"}}, ui = lazyUiConfig})
 noremap("n", "<leader>ol", "<CMD>Lazy<CR>", "Open [l]azy")
 return utils.defer.run("lazy")
