@@ -5,8 +5,7 @@
        {1 :Olical/conjure
         :init (fn []  (set g.conjure#mapping#log_split :els)
                 (set g.conjure#mapping#log_vsplit :elv)
-                (set g.conjure#mapping#log_tab :elt)
-                (set g.conjure#mapping#log_buf :elt)
+                (set g.conjure#mapping#log_buf :elb)
                 (set g.conjure#mapping#log_tab :elt)
                 (set g.conjure#mapping#log_toggle :elg)
                 (set g.conjure#mapping#log_reset_soft :elr)

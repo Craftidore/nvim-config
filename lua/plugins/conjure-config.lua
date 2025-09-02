@@ -5,8 +5,7 @@ local conjure_config
 local function _1_()
   g["conjure#mapping#log_split"] = "els"
   g["conjure#mapping#log_vsplit"] = "elv"
-  g["conjure#mapping#log_tab"] = "elt"
-  g["conjure#mapping#log_buf"] = "elt"
+  g["conjure#mapping#log_buf"] = "elb"
   g["conjure#mapping#log_tab"] = "elt"
   g["conjure#mapping#log_toggle"] = "elg"
   g["conjure#mapping#log_reset_soft"] = "elr"
