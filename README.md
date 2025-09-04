@@ -90,9 +90,17 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - Try to better understand what the lsp config is doing
     - I'd like to rewrite it to be a bit cleaner
     - And much of it is not 100% understood since it came from kickstart.nvim
-- Investigate https://github.com/julienvincent/nvim-paredit
-- Rewrite the next-to-word regex (well, lua pattern) for autopairs. It's triggering in situations I don't want it to too much.
+- [x] Investigate https://github.com/julienvincent/nvim-paredit
+- [ ] Rewrite the next-to-word regex (well, lua pattern) for autopairs. It's triggering in situations I don't want it to too much.
 - [x] LSP Enable b and g flags for MachMotion + Cmd which sets them + launches lsp
-- [ ] Auto-enable text-width for markdown and tex
-- [ ] SDate and LDate insertion functions (can iabbrev trigger lua func?)
-
+- [x] Auto-enable text-width for markdown and tex
+- [/] SDate and LDate insertion functions (can iabbrev trigger lua func?)
+- [x] Check where `nvim_feedkeys` is getting used where `nvim_paste` or
+  `nvim_buf_set_text` would be preferred.
+- [ ] Disable blink `()` for lisps. See `:help *blink-cmp-config-appearance*` ->
+  `/AUTO BRACKETS<CR>`
+- [ ] Investigate https://github.com/saghen/blink.compat + https://github.com/PaterJason/cmp-conjure for conjure-related completion.
+- [ ] Investigate whatever the markdown renderer is to see if I can get better
+  checkbox icon support in a fork of it.
+- [ ] nvim-ghengis, since I have which-key now
+- [ ] Increase Fold Level by 1
