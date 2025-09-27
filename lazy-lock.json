@@ -26,6 +26,7 @@
   "nightfox.nvim": { "branch": "main", "commit": "ba47d4b4c5ec308718641ba7402c143836f35aa9" },
   "nvim-dap": { "branch": "master", "commit": "968f89f8aac11b6bdbfc942c71d3436658c1435f" },
   "nvim-dap-view": { "branch": "main", "commit": "efb540a4439f98dd32b5e89485def02fcc7b6f6d" },
+  "nvim-genghis": { "branch": "main", "commit": "938c8c720956fc40a221dd98defe397879d1ac1a" },
   "nvim-lspconfig": { "branch": "master", "commit": "45ff1914044de7dbd4cd85053dc09f47312a2f4d" },
   "nvim-paredit": { "branch": "master", "commit": "86ef02ec249b41471545f07f1baa21615a9ba8fa" },
   "nvim-rip-substitute": { "branch": "main", "commit": "4f9ad4ce47f940e6ac7419493074ed63de5b4fa9" },
