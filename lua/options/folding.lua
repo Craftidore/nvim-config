@@ -11,6 +11,6 @@ end
 utils.defer.add_deferred(_1_, "nvim-treesitter")
 opt.foldtext = ""
 o.foldlevel = 99
-o.foldlevelstart = 2
+o.foldlevelstart = 3
 o.foldnestmax = 4
 return nil

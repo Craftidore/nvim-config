@@ -11,5 +11,5 @@
   :nvim-treesitter)
 (set opt.foldtext "") ;  just use the normal line with TS syntax highlighting
 (set o.foldlevel 99)
-(set o.foldlevelstart 2)
+(set o.foldlevelstart 3)
 (set o.foldnestmax 4)
