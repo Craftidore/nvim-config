@@ -3,10 +3,6 @@
                           :close true
                           :pair "$$"
                           :enabled_filetypes [:tex :markdown]}
-                      :< {:escape true
-                          :close true
-                          :pair "<>"
-                          :enabled_filetypes [:html :xml]}
                       "'" {:escape true :close false :pair "''"}
                       "\"" {:escape true
                             :close true
