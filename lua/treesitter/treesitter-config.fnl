@@ -36,6 +36,7 @@
       :json
       :javascript
       :janet_simple ; Used by nvim-paredit
+      :css
       :svelte])
     (: ((. (require :nvim-treesitter) :install) auto-install) :wait 300000)); max. 5 minutes
   :nvim-treesitter) 
