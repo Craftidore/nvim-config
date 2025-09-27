@@ -97,10 +97,10 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - [/] SDate and LDate insertion functions (can iabbrev trigger lua func?)
 - [x] Check where `nvim_feedkeys` is getting used where `nvim_paste` or
   `nvim_buf_set_text` would be preferred.
-- [ ] Disable blink `()` for lisps. See `:help *blink-cmp-config-appearance*` ->
+- [ ] Disable blink `()` for lisps. See `:help *blink-cmp-config-completion*` ->
   `/AUTO BRACKETS<CR>`
 - [ ] Investigate https://github.com/saghen/blink.compat + https://github.com/PaterJason/cmp-conjure for conjure-related completion.
 - [ ] Investigate whatever the markdown renderer is to see if I can get better
   checkbox icon support in a fork of it.
-- [ ] nvim-ghengis, since I have which-key now
-- [ ] Increase Fold Level by 1
+- [x] nvim-ghengis, since I have which-key now
+- [x] Increase Fold Level by 1
