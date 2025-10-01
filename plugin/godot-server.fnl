@@ -1,5 +1,4 @@
 (local vim _G.vim)
-(local vim _G.vim)
 ; paths to check for project.godot file, must start and end in slash
 (local paths-to-check [:/ :/../])
 (local cwd (vim.uv.cwd))
