@@ -48,5 +48,6 @@
   "undotree": { "branch": "main", "commit": "eab459ab87dd249617b5f7187bb69e614a083047" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-signify": { "branch": "master", "commit": "54346382be614ef5934cbbe204fd58ba3247a84d" },
+  "vim-svelte-plugin": { "branch": "master", "commit": "f80ff67a94e3ac279fe55ecdf55ad7342f4a5228" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
