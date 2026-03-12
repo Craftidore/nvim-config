@@ -8,8 +8,9 @@
     1 :nvim-treesitter/nvim-treesitter
     :keys [{1 :<leader>ot 2 :<CMD>TSContext<CR> :mode :n :desc "Open [t]reesitter Info"}]
     :lazy false
-    :version "0.10.0"
+    ; :version "0.10.0"
     :build ":TSUpdate"
+    :branch :main
     :opts
     { ; install_dir = vim.fn.stdpath('data') .. '/site/',
     }     
