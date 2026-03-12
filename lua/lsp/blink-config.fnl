@@ -75,12 +75,20 @@
         :documentation {:auto_show false :auto_show_delay_ms 500}}
   
       :sources
-      {:default {:lsp :path :lazydev :buffer}
+      {:default [:lsp :path :lazydev :buffer :emoji]
         :providers {
           :snippets {
             :should_show_items (fn [ctx]
               (~= ctx.trigger.initial_kind :trigger_character))}
-          :lazydev { :module :lazydev.integrations.blink :score_offset 100}}
+          :lazydev { :module :lazydev.integrations.blink :score_offset 100}
+          ; WARN: This isn't working, but that's alright for now.
+          :emoji { :name "emoji"
+                   :module "blink.compat.source"
+                   :transform_items (fn [ctx items]
+                                      (local kind (. (require "blink.cmp.types") :CompletionItemKind :Text))
+                                      (for [i 1 (# items)]
+                                        (tset (. items i) :kind kind))
+                                      items)}}
         :transform_items (fn [_ items] items)}
   
       :snippets { :preset :luasnip }
@@ -97,3 +105,5 @@
       ; Shows a signature help window while you type arguments for a function
       :signature {:enabled true}})
 blink-config
+
+

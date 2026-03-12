@@ -8,7 +8,7 @@
     1 :nvim-treesitter/nvim-treesitter
     :keys [{1 :<leader>ot 2 :<CMD>TSContext<CR> :mode :n :desc "Open [t]reesitter Info"}]
     :lazy false
-    :branch :main
+    :version "0.10.0"
     :build ":TSUpdate"
     :opts
     { ; install_dir = vim.fn.stdpath('data') .. '/site/',
@@ -18,27 +18,29 @@
       ((. (require :nvim-treesitter) :setup) lazy_opts.opts)
       (utils.defer.run :nvim-treesitter))})
 
-(utils.defer.add_deferred 
-  (fn []
-    (local auto-install [
-      :bash
-      :c
-      :cpp
-      :diff
-      :lua
-      :luadoc
-      :markdown
-      :markdown_inline
-      :query
-      :vim
-      :vimdoc
-      :xml
-      :json
-      :javascript
-      :janet_simple ; Used by nvim-paredit
-      :css
-      :svelte])
-    (: ((. (require :nvim-treesitter) :install) auto-install) :wait 300000)); max. 5 minutes
-  :nvim-treesitter) 
+; (utils.defer.add_deferred 
+;   (fn []
+;     (local auto-install [
+;       :bash
+;       :c
+;       :cpp
+;       :diff
+;       :lua
+;       :luadoc
+;       :markdown
+;       :markdown_inline
+;       :query
+;       :vim
+;       :vimdoc
+;       :xml
+;       :json
+;       :javascript
+;       :janet_simple ; Used by nvim-paredit
+;       :css
+;       :scss
+;       :typescript
+;       :svelte])
+;     (: ((. (require :nvim-treesitter) :install) auto-install) :wait 300000)); max. 5 minutes
+;   :nvim-treesitter) 
 
 treesitter-config

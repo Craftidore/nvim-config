@@ -25,5 +25,5 @@ local function _1_()
   _G.vim.notify = require("mini.notify").make_notify()
   return nil
 end
-mini_config = {"echasnovski/mini.nvim", config = _1_}
+mini_config = {"nvim-mini/mini.nvim", config = _1_}
 return mini_config

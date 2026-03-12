@@ -1,7 +1,7 @@
 (local utils _G.vim.g.utils)
 (local api _G.vim.api)
 (local noremap utils.keymaps.noremap)
-(local leap-config {1 :ggandor/leap.nvim
+(local leap-config {:url :https://codeberg.org/andyg/leap.nvim
                     :config (fn [] (local leap (require :leap))
                               (set leap.opts.equivalence_classes
                                    [" \t\r\n" "([{" ")]}" "'\"`"])
@@ -14,6 +14,4 @@
                                                :LeapBackdrop
                                                {:link :Comment}))
                     :dependencies [[:tpope/vim-repeat]]})
-leap-config	
-
-
+leap-config

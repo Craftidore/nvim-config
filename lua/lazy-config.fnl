@@ -38,6 +38,7 @@
           {:import "plugins"}
           {:import "dap"}
           {:import "lsp"}
+          {:import "llm"}
           {:import "treesitter"}]
    :ui lazyUiConfig})
 

@@ -1,6 +1,6 @@
 (local g _G.vim.g)
 (local mini-config 
-  { 1 "echasnovski/mini.nvim"
+  { 1 "nvim-mini/mini.nvim"
     :config (fn []
     ; Better Around/Inside textobjects
     ;

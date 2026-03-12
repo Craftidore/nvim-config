@@ -1,3 +1,4 @@
+; rg probably isn't v15.0.0 but only needed for json ripgrep
 { 1 :chrisgrieser/nvim-rip-substitute
   :cmd :RipSubstitute
   :opts {}
