@@ -39,7 +39,7 @@
       (fn buf-theme [additional-opts]
         (local opts
           { :winblend g.winblend
-            :previewer false })
+            :previewer true })
         (if (~= additional-opts nil)
           (each [k v (pairs additional-opts)]
             (tset opts k v)))
@@ -76,7 +76,7 @@
                "Telescope search current [W]ord")
   
       (noremap :n :<leader>tg
-               (themed builtin.live_grep buf-theme { :enable_preview true })
+               (themed builtin.live_grep file-theme { :enable_preview true })
                "Telescope search by [G]rep")
       (noremap :n :<leader>td
                (themed builtin.diagnostics file-theme)

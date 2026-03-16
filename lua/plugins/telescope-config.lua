@@ -28,7 +28,7 @@ local function _2_()
     return opts
   end
   local function buf_theme(additional_opts)
-    local opts = {winblend = g.winblend, previewer = false}
+    local opts = {winblend = g.winblend, previewer = true}
     if (additional_opts ~= nil) then
       for k, v in pairs(additional_opts) do
         opts[k] = v
@@ -72,7 +72,7 @@ local function _2_()
   noremap("n", "<leader>tc", _9_, "Telescope search [c]olorscheme")
   noremap("n", "<leader>te", themed(builtin.commands, file_theme, {}), "Telescope [e]xecute Command")
   noremap("n", "<leader>tw", themed(builtin.grep_string, file_theme, {enable_preview = true}), "Telescope search current [W]ord")
-  noremap("n", "<leader>tg", themed(builtin.live_grep, buf_theme, {enable_preview = true}), "Telescope search by [G]rep")
+  noremap("n", "<leader>tg", themed(builtin.live_grep, file_theme, {enable_preview = true}), "Telescope search by [G]rep")
   noremap("n", "<leader>td", themed(builtin.diagnostics, file_theme), "Telescope search [D]iagnostics")
   noremap("n", "<leader>tr", builtin.resume, "Telescope search [R]esume")
   noremap("n", "<leader>t.", themed(builtin.oldfiles, file_theme), "Telescope search Recent Files (\".\" for repeat)")
