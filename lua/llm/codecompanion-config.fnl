@@ -11,6 +11,11 @@
     :dependencies [ :github/copilot.vim ] ; :nvim-treesitter/nvim-treesitter 
     :opts { :interactions
            { :chat { :adapter chat-adapter }}
-           }}
+           }
+    :keys [
+           { 1 :<leader>oa 2 "<CMD>CodeCompanionChat<CR>" :mode :n :desc "Open CodeCompanion Chat" }
+           ; { 1 :<leader>oa 2 "<CMD>CodeCompanionActions<CR>" :mode :n :desc "Open CodeCompanion Chat" }
+           ]
+    }
     {})
 

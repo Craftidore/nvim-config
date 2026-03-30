@@ -8,7 +8,7 @@ else
   chat_adapter = {name = "copilot", model = "claude-opus-4.6"}
 end
 if utils.is_machmotion() then
-  return {"olimorris/codecompanion.nvim", version = "^19.6.0", dependencies = {"github/copilot.vim"}, opts = {interactions = {chat = {adapter = chat_adapter}}}}
+  return {"olimorris/codecompanion.nvim", version = "^19.6.0", dependencies = {"github/copilot.vim"}, opts = {interactions = {chat = {adapter = chat_adapter}}}, keys = {{"<leader>oa", "<CMD>CodeCompanionChat<CR>", mode = "n", desc = "Open CodeCompanion Chat"}}}
 else
   return {}
 end
