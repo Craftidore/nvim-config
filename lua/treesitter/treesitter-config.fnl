@@ -8,7 +8,7 @@
     1 :nvim-treesitter/nvim-treesitter
     :keys [{1 :<leader>ot 2 :<CMD>TSContext<CR> :mode :n :desc "Open [t]reesitter Info"}]
     :lazy false
-    ; :version "0.10.0"
+    :commit "6620ae1c44dfa8623b22d0cbf873a9e8d073b849"
     :build ":TSUpdate"
     :branch :main
     :opts
