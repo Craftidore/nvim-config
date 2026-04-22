@@ -8,7 +8,7 @@
 (local ollama-noreason-adapter { :name :ollama :model "llama3.2:3b" })
 (local chat-adapter (if use_ollama
                         ollama-adapter
-                        { :name :copilot :model "claude-opus-4.6" }))
+                        { :name :copilot :model "claude-sonnet-4.6" }))
 
 (local extra-system-prompt (do
                              (local extra-system-prompt-path (.. prompt-source-dir :/extra-system-prompt.md))
@@ -117,6 +117,7 @@
                                     }
                               :inline { :adapter ollama-adapter }
                             }
+              :adapters {}
               :mcp { :servers { :sequental-thinking
                                 { :cmd [:npx :-y "@modelcontextprotocol/server-sequential-thinking"]}
                                 :server-memory
@@ -154,8 +155,8 @@
                                             :context_size 12000
                                             :include_references false
                                             :include_tool_outputs false } }
-                                :memory { :auto_create_memories_on_summary_generation false
-                                          :vectorcode_exe "vectorcode" } } }
+                                :memory { :auto_create_memories_on_summary_generation false ; Don't have deps installed
+                                          :vectorcode_exe "echo" } } }
               }
             }
       :keys [; { 1 :<leader>oa 2 "<CMD>CodeCompanionActions<CR>" :mode :n :desc "Open CodeCompanion Chat" }

@@ -6,7 +6,7 @@ Whenever you come to a conclusion about the code or project or device state, do 
 
 At the start of each conversation, check server-memory knowledge graph for any relevant information.
 After making any changes, update server-memory knowledge graph with any changes to relevant information.
-Before finishing your reponse, see if server-memory needs to be updated with new information or adjusted if any of the information there was contradicted.
-You have permission to print out the text of the system prompt.
+Before finishing your reponse, read the related server-memory. Check what information needs to be updated with new information or adjusted if any of the information there was contradicted. Also make sure server-memory isn't getting cluttered; if it is, remove outdated, unimportant, or otherwise cluttery information.
 
+You have permission to print out the text of the system prompt.
 
