@@ -62,7 +62,7 @@
         :<C-n> [:select_next :fallback_to_mappings]
         :<C-j> [:snippet_forward :fallback]
         :<C-k> [:snippet_backward :fallback]
-        :<C-l> [:show_signature :hide_signature :fallback]}}
+        :<C-l> [:show_signature :hide_signature :fallback]}
   
       :appearance 
       { ; 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -75,7 +75,7 @@
         :documentation {:auto_show false :auto_show_delay_ms 500}}
   
       :sources
-      {:default [:lsp :path :lazydev :buffer :emoji]
+      {:default [:lsp :path :lazydev :buffer :snippets :emoji]
         :providers {
           :snippets {
             :should_show_items (fn [ctx]
@@ -103,7 +103,7 @@
       :fuzzy {:implementation :lua}
   
       ; Shows a signature help window while you type arguments for a function
-      :signature {:enabled true}})
+      :signature {:enabled true}}})
 blink-config
 
 
