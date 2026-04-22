@@ -39,6 +39,13 @@ MACHMOTION='true'
 
 An additional dependency of `svn` is necessary when doing work for MachMotion.
 
+> [!IMPORTANT] LLMs
+> 
+> While I don't approve of LLM usage when coding, it is required for my job. My
+> company is flexible enough to permit me to use my own tools, and with that I
+> have chosen to use neovim using this config. Consequently, llm tools and
+> plugins will be enabled when the MACHMOTION env var is set.
+
 ## Structure Notes
 
 - General keymaps go in lua/keymaps/
@@ -60,9 +67,6 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
     - Seems to be working? Check this again to make sure.
 - [ ] Rewrite the next-to-word regex (well, lua pattern) for autopairs. It's triggering in situations I don't want it to too much.
 - Surround with mini surround?
-- Investigate [local] AI integration for work
-    - Even if its just to prove to my boss that it won't make me meaningfully
-        faster
 - See if I can get my MachMotion theme (currently kanagawa) to color the
     mini.status bar orange
     - They do have highlight groups; see `help mini.tabline`
@@ -76,4 +80,6 @@ An additional dependency of `svn` is necessary when doing work for MachMotion.
 - [ ] Investigate highlighting for render markdown
 - [x] nvim-ghengis, since I have which-key now
 - [x] Increase Fold Level by 1
-- [ ] Figure out why emoji blink.cmp integration isn't working
+- [x] Figure out why emoji blink.cmp integration isn't working
+    - It was a misplaced curly brace in blink cmp config, causing most of the
+      config to be skipped.
