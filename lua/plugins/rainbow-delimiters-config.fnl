@@ -1,9 +1,9 @@
 { 1 :HiPhish/rainbow-delimiters.nvim
-  :opts { :strategy { "''" :rainbow-delimiters.strategy.global
+  :opts { :strategy { "" :rainbow-delimiters.strategy.global
                       :vim :rainbow-delimiters.strategy.local }
-          :query { "''" :rainbow-delimiters
+          :query { "" :rainbow-delimiters
                    :lua :rainbow-blocks }
-          :priority { "''" 110
+          :priority { "" 110
                       :lua 210 }
           :highlight [ :RainbowDelimiterYellow
                        :RainbowDelimiterBlue
