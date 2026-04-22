@@ -5,4 +5,4 @@ local function _1_()
   vim.g.sonokai_enable_italic = true
   return nil
 end
-return {"sainnhe/sonokai", priority = 1000, init = _1_, lazy = false}
+return {"sainnhe/sonokai", priority = 1002, init = _1_, lazy = false}
