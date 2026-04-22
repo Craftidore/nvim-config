@@ -88,7 +88,14 @@
     { 1 :olimorris/codecompanion.nvim
       :version "^19.6.0"
       :dependencies [:github/copilot.vim 
-                     :ravitemer/codecompanion-history.nvim] ; :nvim-treesitter/nvim-treesitter 
+                     :ravitemer/codecompanion-history.nvim
+                     { 1 :HakonHarnes/img-clip.nvim
+                       :event :VeryLazy
+                       :opts { :filetypes { :codecompanion { :dir_path :/tmp/nvim/img-clip.nvim/
+                                                             :prompt_for_file_name false
+                                                             :template "[Image]($FILE_PATH)"
+                                                             :use_absolute_path true }} } }
+                    ] ; :nvim-treesitter/nvim-treesitter 
       :opts { :rules { :machmotion_rules
                        { :description "Rules related to machmotion details involving my specific machine"
                          :files [ { :path "/run/media/craftidore/AltDrive/mach/rules/" 
