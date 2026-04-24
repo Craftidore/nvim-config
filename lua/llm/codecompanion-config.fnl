@@ -124,7 +124,12 @@
                                     }
                               :inline { :adapter ollama-adapter }
                             }
-              :adapters {}
+              :adapters
+              { :http { :anthropic (fn []
+                                     (let [cc-adapters (require :codecompanion.adapters)]
+                                       (cc-adapters.extend :anthropic
+                                                           { :env { :api_key "ANTHROPIC_KEY" }})))
+                      }}
               :mcp { :servers { :sequental-thinking
                                 { :cmd [:npx :-y "@modelcontextprotocol/server-sequential-thinking"]}
                                 :server-memory
