@@ -5,7 +5,7 @@
 
 (local use_ollama false)
 (local ollama-adapter { :name :ollama :model "qwen3:4b" })
-(local ollama-noreason-adapter { :name :ollama :model "llama3.2:3b" })
+(local ollama-noreason-adapter { :name :ollama :model "cogito:3b" })
 (local chat-adapter (if use_ollama
                         ollama-adapter
                         { :name :copilot :model "claude-sonnet-4.6" }))
@@ -150,12 +150,15 @@
                                                   :show_preset_prompts false
                                                   } }}
               :extensions
-              {:history {:enabled false
+              {:history {:enabled true
                          :opts {:keymap "<leader>gah"
                                 :save_chat_keymap "<leader>gass"
                                 :auto_save true
                                 :expiration_days 7
-                                :auto_generate_title true
+                                :auto_generate_title (do (local is_test (os.getenv "IS_TEST"))
+                                                         (if is_test
+                                                           true
+                                                           false))
                                 :title_generation_opts { :adapter (. ollama-noreason-adapter :name)
                                                          :model (. ollama-noreason-adapter :model)
                                                          :refresh_every_n_prompts 3 }
