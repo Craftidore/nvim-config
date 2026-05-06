@@ -40,7 +40,7 @@
                       (when (and data.for_llm (> (tokens.calculate data.for_llm) max_tokens))
                         ; Trim to roughly max_tokens worth of characters
                         (local max_chars (* max_tokens 6))
-                        (tset data :for_llm (.. (: data.for_llm :sub 1 max_chars) "\n\n[Output truncated]"))
+                        (tset data :for_llm (.. (: data.for_llm :sub 1 max_chars) "\n````\n\n[Output truncated]"))
                         (tset data :for_user data.for_llm)
                         (vim.notify
                           (string.format "Tool output from '%s' truncated (~%d tokens)" data.tool max_tokens)
@@ -120,6 +120,14 @@
                                                             :callback :keymaps.options
                                                             :description :Options
                                                             :hide true }
+                                                 :next_chat { :modes { :n "<C-l>" }; Default is }
+                                                              :index 11
+                                                              :callback :keymaps.next_chat
+                                                              :description "Open the next chat"}
+                                                 :previous_chat { :modes { :n "<C-h>" }; Default is {
+                                                                  :index 12
+                                                                  :callback :keymaps.previous_chat
+                                                                  :description "Open the previous chat"}
                                                 }
                                     }
                               :inline { :adapter ollama-adapter }
@@ -155,23 +163,23 @@
                                 :save_chat_keymap "<leader>gass"
                                 :auto_save true
                                 :expiration_days 7
-                                :auto_generate_title (do (local is_test (os.getenv "IS_TEST"))
-                                                         (if is_test
-                                                           true
-                                                           false))
+                                :auto_generate_title (if (os.getenv "IS_TEST") true false) ; coerce to bool
+                                ; Ok, so it wants a 'reasoning model' but isn't clearing the reasoning out of the response with a minimal install. Also getting issues concatting stderr when it tries to print err messages.
                                 :title_generation_opts { :adapter (. ollama-noreason-adapter :name)
                                                          :model (. ollama-noreason-adapter :model)
-                                                         :refresh_every_n_prompts 3 }
-                                :summary {:create_summary_keymap "<leader>gasc"
-                                          :browse_summaries_keymap "<leader>gasv"
-                                          :generation_opts
-                                          { :adapter (. ollama-noreason-adapter :name)
-                                            :model (. ollama-noreason-adapter :model)
-                                            :context_size 12000
-                                            :include_references false
-                                            :include_tool_outputs false } }
-                                :memory { :auto_create_memories_on_summary_generation false ; Don't have deps installed
-                                          :vectorcode_exe "echo" } } }
+                                                         ; :refresh_every_n_prompts 3
+                                                         }
+                                ; :summary {:create_summary_keymap "<leader>gasc"
+                                ;           :browse_summaries_keymap "<leader>gasv"
+                                ;           :generation_opts
+                                ;           { :adapter (. ollama-noreason-adapter :name)
+                                ;             :model (. ollama-noreason-adapter :model)
+                                ;             :context_size 12000
+                                ;             :include_references false
+                                ;             :include_tool_outputs false } }
+                                ; :memory { :auto_create_memories_on_summary_generation false ; Don't have deps installed
+                                ;           :vectorcode_exe "echo" }
+                                } }
               }
             }
       :keys [; { 1 :<leader>oa 2 "<CMD>CodeCompanionActions<CR>" :mode :n :desc "Open CodeCompanion Chat" }
